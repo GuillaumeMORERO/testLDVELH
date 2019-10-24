@@ -1,5 +1,5 @@
 /**
- * NPM import
+ * Imports de dépendances
  */
 import '@babel/polyfill';
 
@@ -14,7 +14,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 /**
- * Local import
+ * Imports locaux
  */
 import App from 'src/components/App';
 

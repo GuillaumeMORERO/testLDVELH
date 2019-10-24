@@ -1,13 +1,13 @@
 /**
- * Import
+ * Imports de dépendances
  */
 import React from 'react';
 
 /**
- * Local import
+ * Imports locaux
  */
-// Composants enfants éventuels
-
+// Composants React
+// Données
 // Styles et assets
 import './app.sass';
 
