@@ -22,9 +22,9 @@ Testez que le modèle fonctionne correctement :
 ``` sh
 cd React-modele
 
-npm install # ou "yarn install" - installe les dépendances du projet
+yarn install # ou "npm install" - installe les dépendances du projet
 
-npm start # ou "yarn start" - lance le serveur de développement Webpack
+yarn start # ou "npm start" - lance le serveur de développement Webpack
 ```
 
 Direction http://localhost:3000/ pour constater que le modèle tourne ! Ok, c'est super, mais…
@@ -38,7 +38,7 @@ Plus facile à dire qu'à faire, donc **on vous conseille d'utiliser la procédu
 ``` sh
 # Après avoir cloné le repo :
 
-npm link # reproduit une installation (globale) de module npm !
+yarn link # reproduit une installation (globale) de module !
 ```
 
 À partir de maintenant, **une commande `react-modele` est disponible** partout :
@@ -79,21 +79,21 @@ cp -nr ../React-modele/src .
 
 ## Build du projet
 
-Par défaut, `npm start` lance le projet React en mode développment, avec webpack-dev-server. C'est pratique pour développer, mais on ne voit jamais le résultat concret du travail de Webpack/Babel, car tout est géré en mémoire (ie. rien n'est généré dans le dossier dist/). On peut toutefois demander à Webpack de générer un build de prod (dans le dossier dist/).
+Par défaut, `yarn start` lance le projet React en mode développment, avec webpack-dev-server. C'est pratique pour développer, mais on ne voit jamais le résultat concret du travail de Webpack/Babel, car tout est géré en mémoire (ie. rien n'est généré dans le dossier dist/). On peut toutefois demander à Webpack de générer un build de prod (dans le dossier dist/).
 
 En résumé :
 
-- `npm run build:dev` pour faire un build de prod mais sans traitements particuliers ;
-- `npm run build:prod` pour faire un build de prod avec minification et optimisation des fichiers en plus (version 100% prête pour hébergement).
+- `yarn build:dev` pour faire un build de prod mais sans traitements particuliers ;
+- `yarn build:prod` pour faire un build de prod avec minification et optimisation des fichiers en plus (version 100% prête pour hébergement).
 
 ```sh
 cd mon-projet
 
 # build de dev : les fichiers sont rassemblés en mémoire et directement envoyés au navigateur
-npm run build:dev
+yarn build:dev
 
 # build de prod : les fichiers sont rassemblés *et optimisés*, puis écrits sur le disque dur
-npm run build:prod
+yarn build:prod
 ```
 
 ## Contenu du modèle
@@ -112,14 +112,14 @@ npm run build:prod
 
 ``` sh
 # Webpack
-npm install --save-dev webpack webpack-cli
+yarn install --dev webpack webpack-cli
 # serveur de developpement
-npm install --save-dev webpack-dev-server
+yarn install --dev webpack-dev-server
 # Plugins
-npm install --save-dev html-webpack-plugin
-npm install --save-dev mini-css-extract-plugin
-npm install --save-dev optimize-css-assets-webpack-plugin
-npm install --save-dev uglifyjs-webpack-plugin
+yarn install --dev html-webpack-plugin
+yarn install --dev mini-css-extract-plugin
+yarn install --dev optimize-css-assets-webpack-plugin
+yarn install --dev uglifyjs-webpack-plugin
 ```
 
 Fichier de configuration :
@@ -132,17 +132,17 @@ Transpilation (pour ce modèle : ES6/JSX -> ES5).
 
 ``` sh
 # Babel
-npm install --save-dev babel-core
+yarn install --dev babel-core
 # Babel pour webpack
-npm install --save-dev babel-loader
+yarn install --dev babel-loader
 # vocabulaire ES6 -> ES5 de base
-npm install --save-dev babel-preset-env
+yarn install --dev babel-preset-env
 # vocabulaire React
-npm install --save-dev babel-preset-react
+yarn install --dev babel-preset-react
 # Plugin : propriétés de classes
-npm install --save-dev babel-plugin-transform-class-properties
+yarn install --dev babel-plugin-transform-class-properties
 # Plugin : rest et spread operator pour les objets
-npm install --save-dev babel-plugin-transform-object-rest-spread
+yarn install --dev babel-plugin-transform-object-rest-spread
 ```
 
 Fichier de configuration :
@@ -155,14 +155,14 @@ _Linter_ pour JavaScript (détection des erreurs de syntaxe / logiques).
 
 ``` sh
 # ESLint
-npm install --save-dev eslint
+yarn install --dev eslint
 # Config ESLint
-npm install --save-dev eslint-config-airbnb babel-eslint
+yarn install --dev eslint-config-airbnb babel-eslint
 # ESLint résolution des imports
-npm install --save-dev eslint-import-resolver-webpack
-npm install --save-dev eslint-plugin-import 
+yarn install --dev eslint-import-resolver-webpack
+yarn install --dev eslint-plugin-import 
 # ESLint pour React
-npm install --save-dev eslint-plugin-jsx-a11y eslint-plugin-react
+yarn install --dev eslint-plugin-jsx-a11y eslint-plugin-react
 ```
 
 Fichiers de configuration :
@@ -176,11 +176,11 @@ Ensembles d'outils pour écrire & générer du CSS en utilisant des fonctionnali
 
 ``` sh
 # Traitement des styles et assets
-npm install --save-dev style-loader css-loader file-loader
+yarn install --dev style-loader css-loader file-loader
 # PostCSS et autoprefixer
-npm install --save-dev postcss autoprefixer postcss-loader
+yarn install --dev postcss autoprefixer postcss-loader
 # SASS
-npm install --save-dev node-sass sass-loader
+yarn install --dev node-sass sass-loader
 ```
 
 ### Dépendances de production
@@ -189,13 +189,13 @@ npm install --save-dev node-sass sass-loader
 
 ``` sh
 # https://babeljs.io/docs/en/babel-polyfill/
-npm install --save babel-polyfill
+yarn install babel-polyfill
 ```
 
 #### [React](https://reactjs.org/)
 
 ```sh
-npm install --save react react-dom
+yarn install react react-dom
 ```
 
 ### Outils pratiques à installer en complément du modèle
