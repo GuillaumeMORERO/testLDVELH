@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "*",
+    "prop-types": "^15.7.2",
     "react": "*",
     "react-dom": "*"
   }

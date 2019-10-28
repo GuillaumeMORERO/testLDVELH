@@ -9,6 +9,7 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "comma-dangle": "off",
     "brace-style": ["error", "stroustrup"],
     "no-param-reassign": ["error", { "props": false }],
     "no-mixed-operators": ["error", { "allowSamePrecedence": true }],
@@ -23,6 +24,7 @@
     "react/no-access-state-in-setstate": "warn",
     "react/jsx-one-expression-per-line": "off",
     "react/no-unescaped-entities": "off",
+    "react/state-in-constructor": "off",
 
     "prefer-destructuring": "off",
     "react/jsx-wrap-multilines": "off",
