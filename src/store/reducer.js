@@ -1,4 +1,6 @@
 const initialState = {
+  title: 'Bonjour',
+  results: {},
   question: "Pour ou contre la congolemexicalisation ?",
   oui: 0,
   non: 0
