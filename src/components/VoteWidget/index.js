@@ -16,9 +16,20 @@ class VoteWidgetContainer extends React.Component {
   constructor(props) {
     super(props);
     // const question = store.getState().question;
+    this.state = this.select(); // => déclenchera un refresh du container
+  }
+
+  select = () => {
     const state = store.getState();
     const { question, oui, non } = state;
-    this.state = { question, nbVoteYes: oui, nbVoteNo: non }; // => déclenchera un refresh du container
+    // Ici, la fonction select pourrait appliquer des traitements sur les données
+    // récupérées dans le state global.
+    return {
+      question,
+      oui,
+      non,
+      total: oui + non
+    };
   }
 
   // 2. Re-synchronisation suite à une màj du state du store.
@@ -30,7 +41,7 @@ class VoteWidgetContainer extends React.Component {
     // dans le store de l'application.
     store.dispatch('VOTE_YES'); // mise-à-jour du state de l'application
     console.log(store.getState());
-    this.setState({ nbVoteOui: store.getState().oui }) // mise-à-jour de l'UI
+    this.setState(this.select()) // mise-à-jour de l'UI
   };
 
   handleNoClick = (event) => {
@@ -46,17 +57,18 @@ class VoteWidgetContainer extends React.Component {
     console.log(this.state);
     return <VoteWidget
       question={this.state.question}
-      nbVoteYes={this.state.nbVoteYes}
-      nbVoteNo={this.state.nbVoteNo}
+      oui={this.state.oui}
+      non={this.state.non}
+      handleYesClick={this.handleYesClick}
     />;
   }
 }
 
-const VoteWidget = ({ question, nbVoteYes, nbVoteNo }) => {
+const VoteWidget = ({ question, oui, non, total, handleYesClick }) => {
   return <div className="vote-widget">
-    <p>{question}</p>
-    <button>oui ({nbVoteYes})</button>
-    <button>non ({nbVoteNo})</button>
+    <p>{question} (votes : {total})</p>
+    <button onClick={handleYesClick}>oui ({oui})</button>
+    <button>non ({non})</button>
   </div>
 };
 
