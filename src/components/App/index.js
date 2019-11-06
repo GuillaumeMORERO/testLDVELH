@@ -9,6 +9,7 @@ import React from 'react';
 // Composants React
 import ClickCounter from 'src/components/ClickCounter';
 // Données
+import store from 'src/store';
 // Styles et assets
 import './app.sass';
 
