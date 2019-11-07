@@ -17,6 +17,13 @@ class VoteWidgetContainer extends React.Component {
     super(props);
     // const question = store.getState().question;
     this.state = this.select(); // => déclenchera un refresh du container
+
+    // Objectif : préparer à l'avance un callback pour réagir aux éventuelles
+    // futures mises-à-jour du state global.
+    store.subscribe(() => {
+      // 2. Re-synchronisation suite à une màj du state du store.
+      this.setState(this.select());
+    });
   }
 
   select = () => {
@@ -39,9 +46,11 @@ class VoteWidgetContainer extends React.Component {
     // branchées sur onClick de différents boutons de vote.
     return (event) => {
       store.dispatch(`VOTE_${voteType.toUpperCase()}`);
-      // 2. Re-synchronisation suite à une màj du state du store.
-      this.setState(this.select());
     };
+  }
+
+  reset = (event) => {
+    store.dispatch('VOTE_RESET');
   }
 
   render() {
@@ -52,6 +61,7 @@ class VoteWidgetContainer extends React.Component {
       non={this.state.non}
       total={this.state.total}
       vote={this.vote}
+      reset={this.reset}
     />;
   }
 }
@@ -61,13 +71,14 @@ const VoteWidget = ({
   oui,
   non,
   total,
-  vote
+  vote,
+  reset
 }) => {
   return <div className="vote-widget">
     <p>{question} (votes : {total})</p>
     <button onClick={vote('oui')}>oui ({oui})</button>
     <button onClick={vote('non')}>non ({non})</button>
-    <button onClick={vote('reset')}>RESET</button>
+    <button onClick={reset}>RESET</button>
   </div>
 };
 
