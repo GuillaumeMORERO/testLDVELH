@@ -1,70 +1,40 @@
 import React from 'react';
 
 import store from 'src/store';
+import connect from 'src/store/connect';
 
-/**
- * Composant de synchronisation avec l'état global de l'application.
- * 
- * Rôle : préparer des props (des valeurs, des callbacks…) pour un autre
- * composant dit « de présentation ».
- * 
- * Les deux composants fonctionnent en tandem, dans le but de gérer une morceau
- * d'interface, sur la base des données globales qui circulent dans l'app.
- */
-class VoteWidgetContainer extends React.Component {
-  // 1. Synchronisation initiale du container avec le store.
-  constructor(props) {
-    super(props);
-    // const question = store.getState().question;
-    this.state = this.select(); // => déclenchera un refresh du container
 
-    // Objectif : préparer à l'avance un callback pour réagir aux éventuelles
-    // futures mises-à-jour du state global.
-    store.subscribe(() => {
-      // 2. Re-synchronisation suite à une màj du state du store.
-      this.setState(this.select());
-    });
-  }
+// Voici un cas particulier :
+const select = () => {
+  const state = store.getState();
+  const { question, oui, non } = state;
+  // Ici, la fonction select pourrait appliquer des traitements sur les données
+  // récupérées dans le state global.
+  return {
+    question,
+    oui,
+    non,
+    total: oui + non
+  };
+};
 
-  select = () => {
-    const state = store.getState();
-    const { question, oui, non } = state;
-    // Ici, la fonction select pourrait appliquer des traitements sur les données
-    // récupérées dans le state global.
-    return {
-      question,
-      oui,
-      non,
-      total: oui + non
-    };
-  }
-
-  // vote : fonction-usine qui prépare des gestionnaires de clic pour voter
-  // sur telle ou telle réponse.
-  vote = (voteType) => {
-    // La fonction vote crée et retourne des fonctions-handler qui seront
-    // branchées sur onClick de différents boutons de vote.
-    return (event) => {
-      store.dispatch(`VOTE_${voteType.toUpperCase()}`);
-    };
-  }
-
-  reset = (event) => {
-    store.dispatch('VOTE_RESET');
-  }
-
-  render() {
-    console.log(this.state);
-    return <VoteWidget
-      question={this.state.question}
-      oui={this.state.oui}
-      non={this.state.non}
-      total={this.state.total}
-      vote={this.vote}
-      reset={this.reset}
-    />;
-  }
-}
+const dispatchers = () => {
+  // Code business (spécifique à l'application de vote);
+  return {
+    // vote : fonction-usine qui prépare des gestionnaires de clic pour voter
+    // sur telle ou telle réponse.
+    vote: (voteType) => {
+      // La fonction vote crée et retourne des fonctions-handler qui seront
+      // branchées sur onClick de différents boutons de vote.
+      return (event) => {
+        store.dispatch(`VOTE_${voteType.toUpperCase()}`);
+      };
+    },
+    reset: (event) => {
+      store.dispatch('VOTE_RESET');
+    }
+  };
+};
 
 const VoteWidget = ({
   question,
@@ -79,7 +49,9 @@ const VoteWidget = ({
     <button onClick={vote('oui')}>oui ({oui})</button>
     <button onClick={vote('non')}>non ({non})</button>
     <button onClick={reset}>RESET</button>
-  </div>
+  </div>;
 };
+
+const VoteWidgetContainer = connect(VoteWidget, select, dispatchers);
 
 export default VoteWidgetContainer;
