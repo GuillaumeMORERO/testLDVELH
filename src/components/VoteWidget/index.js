@@ -60,6 +60,7 @@ class VoteWidgetContainer extends React.Component {
       question={this.state.question}
       oui={this.state.oui}
       non={this.state.non}
+      total={this.state.total}
       handleYesClick={this.handleYesClick}
       handleNoClick={this.handleNoClick}
     />;
