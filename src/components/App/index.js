@@ -15,15 +15,12 @@ import './app.sass';
 /**
  * Code
  */
-class App extends React.Component {
-  render() {
-    const promo = this.props.promo;
-    return <div id="app">
-      <h1 id="app-title">Modèle React</h1>
-      <p id="app-content"><em>Salut</em> {promo} !</p>
-      <VoteWidget />
-    </div>;
-  }
+const App = ({ promo }) => {
+  return <div id="app">
+    <h1 id="app-title">Modèle React</h1>
+    <p id="app-content"><em>Salut</em> {promo} !</p>
+    <VoteWidget />
+  </div>;
 }
 
 /**

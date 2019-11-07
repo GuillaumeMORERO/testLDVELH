@@ -12,6 +12,11 @@ import React from 'react';
 // carte)
 // import { render } from 'react-dom';
 import ReactDOM from 'react-dom';
+
+// La librairie 'react-redux' fournit des utilitaires pour raccorder un composant
+// React à un store implémenté selon le modèle Redux.
+// Le Provider est un composant React capable de fournir des données à des
+// consommateurs, notamment la fonction connect de 'react-redux'.
 import { Provider } from 'react-redux';
 
 /**
