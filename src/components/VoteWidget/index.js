@@ -32,27 +32,17 @@ class VoteWidgetContainer extends React.Component {
     };
   }
 
-  // 2. Re-synchronisation suite à une màj du state du store.
-
-  handleYesClick = (event) => {
-    console.log('[VOTE] oui');
-    // comment voter, concrètement ?
-    // Finalité : il faut modifier la valeur de la clé "oui" dans le state qui est
-    // dans le store de l'application.
-    store.dispatch('VOTE_YES'); // mise-à-jour du state de l'application
-    console.log(store.getState());
-    this.setState(this.select()) // mise-à-jour de l'UI
-  };
-
-  handleNoClick = (event) => {
-    console.log('[VOTE] non');
-    // comment voter, concrètement ?
-    // Finalité : il faut modifier la valeur de la clé "oui" dans le state qui est
-    // dans le store de l'application.
-    store.dispatch('VOTE_NO');
-    console.log(store.getState());
-    this.setState(this.select());
-  };
+  // vote : fonction-usine qui prépare des gestionnaires de clic pour voter
+  // sur telle ou telle réponse.
+  vote = (voteType) => {
+    // La fonction vote crée et retourne des fonctions-handler qui seront
+    // branchées sur onClick de différents boutons de vote.
+    return (event) => {
+      store.dispatch(`VOTE_${voteType.toUpperCase()}`);
+      // 2. Re-synchronisation suite à une màj du state du store.
+      this.setState(this.select());
+    };
+  }
 
   render() {
     console.log(this.state);
@@ -61,8 +51,7 @@ class VoteWidgetContainer extends React.Component {
       oui={this.state.oui}
       non={this.state.non}
       total={this.state.total}
-      handleYesClick={this.handleYesClick}
-      handleNoClick={this.handleNoClick}
+      vote={this.vote}
     />;
   }
 }
@@ -72,13 +61,12 @@ const VoteWidget = ({
   oui,
   non,
   total,
-  handleYesClick,
-  handleNoClick
+  vote
 }) => {
   return <div className="vote-widget">
     <p>{question} (votes : {total})</p>
-    <button onClick={handleYesClick}>oui ({oui})</button>
-    <button onClick={handleNoClick}>non ({non})</button>
+    <button onClick={vote('oui')}>oui ({oui})</button>
+    <button onClick={vote('non')}>non ({non})</button>
   </div>
 };
 

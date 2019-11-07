@@ -10,13 +10,13 @@ export default (state = initialState, action) => {
   console.log('reducer >>', action);
 
   switch(action) {
-    case 'VOTE_YES': {
+    case 'VOTE_OUI': {
       // TODO: modifier le state courant (incrémenter le bon compteur)
       // Attention, il faut travailler sur une copie du state !
       const newState = { ...state, oui: state.oui + 1 };
       return newState;
     }
-    case 'VOTE_NO': {
+    case 'VOTE_NON': {
       return { ...state, non: state.non + 1 };
     }
     default: {
