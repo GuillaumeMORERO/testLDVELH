@@ -51,6 +51,7 @@ class VoteWidgetContainer extends React.Component {
     // dans le store de l'application.
     store.dispatch('VOTE_NO');
     console.log(store.getState());
+    this.setState(this.select());
   };
 
   render() {
@@ -60,15 +61,23 @@ class VoteWidgetContainer extends React.Component {
       oui={this.state.oui}
       non={this.state.non}
       handleYesClick={this.handleYesClick}
+      handleNoClick={this.handleNoClick}
     />;
   }
 }
 
-const VoteWidget = ({ question, oui, non, total, handleYesClick }) => {
+const VoteWidget = ({
+  question,
+  oui,
+  non,
+  total,
+  handleYesClick,
+  handleNoClick
+}) => {
   return <div className="vote-widget">
     <p>{question} (votes : {total})</p>
     <button onClick={handleYesClick}>oui ({oui})</button>
-    <button>non ({non})</button>
+    <button onClick={handleNoClick}>non ({non})</button>
   </div>
 };
 

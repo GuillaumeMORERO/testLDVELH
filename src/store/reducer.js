@@ -4,7 +4,7 @@ const initialState = {
   question: "Pour ou contre la congolemexicalisation ?",
   oui: 0,
   non: 0
-}
+};
 
 export default (state = initialState, action) => {
   console.log('reducer >>', action);
