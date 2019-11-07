@@ -1,5 +1,4 @@
-// import createStore from 'create-store';
-import createStore from './createStore';
+import { createStore } from 'redux';
 
 
 import reducer from './reducer';

@@ -12,15 +12,17 @@ import React from 'react';
 // carte)
 // import { render } from 'react-dom';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 /**
  * Imports locaux
  */
 import App from 'src/components/App';
+import appStore from 'src/store';
 
 /**
  * Code
  */
-const rootComponent = <App promo="Vortex" />;
+const rootComponent = <Provider store={appStore}><App promo="Vortex" /></Provider>;
 const renderingArea = document.querySelector('#root');
 ReactDOM.render(rootComponent, renderingArea);

@@ -9,7 +9,7 @@ const initialState = {
 export default (state = initialState, action) => {
   console.log('reducer >>', action);
 
-  switch(action) {
+  switch(action.type) {
     case 'VOTE_OUI': {
       // TODO: modifier le state courant (incrémenter le bon compteur)
       // Attention, il faut travailler sur une copie du state !
