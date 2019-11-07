@@ -67,6 +67,7 @@ const VoteWidget = ({
     <p>{question} (votes : {total})</p>
     <button onClick={vote('oui')}>oui ({oui})</button>
     <button onClick={vote('non')}>non ({non})</button>
+    <button onClick={vote('reset')}>RESET</button>
   </div>
 };
 

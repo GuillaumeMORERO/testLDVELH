@@ -19,6 +19,9 @@ export default (state = initialState, action) => {
     case 'VOTE_NON': {
       return { ...state, non: state.non + 1 };
     }
+    case 'VOTE_RESET': {
+      return { ...state, oui: 0, non: 0 };
+    }
     default: {
       return state;
     }
