@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 // Stratégie de lecture depuis le state global de l'application.
 // La fonction de sélection a pour rôle unique de lire de l'information
 // depuis le state global.
-const select = (state) => {
+const mapStateToProps = (state) => {
   const { question, oui, non } = state;
   // Ici, la fonction select pourrait appliquer des traitements sur les données
   // récupérées dans le state global.
@@ -22,7 +22,7 @@ const select = (state) => {
 // La fonction dispatchers retourne un objet, chaque propriété va devenir
 // un prop passée à un composant de présentation qui pourra utiliser les
 // fonctions définies pour déclencher des dispatch().
-const dispatchers = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   // Code business (spécifique à l'application de vote);
   return {
     // vote : fonction-usine qui prépare des gestionnaires de clic pour voter
@@ -61,7 +61,10 @@ const VoteWidget = ({
 // composant container capable de préparer ces props en utilisant les logiques
 // de lecture / écriture dans le store, implémentées avec les fonctions
 // select et dispatchers respectivement.
-const VoteWidgetContainer = connect(select, dispatchers)(VoteWidget);
+const VoteWidgetContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VoteWidget);
 
 // C'est le composant container qui est exporté et qui sera instancié, et il
 // instanciera en cascade le composant de présentation en l'alimentant avec
