@@ -6,6 +6,14 @@ const initialState = {
   non: 0
 };
 
+export const vote = (voteType) => ({
+  type: `VOTE_${voteType.toUpperCase()}`
+});
+
+export const resetVotes = () => ({
+  type: 'VOTE_RESET'
+});
+
 export default (state = initialState, action) => {
   console.log('reducer >>', action);
 

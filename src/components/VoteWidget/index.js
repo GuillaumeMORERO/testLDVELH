@@ -1,6 +1,7 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
+
+import { vote, resetVotes } from 'src/store/reducer';
 
 
 // Stratégie de lecture depuis le state global de l'application.
@@ -31,11 +32,11 @@ const mapDispatchToProps = (dispatch) => {
       // La fonction vote crée et retourne des fonctions-handler qui seront
       // branchées sur onClick de différents boutons de vote.
       return (event) => {
-        dispatch({ type: `VOTE_${voteType.toUpperCase()}` });
+        dispatch(vote(voteType));
       };
     },
     reset: (event) => {
-      dispatch({ type: 'VOTE_RESET' });
+      dispatch(resetVotes());
     }
   };
 };
