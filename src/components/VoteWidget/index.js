@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { vote, resetVotes } from 'src/store/reducer';
+import { vote, resetVotes } from 'src/store/votes/actions';
 
 
 // Stratégie de lecture depuis le state global de l'application.
 // La fonction de sélection a pour rôle unique de lire de l'information
 // depuis le state global.
 const mapStateToProps = (state) => {
-  const { question, oui, non } = state;
+  const { question, oui, non } = state.votes;
   // Ici, la fonction select pourrait appliquer des traitements sur les données
   // récupérées dans le state global.
   return {
