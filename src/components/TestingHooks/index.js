@@ -1,40 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-// useInput(initialValue, placeholder) => value, setValue, isValid, placeholder..
-const useInput = (initialValue, placeholder) => {
-  const [value, setValue] = useState(initialValue);
-
-  // On retourne une boîte à outils spécialisées dans la gestion d'input.
-  return {
-    value: value,
-    // setValue: setValue,
-    handleChange: (event) => { setValue(event.target.value); },
-    placeholder: placeholder + '…'
-  };
-};
+import { useInput } from 'src/hooks';
 
 const TestingHooks = () => {
-  // const [email, setEmail] = useState('votre email…');
-  // const [password, setPassword] = useState('votre mot de passe…');
-
-  // const inputTools = useInput('', 'Votre email');
-  // const value = inputTools.value;
-  // const setValue = inputTools.setValue;
-  // const placeholder = inputTools.placeholder;
-  const { value, handleChange, placeholder } = useInput('', 'Votre email');
+  const emailInputTools = useInput('', 'Votre email');
+  const passwordInputTools = useInput('', 'Votre mot de passe');
 
   return <form>
-    <input
-      type='email'
-      value={value}
-      onChange={handleChange}
-      placeholder={placeholder}
-    />
-    {/* <input
-      type='password'
-      value={password}
-      onChange={e => {setPassword(e.target.value)}}
-    /> */}
+    <input type='email' {...emailInputTools} />
+    <input type='password' {...passwordInputTools} />
   </form>;
 };
 
