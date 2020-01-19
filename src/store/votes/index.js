@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log('reducer[votes] >>', action);
+  // console.log('reducer[votes] >>', action);
 
   switch(action.type) {
     case actions.VOTE_OUI: {
