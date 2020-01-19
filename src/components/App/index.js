@@ -15,10 +15,8 @@ import './app.sass';
 /**
  * Code
  */
-const App = ({ promo }) => {
+const App = () => {
   return <div id="app">
-    <h1 id="app-title">Test fonctionnalités LDVELH</h1>
-    <p id="app-content"><em>Salut</em> !</p>
   </div>;
 }
 
