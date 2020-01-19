@@ -6,6 +6,8 @@ import React from 'react';
 /**
  * Imports locaux
  */
+
+import Header from 'src/components/Header'
 // Composants React
 
 // Données
@@ -17,6 +19,7 @@ import './app.sass';
  */
 const App = () => {
   return <div id="app">
+    <Header />
   </div>;
 }
 
