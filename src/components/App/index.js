@@ -8,6 +8,7 @@ import React from 'react';
  */
 
 import Header from 'src/components/Header'
+import BurgerGauche from 'src/components/BurgerGauche'
 // Composants React
 
 // Données
@@ -19,6 +20,7 @@ import './app.sass';
  */
 const App = () => {
   return <div id="app">
+    <BurgerGauche />
     <Header />
   </div>;
 }
