@@ -1,14 +1,10 @@
 import React from 'react';
 
-import { scaleRotate as Menu } from 'react-burger-menu'
-
-import { ArrowRight } from 'src/data/icons';
+import { slide as Menu } from 'react-burger-menu'
 
 import './style.scss';
 
 export default () => {
-
-  
 
   const showSettings = (event) => {
     event.preventDefault();
