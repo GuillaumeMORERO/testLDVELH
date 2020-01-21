@@ -16,7 +16,7 @@ import {
 import Header from 'src/components/Header'
 import BurgerGauche from 'src/components/BurgerGauche'
 import Cv from 'src/components/Cv'
-import datas from 'src/components/Cv/dataCv'
+import datas from 'src/data/dataCv'
 // Composants React
 
 // Données
