@@ -25,6 +25,7 @@
   font-size: 1.5em;
   color: white;
 }
+
 .btn {
   &-link {
     &:hover {
@@ -36,6 +37,7 @@
   }
 }
 .titreaccord {
+  text-align: center;
   font-size: 1.25em;
   color: white;
   margin-bottom: 1em;
@@ -55,6 +57,7 @@
     &-item {
       background-color: transparent;
       color: white;
+      text-align: center;
     }
   }
 }
