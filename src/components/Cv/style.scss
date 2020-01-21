@@ -1,0 +1,16 @@
+.cv {
+  width: 80%;
+}
+
+.pic {
+  &-ture {
+    width: 150px;
+    border-radius: 60px;
+    box-shadow: 3px 5px 10px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.elem {
+  width: 50%;
+
+}
