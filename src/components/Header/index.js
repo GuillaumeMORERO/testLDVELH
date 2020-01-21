@@ -13,6 +13,7 @@ export default () => {
 
     <Navbar expand="lg" variant="dark" bg="none" className="header-barre">
       <Navbar.Brand href="/" className="header-barre_lien">Home</Navbar.Brand>
+      <Navbar.Brand href="/cv" className="header-barre_lien">CV</Navbar.Brand>
       <Navbar.Brand href="/fiche" className="header-barre_lien">Fiche</Navbar.Brand>
 
     </Navbar>
