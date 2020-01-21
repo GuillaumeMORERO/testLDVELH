@@ -1,16 +1,60 @@
 .cv {
   width: 80%;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .pic {
+  display: flex;
+  width: 20%;
+  justify-content: center;
   &-ture {
-    width: 150px;
+    width: 70%;
+    height: 240px;
     border-radius: 60px;
     box-shadow: 3px 5px 10px 5px rgba(0, 0, 0, 0.5);
   }
 }
 
 .elem {
-  width: 50%;
+  width: 80%;
 
+}
+
+.titrecarte{
+  font-size: 1.5em;
+  color: white;
+}
+.btn {
+  &-link {
+    &:hover {
+      text-decoration: none;
+    }
+    &:not(:hover) {
+      text-decoration: none;
+    }
+  }
+}
+.titreaccord {
+  font-size: 1.25em;
+  color: white;
+  margin-bottom: 1em;
+}
+
+.card {
+  background-color: transparent;
+  &-header {
+    
+    text-align: center;
+  }
+}
+
+.list {
+  &-group {
+    
+    &-item {
+      background-color: transparent;
+      color: white;
+    }
+  }
 }

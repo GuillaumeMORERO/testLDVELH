@@ -16,6 +16,7 @@ import {
 import Header from 'src/components/Header'
 import BurgerGauche from 'src/components/BurgerGauche'
 import Cv from 'src/components/Cv'
+import datas from 'src/components/Cv/dataCv'
 // Composants React
 
 // Données
@@ -32,7 +33,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path="/cv">
-          <Cv />
+          <Cv datas={datas} />
         </Route>
       </Switch>
     </div>
