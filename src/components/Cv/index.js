@@ -13,7 +13,7 @@ export default ({ datas }) => {
     <div className="pic">
       <img className="pic-arrow_left" src="src/data/bluearrow.png" alt="arrow"/>
       <div className="pic-ture">
-        <img className="pic-ture_head" src="src/data/AbothProfil.jpg" alt="Tête de vainqueur"/>
+        <img className="pic-ture_head" src="src/data/Aboth.png" alt="Tête de vainqueur"/>
       </div>
       <img className="pic-arrow_right" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
@@ -21,13 +21,17 @@ export default ({ datas }) => {
     <div className="elem">
 
       <Accordion defaultActiveKey="1" bsPrefix="accordion">
-        {datas.map((item) => (
+        {datas.map((item, i) => (
           <Card key={item.id}>
+            
             <Card.Header>
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>
-                <h1 className="titrecarte"> {item.titreCarte} </h1>
+                <img className="frame" src="src/data/framehigh.png" alt="framehigh"/>
+                <h1 className="titrecarte"> {i+1}. {item.titreCarte} </h1>
+                <img className="frame" src="src/data/framelow.png" alt="framelow"/>
               </Accordion.Toggle>
             </Card.Header>
+            
 
             <Accordion.Collapse eventKey={item.id}>
               <Card.Body>
