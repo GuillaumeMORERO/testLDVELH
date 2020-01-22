@@ -70,9 +70,11 @@
     "react": "*",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-burger-menu": "^2.6.13",
+    "react-collapse": "^5.0.1",
     "react-dom": "*",
     "react-redux": "^7.1.3",
     "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "redux": "^4.0.4"
   }
 }
