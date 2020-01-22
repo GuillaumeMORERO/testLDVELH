@@ -11,8 +11,13 @@ export default ({ datas }) => {
   return <Container fluid className="cv">
 
     <div className="pic">
-      <img className="pic-ture" src="src/data/AbothProfil.jpg" alt="Tête de vainqueur"/>
+      <img className="pic-arrow_left" src="src/data/bluearrow.png" alt="arrow"/>
+      <div className="pic-ture">
+        <img className="pic-ture_head" src="src/data/AbothProfil.jpg" alt="Tête de vainqueur"/>
+      </div>
+      <img className="pic-arrow_right" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
+
     <div className="elem">
 
       <Accordion defaultActiveKey="1" bsPrefix="accordion">

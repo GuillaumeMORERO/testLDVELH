@@ -1,18 +1,34 @@
 .cv {
   width: 80%;
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pic {
   display: flex;
-  width: 20%;
-  justify-content: center;
+  justify-content: space-around;
+  margin-bottom: 2em;
+  &-arrow {
+    &_left {
+    transform: rotate(90deg);
+    }
+    &_right {
+      transform: rotate(270deg);
+      }
+  }
+  
   &-ture {
-    width: 70%;
-    height: 240px;
-    border-radius: 60px;
-    box-shadow: 3px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    margin-bottom: 2em;
+    &_head {
+      width: 70%;
+      height: 240px;
+      border-radius: 60px;
+      box-shadow: 3px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    }
   }
 }
 
