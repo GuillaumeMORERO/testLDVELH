@@ -1,0 +1,86 @@
+.sheet {
+  width: 80%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pic {
+display: flex;
+justify-content: space-around;
+margin-bottom: 2em;
+width: 100%;
+  &-arrow {
+    &_left {
+      transform: rotate(90deg);
+      &-siz {
+        transform: rotate(90deg);
+        width: 15%;
+      }
+    }
+    &_right {
+      transform: rotate(270deg);
+      &-siz {
+        transform: rotate(270deg);
+        width: 15%;
+      }
+    }
+  }
+  &-ture {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+    &_head {
+      width: 240px;
+    }
+  }
+}
+
+.separateur {
+  &-1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  &-2 {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: solid 1px #01b4ff;
+    padding-bottom: 1em;
+  }
+  
+}
+.hud {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-name {
+    display: flex;
+    justify-self: center;
+    padding: 1em;
+    box-shadow: 0px 0px 12px 4px #01b4ff;
+    border-radius: 15px;
+    margin-bottom: 2em;
+  }
+  &-carac {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 0px 12px 4px #01b4ff;
+    border-radius: 15px;
+    padding: 1em;
+    &_title {
+      padding: 1em;
+    }
+    &_display {
+      padding: 1em;
+      margin-top: 1em;
+    }
+  }
+}
