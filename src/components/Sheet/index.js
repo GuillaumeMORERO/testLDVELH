@@ -10,9 +10,8 @@ export default () => {
 
   const dispatch = useDispatch();
   const player = useSelector(state => state.player);
-
-  return <Container fluid className="sheet">
-
+  
+  return <Container fluid className="sheet" id="sheet" >
     <div className="pic">
       <img className="pic-arrow_left see" src="src/data/bluearrow.png" alt="arrow"/>
       <div className="pic-ture">

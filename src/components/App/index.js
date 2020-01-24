@@ -17,6 +17,7 @@ import Header from 'src/components/Header'
 import BurgerGauche from 'src/components/BurgerGauche'
 import Cv from 'src/components/Cv'
 import Sheet from 'src/components/Sheet'
+import Footer from 'src/components/Footer'
 import datas from 'src/data/dataCv'
 // Composants React
 
@@ -33,6 +34,7 @@ const App = () => {
     <Header />
     {/* <Cv datas={datas} /> */}
     <Sheet />
+    <Footer />
   </div>
 }
 
