@@ -1,5 +1,4 @@
 .sheet {
-  background-color: rosybrown;
   width: 80%;
   margin-top: 2em;
   margin-bottom: 2em;
@@ -99,23 +98,42 @@ width: 100%;
 
 
 @media only screen and (max-width: 768px) {
-.sheet {
-  width: 100%;
-}
-.see {
-  display: none;
-}
-.pic {
-  background-color: royalblue;
-  margin-bottom: 2em;
-  width: 100%;
-    &-arrow {
-    }
-
-    &-ture {
-      margin-bottom: 2em;
-      &_head {
+  .sheet {
+    width: 100%;
+  }
+  .see {
+    display: none;
+  }
+  .pic {
+    margin-bottom: 2em;
+    width: 100%;
+      &-arrow {
       }
+
+      &-ture {
+        margin-bottom: 2em;
+        &_head {
+        }
+      }
+    }
+  .hud {
+    font-size: .8em;
+    width: 100%;
+    &-carac {
+      width: 80%;
+      margin-top: 1em;
+      flex-direction: row;
+    }
+  }
+  .separateur {
+    &-1 {
+      flex-direction: column;
+      align-items: center;
+    }
+    &-2 {
+      width: 40%;
+      border-bottom: none;
+      border-right: solid 1px #01b4ff;
     }
   }
 }
