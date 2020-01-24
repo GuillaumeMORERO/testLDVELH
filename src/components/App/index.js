@@ -29,7 +29,7 @@ import './app.sass';
  */
 const App = () => {
   return <div id="app">
-    <BurgerGauche />
+    {/* <BurgerGauche /> */}
     <Header />
     <Cv datas={datas} />
     <Sheet />

@@ -1,4 +1,5 @@
 .sheet {
+  background-color: rosybrown;
   width: 80%;
   margin-top: 2em;
   margin-bottom: 2em;
@@ -90,6 +91,30 @@ width: 100%;
         border-left: solid 1px #01b4ff;
         border-right: solid 1px #01b4ff;
         border-radius: 10px;
+      }
+    }
+  }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+.sheet {
+  width: 100%;
+}
+.see {
+  display: none;
+}
+.pic {
+  background-color: royalblue;
+  margin-bottom: 2em;
+  width: 100%;
+    &-arrow {
+    }
+
+    &-ture {
+      margin-bottom: 2em;
+      &_head {
       }
     }
   }

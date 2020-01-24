@@ -14,11 +14,11 @@ export default () => {
   return <Container fluid className="sheet">
 
     <div className="pic">
-      <img className="pic-arrow_left" src="src/data/bluearrow.png" alt="arrow"/>
+      <img className="pic-arrow_left see" src="src/data/bluearrow.png" alt="arrow"/>
       <div className="pic-ture">
         <img className="pic-ture_head" src={player.avatar} alt="Tête de vainqueur"/>
       </div>
-      <img className="pic-arrow_right" src="src/data/bluearrow.png" alt="arrow"/>
+      <img className="pic-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
 
     <div className="hud">
@@ -31,7 +31,7 @@ export default () => {
 
         <div className="hud-carac">
           <div className="separateur-2">
-            <img className="pic-arrow_left-siz" src="src/data/bluearrow.png" alt="arrow"/>
+            <img className="pic-arrow_left-siz see" src="src/data/bluearrow.png" alt="arrow"/>
             <OverlayTrigger
               key="top"
               placement="top"
@@ -43,7 +43,7 @@ export default () => {
             >
               <p className="hud-carac_title">Habileté</p>
           </OverlayTrigger>
-            <img className="pic-arrow_right-siz" src="src/data/bluearrow.png" alt="arrow"/>
+            <img className="pic-arrow_right-siz see" src="src/data/bluearrow.png" alt="arrow"/>
           </div>
           <div className="hud-carac_display">
           Nombre de dé(s) : 
@@ -55,7 +55,7 @@ export default () => {
 
         <div className="hud-carac">
           <div className="separateur-2">
-            <img className="pic-arrow_left-siz" src="src/data/bluearrow.png" alt="arrow"/>
+            <img className="pic-arrow_left-siz see" src="src/data/bluearrow.png" alt="arrow"/>
             <OverlayTrigger
               key="top"
               placement="top"
@@ -67,7 +67,7 @@ export default () => {
             >
               <p className="hud-carac_title">Blindage</p>
           </OverlayTrigger>
-            <img className="pic-arrow_right-siz" src="src/data/bluearrow.png" alt="arrow"/>
+            <img className="pic-arrow_right-siz see" src="src/data/bluearrow.png" alt="arrow"/>
           </div>
           <div className="hud-carac_display">
             Point(s) de restant(s) : 
@@ -79,7 +79,7 @@ export default () => {
 
         <div className="hud-carac">
           <div className="separateur-2">
-            <img className="pic-arrow_left-siz" src="src/data/bluearrow.png" alt="arrow"/>
+            <img className="pic-arrow_left-siz see" src="src/data/bluearrow.png" alt="arrow"/>
             <OverlayTrigger
               key="top"
               placement="top"
@@ -91,7 +91,7 @@ export default () => {
             >
               <p className="hud-carac_title">Point(s) de Victoire</p>
           </OverlayTrigger>
-            <img className="pic-arrow_right-siz" src="src/data/bluearrow.png" alt="arrow"/>
+            <img className="pic-arrow_right-siz see" src="src/data/bluearrow.png" alt="arrow"/>
           </div>
           <div className="hud-carac_display">
             Point(s) de restant(s) : 
