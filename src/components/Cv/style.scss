@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.frame {
+  width: 100%;
+}
+
 .pic {
   display: flex;
   justify-content: space-around;
@@ -79,4 +83,20 @@
       text-align: center;
     }
   }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .cv {
+    width: 100%;
+  }
+  .see {
+    display: none;
+  }
+  .elem {
+    width: 100%;
+  }
+  .card {
+  }
+  
 }
