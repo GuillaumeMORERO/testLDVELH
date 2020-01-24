@@ -80,3 +80,14 @@
     }
   }
 }
+
+
+@media only screen and (max-width: 768px) {
+  .sheet {
+    width: 100%;
+  }
+  .see {
+    display: none;
+  }
+  
+}
