@@ -8,6 +8,7 @@ import {
   Route
 } from 'react-router-dom';
 // import { Router, Route, Switch } from "react-router";
+import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 
 /**
  * Imports locaux
@@ -28,12 +29,33 @@ import './app.sass';
  * Code
  */
 const App = () => {
-  return <div id="app">
-    <BurgerGauche />
-    <Header />
-    <Cv datas={datas} />
-    <Sheet />
-  </div>
+  return <ParallaxProvider>
+    <ParallaxBanner
+      className="your-class"
+      layers={[
+        {
+          image: 'src/data/framehigh.png',
+          amount: 0.1,
+        },
+        {
+          image: 'src/data/framelow.png',
+          amount: 0.2,
+        },
+      ]}
+      style={{
+        height: 'auto',
+      }}
+    >
+
+      <div id="app">
+        <BurgerGauche />
+        <Header />
+        <Cv datas={datas} />
+        <Sheet />
+      </div>
+    </ParallaxBanner>
+  </ParallaxProvider>
+  
 }
 
 /**
