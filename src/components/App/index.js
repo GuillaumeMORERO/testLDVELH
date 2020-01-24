@@ -16,6 +16,7 @@ import {
 import Header from 'src/components/Header'
 import BurgerGauche from 'src/components/BurgerGauche'
 import Cv from 'src/components/Cv'
+import Sheet from 'src/components/Sheet'
 import datas from 'src/data/dataCv'
 // Composants React
 
@@ -27,17 +28,12 @@ import './app.sass';
  * Code
  */
 const App = () => {
-  return (<Router>
-    <div id="app">
-      <BurgerGauche />
-      <Header />
-      <Switch>
-        <Route exact path="/cv">
-          <Cv datas={datas} />
-        </Route>
-      </Switch>
-    </div>
-  </Router>);
+  return <div id="app">
+    <BurgerGauche />
+    <Header />
+    <Cv datas={datas} />
+    <Sheet />
+  </div>
 }
 
 /**
