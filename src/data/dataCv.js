@@ -50,7 +50,7 @@ export default [
   },
   {
     id: 6,
-    titreCarte: 'Intérêts Personnels',
+    titreCarte: 'Intérets Personnels',
     titreAccord: 'De 1997 à maintenant : pratique professionnelle de la batterie, basse et guitare',
     liste: [
       'Enregistrement et mixage de 12 albums pour 4 groupes de Métal',
