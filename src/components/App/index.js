@@ -7,6 +7,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import { Parallax, Background } from 'react-parallax';
 // import { Router, Route, Switch } from "react-router";
 
 /**
@@ -21,23 +22,45 @@ import datas from 'src/data/dataCv'
 
 // Données
 // Styles et assets
-import './app.sass';
+// import './app.sass';
+import './app.scss'
 
+const SpaceBackground = 'src/data/Space-background.jpg';
+const AboveEarth = 'src/data/aboveEarth.png';
+const space = 'src/data/space.jpg'
 /**
  * Code
  */
 const App = () => {
-  return (<Router>
-    <div id="app">
-      <BurgerGauche />
-      <Header />
+
+  return  <div id="app">
+
+    <Parallax strength={1000}>
+      <Background
+        className="custom-bg fond"
+      >
+        <img src={space} alt="space"/>
+      </Background>
+      <div className="contiendeur" style={{ height: 'auto' }}>
+        <BurgerGauche />
+        <Header />
+        <Cv datas={datas} />
+      </div>
+    </Parallax>
+
+  </div>
+
+ 
+  
+      {/* <BurgerGauche /> */}
+      {/* <Header />
       <Switch>
         <Route exact path="/cv">
           <Cv datas={datas} />
         </Route>
-      </Switch>
-    </div>
-  </Router>);
+      </Switch> */}
+
+      
 }
 
 /**
