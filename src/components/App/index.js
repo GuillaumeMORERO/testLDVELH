@@ -14,6 +14,7 @@ import {
  */
 
 import Header from 'src/components/Header'
+import Select from 'src/components/Select'
 import BurgerGauche from 'src/components/BurgerGauche'
 import Cv from 'src/components/Cv'
 import Sheet from 'src/components/Sheet'
@@ -32,8 +33,9 @@ const App = () => {
   return <div id="app">
     <BurgerGauche />
     <Header />
-    {/* <Cv datas={datas} />
-    <Sheet /> */}
+    <Select />
+    <Cv datas={datas} />
+    <Sheet />
     <Footer />
   </div>
 }
