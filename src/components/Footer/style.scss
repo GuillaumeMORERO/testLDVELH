@@ -1,5 +1,5 @@
 .footer {
-  width: 40%;
+  width: 60%;
   display: flex;
   align-self: center;
   justify-self: center;
@@ -27,5 +27,12 @@
       text-decoration: none;
       color: #01b4ff;
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .footer {
+    font-size: .8em;
+    width: 80%;
   }
 }
