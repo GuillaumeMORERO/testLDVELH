@@ -9,18 +9,7 @@ import './style.scss';
 export default () => {
 
   const dispatch = useDispatch();
-  // const {
-  //   nom,
-  //   habileté,
-  //   blindage,
-  //   ptvict,
-  //   avatar
-  // } = useSelector(state => state.player);
-  // console.log(nom, ptvict);
-
   const player = useSelector(state => state.player);
-  console.log(player);
-  console.log('nom :', player.nom);
 
   return <Container fluid className="sheet">
 
@@ -48,22 +37,69 @@ export default () => {
               placement="top"
               overlay={
                 <Tooltip id="tooltip-top">
-                  Nombre de points d' Habileté' permettant blablabla...
+                  Nombre de points d' Habileté permettant blablabla...
                 </Tooltip>
               }
             >
               <p className="hud-carac_title">Habileté</p>
-           </OverlayTrigger>
+          </OverlayTrigger>
             <img className="pic-arrow_right-siz" src="src/data/bluearrow.png" alt="arrow"/>
           </div>
           <div className="hud-carac_display">
-           Nombre de dé(s) : 
+          Nombre de dé(s) : 
             <div className="hud-carac_display-cadre">
               {player.habileté}
             </div>
           </div>
         </div>
 
+        <div className="hud-carac">
+          <div className="separateur-2">
+            <img className="pic-arrow_left-siz" src="src/data/bluearrow.png" alt="arrow"/>
+            <OverlayTrigger
+              key="top"
+              placement="top"
+              overlay={
+                <Tooltip id="tooltip-top">
+                  Nombre de points de blindage permettant blablabla...
+                </Tooltip>
+              }
+            >
+              <p className="hud-carac_title">Blindage</p>
+          </OverlayTrigger>
+            <img className="pic-arrow_right-siz" src="src/data/bluearrow.png" alt="arrow"/>
+          </div>
+          <div className="hud-carac_display">
+            Point(s) de restant(s) : 
+            <div className="hud-carac_display-cadre">
+              {player.blindage}
+            </div>
+          </div>
+        </div>
+
+        <div className="hud-carac">
+          <div className="separateur-2">
+            <img className="pic-arrow_left-siz" src="src/data/bluearrow.png" alt="arrow"/>
+            <OverlayTrigger
+              key="top"
+              placement="top"
+              overlay={
+                <Tooltip id="tooltip-top">
+                  Nombre de points de victoire permettant blablabla...
+                </Tooltip>
+              }
+            >
+              <p className="hud-carac_title">Point(s) de Victoire</p>
+          </OverlayTrigger>
+            <img className="pic-arrow_right-siz" src="src/data/bluearrow.png" alt="arrow"/>
+          </div>
+          <div className="hud-carac_display">
+            Point(s) de restant(s) : 
+            <div className="hud-carac_display-cadre">
+              {player.ptvict}
+            </div>
+          </div>
+        </div>
         
       </div>
 

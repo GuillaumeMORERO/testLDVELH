@@ -80,11 +80,16 @@ width: 100%;
       padding: 1em;
     }
     &_display {
+      width: 80%;
       padding: 1em;
       margin-top: 1em;
       &-cadre {
-        margin: 1em 1em 0 1em;
+        width: 100%;
+        margin-top: 1em;
         font-size: 2em;
+        border-left: solid 1px #01b4ff;
+        border-right: solid 1px #01b4ff;
+        border-radius: 10px;
       }
     }
   }
