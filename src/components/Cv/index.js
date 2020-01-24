@@ -8,7 +8,7 @@ import './style.scss';
 
 export default ({ datas }) => {
 
-  return <Container fluid className="cv">
+  return <Container fluid className="cv" id="cv" >
 
     <div className="pic">
       <img className="pic-arrow_left" src="src/data/bluearrow.png" alt="arrow"/>

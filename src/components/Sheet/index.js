@@ -6,7 +6,7 @@ import './style.scss';
 
 export default () => {
 
-  return <Container fluid className="sheet">
+  return <Container fluid className="sheet" id="sheet" >
 
     <div className="pic">
       <img className="pic-arrow_left" src="src/data/bluearrow.png" alt="arrow"/>
