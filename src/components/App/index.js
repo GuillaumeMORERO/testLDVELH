@@ -25,22 +25,22 @@ import datas from 'src/data/dataCv'
 // import './app.sass';
 import './app.scss'
 
-const SpaceBackground = 'src/data/Space-background.jpg';
+const SpaceBackground = 'src/data/Space-background3.jpg';
 const AboveEarth = 'src/data/aboveEarth.png';
 const space = 'src/data/space.jpg'
 /**
  * Code
  */
 const App = () => {
-
+  
   return  <div id="app">
-
-    <Parallax strength={1000}>
-      <Background
-        className="custom-bg fond"
-      >
-        <img src={space} alt="space"/>
-      </Background>
+    
+    <Parallax
+      blur={2}
+      bgImage={SpaceBackground}
+      bgImageAlt="space"
+      strength={2000}
+    >
       <div className="contiendeur" style={{ height: 'auto' }}>
         <BurgerGauche />
         <Header />
