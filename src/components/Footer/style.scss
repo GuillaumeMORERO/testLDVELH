@@ -1,0 +1,31 @@
+.footer {
+  width: 40%;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  flex-direction: column;
+  align-items: center;
+  border-top: solid 1px #01b4ff;
+  margin-top: 3em;
+  margin-bottom: 1em;
+}
+
+.name {
+  color: white;
+  padding-top: 1em;
+  padding-bottom: .5em;
+}
+
+.liens {
+  color: white;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  &-low {
+    padding: 1em;
+    &:hover {
+      text-decoration: none;
+      color: #01b4ff;
+    }
+  }
+}
