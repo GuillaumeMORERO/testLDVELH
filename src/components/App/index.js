@@ -32,8 +32,8 @@ const App = () => {
   return <div id="app">
     <BurgerGauche />
     <Header />
-    <Cv datas={datas} />
-    <Sheet />
+    {/* <Cv datas={datas} />
+    <Sheet /> */}
     <Footer />
   </div>
 }
