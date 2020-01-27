@@ -12,6 +12,10 @@ import {
 
 export default ({pirates}) => {
 
+  const player = useSelector(state => state.player);
+  // console.log('carac du player : ', player);
+  console.log('choisi ? ', player.choosen);
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -26,7 +30,12 @@ export default ({pirates}) => {
     handleClose();
   }
 
-  return <Container fluid className="home">
+  return <Container
+    fluid
+    className="home"
+    style={{display: player.choosen ? 'none' : '' }}
+
+  >
 
 
 

@@ -1,6 +1,7 @@
 import { CHARGE_PIRATE } from 'src/store/player/actions';
 
 const initialState = {
+  choosen: false,
   nom: '?',
   habileté: '',
   blindage: '',
@@ -20,6 +21,7 @@ export default (state = initialState, action) => {
     case CHARGE_PIRATE: {
       return {
         ...state,
+        choosen: true,
         nom: action.value.name,
         habileté: action.value.skill,
         blindage: action.value.blindage,

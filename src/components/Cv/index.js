@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Container, Accordion, Card, Button, ListGroup } from 'react-bootstrap';
 
 // import { Test } from 'src/components/Cv/dataCv'
@@ -8,7 +10,14 @@ import './style.scss';
 
 export default ({ datas }) => {
 
-  return <Container fluid className="cv" id="cv" >
+  const { choosen } = useSelector(state => state.player);
+
+  return <Container
+    fluid
+    className="cv"
+    id="cv"
+    style={{display: choosen ? '' : 'none' }}
+  >
 
     <div className="pic">
       <img className="pic-arrow_left see" src="src/data/bluearrow.png" alt="arrow"/>

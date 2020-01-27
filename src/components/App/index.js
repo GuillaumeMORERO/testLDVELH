@@ -32,12 +32,12 @@ import './app.sass';
 const App = () => {
   return <div id="app">
 
-    {/* <BurgerGauche />
-    <Header /> */}
+    <BurgerGauche />
+    <Header />
     <Select pirates={pirates} />
-    {/* <Cv datas={datas} /> */}
+    <Cv datas={datas} />
     <Sheet />
-    {/* <Footer /> */}
+    <Footer />
 
     </div>
 }

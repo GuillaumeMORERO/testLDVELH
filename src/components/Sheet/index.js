@@ -12,7 +12,12 @@ export default () => {
   const player = useSelector(state => state.player);
   // console.log('carac du player : ', player);
   
-  return <Container fluid className="sheet" id="sheet" >
+  return <Container
+    fluid
+    className="sheet"
+    id="sheet"
+    style={{display: player.choosen ? '' : 'none' }}
+  >
 
     <div className="pic">
       <img className="pic-arrow_left see" src="src/data/bluearrow.png" alt="arrow"/>
