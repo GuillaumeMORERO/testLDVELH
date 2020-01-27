@@ -22,11 +22,7 @@ export default ({ datas }) => {
     <a href="/" className="eader-titre1">
       <h1 className="eader-titre2">Mon essai fonctionnalités</h1>
     </a>
-
-    {datas.map((item) => (
-      <p key={item.id} >{item.titreCarte}</p> 
-    ))}
-
+    
     <Navbar expand="lg" variant="dark" bg="none" className="eader-barre">
       <Navbar.Brand href="/" className="eader-barre_lien">Home</Navbar.Brand>
       <Navbar.Brand href="#cv" className="eader-barre_lien">CV</Navbar.Brand>
