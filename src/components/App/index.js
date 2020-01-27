@@ -37,7 +37,11 @@ const App = () => {
     {/* <BurgerGauche /> */}
 
     <div id="outer-container">
-      <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } >
+      <Menu
+        pageWrapId={ "page-wrap" }
+        outerContainerId={ "outer-container" }
+        customBurgerIcon={ <img src="src/data/arrowRight.svg" alt="arrow"/>}
+      >
         <a id="home" className="menu-item" href="/">Home</a>
         <a id="about" className="menu-item" href="/about">About</a>
         <a id="contact" className="menu-item" href="/contact">Contact</a>
