@@ -27,11 +27,13 @@ import pirates from 'src/data/pirates'
 // Styles et assets
 import './app.sass';
 import './burgerStyle.scss';
+import './style.scss';
 
 /**
  * Code
  */
 const App = () => {
+
   return <div id="app">
 
     {/* <BurgerGauche /> */}
@@ -55,7 +57,8 @@ const App = () => {
       </main>
     </div>
 
-    </div>
+
+  </div>
 }
 
 /**

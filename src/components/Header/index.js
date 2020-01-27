@@ -13,6 +13,7 @@ export default () => {
   return <Container
     fluid
     className="header"
+    id="header"
     style={{display: player.choosen ? '' : 'none' }}
   >
 
