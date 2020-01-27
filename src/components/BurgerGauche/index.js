@@ -16,6 +16,7 @@ export default () => {
     console.log('fais voir tes settings !');
   }
 
+
   return (
     <Menu
       customBurgerIcon={ <img src="src/data/arrowRight.svg" alt="arrow"/>}
