@@ -12,7 +12,6 @@ import {
 /**
  * Imports locaux
  */
-import Home from 'src/components/Home'
 import Header from 'src/components/Header'
 import Select from 'src/components/Select'
 import BurgerGauche from 'src/components/BurgerGauche'
@@ -32,14 +31,15 @@ import './app.sass';
  */
 const App = () => {
   return <div id="app">
-    <Home pirates={pirates} />
+
     {/* <BurgerGauche />
-    <Header />
-    <Select />
-    <Cv datas={datas} />
+    <Header /> */}
+    <Select pirates={pirates} />
+    {/* <Cv datas={datas} /> */}
     <Sheet />
-    <Footer /> */}
-  </div>
+    {/* <Footer /> */}
+
+    </div>
 }
 
 /**

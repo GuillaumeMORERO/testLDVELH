@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Container, Form, Alert } from 'react-bootstrap';
+import { Container, Card, Button, ListGroup, Modal } from 'react-bootstrap';
 
 import './style.scss';
 
@@ -10,54 +10,80 @@ import {
   chargePirate
 } from 'src/store/player/actions';
 
-export default () => {
+export default ({pirates}) => {
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const dispatch = useDispatch();
-  const player = useSelector(state => state.player);
-
-  const pirate1 = 'src/data/pirate1.png';
-  const pirate2 = 'src/data/pirate2.png';
 
   const onSubmit = (e) => {
-    console.log('mauvais choix...', e);
-    
-    if (e === 1) {
-      dispatch(chargePirate('Barbarossa  "SpineSpiltter"'));
-      console.log('Barbarossa  "SpineSpiltter" ? Mauvais choix...');
-    }
-    if (e === 2) {
-      dispatch(chargePirate('William "Hard" PHILLIPS'));
-      console.log('William "Hard" PHILLIPS ? Mauvais choix...');
-    }
+    // console.log('id choisi :', e);
+    // console.log('pirates', pirates[e])
+    dispatch(chargePirate(pirates[e]));
+    handleClose();
   }
 
-  return <Container fluid className="selector">
+  return <Container fluid className="home">
 
-    <div className="select">
 
-      <h1>
-        Choisis ton Pirate !!
-      </h1>
 
-      <div className="select-pirates">
-
-        <div className="select-pirates-1">
-          <a href="#" alt="pirate1" onClick={() => onSubmit(1)}>
-            <h2>Barbarossa  "SpineSpiltter"</h2>
-            <img src={pirate1} alt=""/>
-          </a>
-        </div>
-
-        <div className="select-pirates-2">
-          <a href="#" alt="pirate2" onClick={() => onSubmit(2)}>
-            <h2>William "Hard" PHILLIPS</h2>
-            <img src={pirate2} alt=""/>
-          </a>
-        </div>
-
-      </div>
-
+    <div className="disclaimer">
+      <h1 className="disclaimer-1">Bienvenue Sur mon CV en ligne !!</h1>
+      <h2 className="disclaimer-2">Ca va être spécial : faut débloquer dees trucs.</h2>
+      <h2 className="disclaimer-2">Et pour ce faire, faut être mal accompagné :</h2>
     </div>
+
+    <div className="choix">
+      <div className="choix-cadre">
+        <img className="choix-arrow_left see" src="src/data/bluearrow.png" alt="arrow"/>
+        <p className="choix-titre" onClick={handleShow}>Choisissez votre Pirate !</p>
+        <img className="choix-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
+      </div>
+    </div>
+
+    <>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        centered size="xl"
+        className="select"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Choisis ton Pirate !!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="pirates">
+            {pirates.map((pirate) => (
+              <Card className="carte" key={pirate.id}>
+                <div className="carte-toop">
+                  <Card.Img className="carte-toop_avatar" variant="top" src={pirate.avatar} />
+                  <Card.Body className="carte-toop_carac">
+                    <Card.Title className="carte-toop_carac-titre"> {pirate.name} </Card.Title>
+                    <ListGroup className="carte-toop_carac-liste">
+                      <ListGroup.Item><Card.Text>Habileté : <span>{pirate.skill}</span></Card.Text></ListGroup.Item>
+                      <ListGroup.Item><Card.Text>Blindage : <span>{pirate.blindage}</span></Card.Text></ListGroup.Item>
+                      <ListGroup.Item><Card.Text>{pirate.descr}</Card.Text></ListGroup.Item>
+                    </ListGroup>
+                  </Card.Body>
+                </div>
+                <Button
+                  className="carte-bot"
+                  variant="primary"
+                  onClick={() => onSubmit(pirate.id)}
+                >
+                  Je choisis celui-la !
+
+                </Button>
+              </Card>
+          ))}
+        </div>
+        </Modal.Body>
+      </Modal>
+    </>
 
   </Container>
 }

@@ -10,8 +10,10 @@ export default () => {
 
   const dispatch = useDispatch();
   const player = useSelector(state => state.player);
+  // console.log('carac du player : ', player);
   
   return <Container fluid className="sheet" id="sheet" >
+
     <div className="pic">
       <img className="pic-arrow_left see" src="src/data/bluearrow.png" alt="arrow"/>
       <div className="pic-ture">
@@ -25,6 +27,8 @@ export default () => {
       <div className="hud-name">
         <h1 className="hud-name_perso"> {player.nom} </h1>
       </div>
+
+      <p className="hud-descr"> {player.descr} </p>
 
       <div className="separateur-1">
 
