@@ -27,11 +27,11 @@ export default ({ datas }) => {
       <img className="pic-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
 
-    <div className="elem">
+    <div className="elem" id="elem">
 
       <Accordion defaultActiveKey="1" bsPrefix="accordion">
         {datas.map((item, i) => (
-          <Card key={item.id}>
+          <Card key={item.id} id={item.id}>
             
             <Card.Header>
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>

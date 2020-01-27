@@ -49,7 +49,7 @@ const App = () => {
         <a id="contact" className="menu-item" href="/contact">Contact</a>
       </Menu>
       <main id="page-wrap">
-        <Header />
+        <Header datas={datas} />
         <Select pirates={pirates} />
         <Cv datas={datas} />
         <Sheet />
