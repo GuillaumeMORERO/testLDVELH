@@ -12,13 +12,14 @@ import {
 /**
  * Imports locaux
  */
-
 import Header from 'src/components/Header'
+import Select from 'src/components/Select'
 import BurgerGauche from 'src/components/BurgerGauche'
 import Cv from 'src/components/Cv'
 import Sheet from 'src/components/Sheet'
 import Footer from 'src/components/Footer'
 import datas from 'src/data/dataCv'
+import pirates from 'src/data/pirates'
 // Composants React
 
 // Données
@@ -30,12 +31,15 @@ import './app.sass';
  */
 const App = () => {
   return <div id="app">
+
     <BurgerGauche />
     <Header />
-    {/* <Cv datas={datas} />
-    <Sheet /> */}
+    <Select pirates={pirates} />
+    <Cv datas={datas} />
+    <Sheet />
     <Footer />
-  </div>
+
+    </div>
 }
 
 /**

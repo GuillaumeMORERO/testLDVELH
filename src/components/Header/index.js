@@ -1,11 +1,20 @@
 import React from 'react';
 
-import { Container, Navbar, Dropdown } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+
+import { Container, Navbar } from 'react-bootstrap';
 
 import './style.scss';
 
 export default () => {
-  return <Container fluid className="header">
+
+  const player = useSelector(state => state.player);
+
+  return <Container
+    fluid
+    className="header"
+    style={{display: player.choosen ? '' : 'none' }}
+  >
 
     <a href="/" className="header-titre1">
       <h1 className="header-titre2">Mon essai fonctionnalités</h1>
