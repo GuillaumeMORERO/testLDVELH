@@ -5,7 +5,7 @@ import { Container, OverlayTrigger, Tooltip, Modal } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './style.scss';
-import { changeHabilete, changePV } from 'src/store/player/actions';
+import { changeHabilete, changeBlindage, changePV } from 'src/store/player/actions';
 
 
 
@@ -16,25 +16,31 @@ export default () => {
   // console.log('carac du player : ', player);
   console.log('points de victoire actuels', player.ptvict);
   console.log('habileté du player : ', player.habileté);
+  console.log('blindage du player : ', player.blindage);
 
   const [message, setMessage] = useState('');
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const modifHabileté = (cost) => {
+  
+  const modifCarac = (carac, cost, gain) => {
     let result = player.ptvict - cost;
-    if (result > 0) {
-      dispatch(changeHabilete());
+    if (result >= 0) {
+      if (carac === 'habileté') {
+        dispatch(changeHabilete(gain))
+        setMessage('Votre Habileté a été augmentée de 1D !')
+      }
+      if (carac === 'blindage') {
+        dispatch(changeBlindage(gain))
+        setMessage('Votre Blindage a été augmentée de 1D !')
+      }
       dispatch(changePV(cost));
-      setMessage('Votre Habileté a été augmentée de 1D !')
+      
       handleShow();
-      console.log('habileté améliorée !!')
     } else {
       setMessage('essaie pas de tricher gros batar !!')
       handleShow();
-      console.log('essaie pas de tricher gros batar !!');
     }
   }
   
@@ -151,7 +157,12 @@ export default () => {
           >
             <p className="hud-notice">Répare ton ship de 1D6 pour 3 P.V.</p>
           </OverlayTrigger>
-          <img src="src/data/tools.png" alt="tools" className="hud-icon"/>
+          <img
+            src="src/data/tools.png"
+            alt="tools"
+            className="hud-icon"
+            onClick={() => modifCarac('blindage', 3, 2)}
+          />
         </div>
 
         <div className="hud-tuner">
@@ -170,7 +181,7 @@ export default () => {
             src="src/data/compass.png"
             alt="compass"
             className="hud-icon"
-            onClick={() => modifHabileté(8)}
+            onClick={() => modifCarac('habileté', 8)}
           />
         </div>
 

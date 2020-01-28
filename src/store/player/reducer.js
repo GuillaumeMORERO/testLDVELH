@@ -1,4 +1,5 @@
 import { CHARGE_PIRATE, CHANGE_HABILETE, CHANGE_PV } from 'src/store/player/actions';
+import { CHANGE_BLINDAGE } from './actions';
 
 const initialState = {
   choosen: false,
@@ -33,6 +34,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         habileté: state.habileté + 1,
+      };
+    }
+    case CHANGE_BLINDAGE: {
+      return {
+        ...state,
+        blindage: state.blindage + action.value,
       };
     }
     case CHANGE_PV: {
