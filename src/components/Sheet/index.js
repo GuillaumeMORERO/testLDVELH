@@ -111,6 +111,39 @@ export default () => {
         
       </div>
 
+      <div className="separateur-3">
+        <div className="hud-tuner">
+          <OverlayTrigger
+            key="top"
+            placement="top"
+            overlay={
+              <Tooltip id="tooltip-top">
+                Dépense 3 points de victoires pour réparer ton ship de 1D6
+              </Tooltip>
+            }
+          >
+            <p className="hud-notice">Répare ton ship de 1D6 pour 3 P.V.</p>
+          </OverlayTrigger>
+          <img src="src/data/tools.png" alt="tools" className="hud-icon"/>
+        </div>
+
+        <div className="hud-tuner">
+          <OverlayTrigger
+            key="top"
+            placement="top"
+            overlay={
+              <Tooltip id="tooltip-top">
+                Dépense 8 points de victoires pour améliorer ton habileté !
+              </Tooltip>
+            }
+          >
+            <p className="hud-notice">Améliore ton habileté de 1 pour 8 P.V.</p>
+          </OverlayTrigger>
+          <img src="src/data/compass.png" alt="compass" className="hud-icon"/>
+        </div>
+      </div>
+
+
     </div>
 
   </Container>
