@@ -2,15 +2,23 @@ import React, { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Container, Accordion, Card, Button, ListGroup } from 'react-bootstrap';
-
-// import { Test } from 'src/components/Cv/dataCv'
+import { Container, Accordion, Card, Button, ListGroup, Alert } from 'react-bootstrap';
 
 import './style.scss';
+import { changeStatus } from 'src/store/cv/actions';
 
 export default ({ datas }) => {
 
+  const dispatch = useDispatch();
   const { choosen } = useSelector(state => state.player);
+  const { readable } = useSelector(state => state.cv);
+
+  console.log('lisible ?', readable);
+
+  const CombatTrigger = () => {
+    console.log('clické!!');
+    dispatch(changeStatus())
+  };
 
   return <Container
     fluid
@@ -37,14 +45,16 @@ export default ({ datas }) => {
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>
                 <img className="frame" src="src/data/framehigh.png" alt="framehigh"/>
                 <h1 className="titrecarte"> {i+1}. {item.titreCarte} </h1>
+                <h2 className="trigger" onClick={() => CombatTrigger()}>Lance un fight !!</h2>
                 <img className="frame" src="src/data/framelow.png" alt="framelow"/>
               </Accordion.Toggle>
             </Card.Header>
             
 
-            <Accordion.Collapse eventKey={item.id}>
+            <Accordion.Collapse eventKey={item.id} style={{display: readable ? '' : 'none' }}>
               <Card.Body>
-                <h2 className="titreaccord">
+
+              <h2 className="titreaccord">
                   {item.titreAccord}
                 </h2>
 
@@ -55,6 +65,10 @@ export default ({ datas }) => {
                     </ListGroup.Item>
                   ))}
                 </ListGroup>
+
+
+
+
 
               </Card.Body>
             </Accordion.Collapse>

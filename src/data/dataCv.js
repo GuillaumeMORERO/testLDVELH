@@ -1,6 +1,7 @@
 export default [
  {
     id: 1,
+    readable: false,
     titreCarte: 'Formations ',
     titreAccord: 'Janvier 2020 : Développeur Web/Web Mobile, titre pro. RNCP Grande Ecole du Numérique, délivré par O’Clock',
     liste: [
@@ -12,6 +13,7 @@ export default [
   },
   {
     id: 2,
+    readable: false,
     titreCarte: 'Formations ',
     titreAccord: 'Sep 18 – Juin 2019 : 1ère année de Licence Mathématiques, Physique, Chimie, Informatique (MPCI) – Université d\'Aix-Marseille',
     liste: [
@@ -22,6 +24,7 @@ export default [
   },
   {
     id: 3,
+    readable: false,
     titreCarte: 'Formations ',
     titreAccord: 'Juin 2017 : Diplôme d’Accès aux Etudes Universitaires (D.A.E.U) équivalence Baccalauréat Scientifique, spécialité physique',
     liste: [
@@ -30,6 +33,7 @@ export default [
   },
   {
     id: 4,
+    readable: false,
     titreCarte: 'Experiences ',
     titreAccord: 'Déc. 2019 : Lead Dev Front web / mobile (projet de formation)',
     liste: [
@@ -42,6 +46,7 @@ export default [
   },
   {
     id: 5,
+    readable: false,
     titreCarte: 'Experiences ',
     titreAccord: '2000 – 2018 : Employé polyvalent en restauration collective pour Sodexo, Buffalo Grill, Mc Donald’s',
     liste: [
@@ -50,6 +55,7 @@ export default [
   },
   {
     id: 6,
+    readable: false,
     titreCarte: 'Intérets Personnels',
     titreAccord: 'De 1997 à maintenant : pratique professionnelle de la batterie, basse et guitare',
     liste: [
