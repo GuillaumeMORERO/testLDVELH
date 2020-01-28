@@ -14,7 +14,7 @@ export default ({pirates}) => {
 
   const player = useSelector(state => state.player);
   // console.log('carac du player : ', player);
-  console.log('choisi ? ', player.choosen);
+  // console.log('choisi ? ', player.choosen);
 
   const [show, setShow] = useState(false);
 
