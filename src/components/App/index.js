@@ -27,11 +27,13 @@ import pirates from 'src/data/pirates'
 // Styles et assets
 import './app.sass';
 import './burgerStyle.scss';
+import './style.scss';
 
 /**
  * Code
  */
 const App = () => {
+
   return <div id="app">
 
     {/* <BurgerGauche /> */}
@@ -47,7 +49,7 @@ const App = () => {
         <a id="contact" className="menu-item" href="/contact">Contact</a>
       </Menu>
       <main id="page-wrap">
-        <Header />
+        <Header datas={datas} />
         <Select pirates={pirates} />
         <Cv datas={datas} />
         <Sheet />
@@ -55,7 +57,8 @@ const App = () => {
       </main>
     </div>
 
-    </div>
+
+  </div>
 }
 
 /**
