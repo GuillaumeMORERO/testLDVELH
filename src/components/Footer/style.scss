@@ -1,3 +1,8 @@
+/**
+ * Import
+ */
+ @import 'src/styles/vars-custom';
+
 .footer {
   width: 60%;
   display: flex;
@@ -5,7 +10,7 @@
   justify-self: center;
   flex-direction: column;
   align-items: center;
-  border-top: solid 1px #01b4ff;
+  border-top: $customBorderTrans;
   margin-top: 3em;
   margin-bottom: 1em;
 }
@@ -25,7 +30,7 @@
     padding: 1em;
     &:hover {
       text-decoration: none;
-      color: #01b4ff;
+      color: $SF-blue;
     }
   }
 }
