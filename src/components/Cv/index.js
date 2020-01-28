@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Container, Accordion, Card, Button, ListGroup, Alert } from 'react-bootstrap';
+import { Container, Accordion, Card, Button, ListGroup, Alert, Modal } from 'react-bootstrap';
 
 import './style.scss';
 import { changeStatus } from 'src/store/cv/actions';
@@ -13,11 +13,14 @@ export default ({ datas }) => {
   const { choosen } = useSelector(state => state.player);
   const { readable } = useSelector(state => state.cv);
 
-  console.log('lisible ?', readable);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const CombatTrigger = () => {
     console.log('clické!!');
-    dispatch(changeStatus())
+    // dispatch(changeStatus())
+    handleShow();
   };
 
   return <Container
@@ -44,7 +47,7 @@ export default ({ datas }) => {
             <Card.Header>
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>
                 <img className="frame" src="src/data/framehigh.png" alt="framehigh"/>
-                <h1 className="titrecarte"> {i+1}. {item.titreCarte} </h1>
+                <h1 className="titrecarte" style={{color: readable ? 'green' : 'red' }}> {i+1}. {item.titreCarte} </h1>
                 <h2 className="trigger" onClick={() => CombatTrigger()}>Lance un fight !!</h2>
                 <img className="frame" src="src/data/framelow.png" alt="framelow"/>
               </Accordion.Toggle>
@@ -53,11 +56,9 @@ export default ({ datas }) => {
 
             <Accordion.Collapse eventKey={item.id} style={{display: readable ? '' : 'none' }}>
               <Card.Body>
-
               <h2 className="titreaccord">
                   {item.titreAccord}
                 </h2>
-
                 <ListGroup>
                   {item.liste.map((element, i) => (
                     <ListGroup.Item key={i}>
@@ -65,11 +66,6 @@ export default ({ datas }) => {
                     </ListGroup.Item>
                   ))}
                 </ListGroup>
-
-
-
-
-
               </Card.Body>
             </Accordion.Collapse>
           </Card>
@@ -78,6 +74,17 @@ export default ({ datas }) => {
       </Accordion>
 
     </div>
+
+    <>
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Combat</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+        </Modal.Footer>
+      </Modal>
+    </>
 
   </Container>
 }
