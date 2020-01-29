@@ -22,6 +22,7 @@ import Sheet from 'src/components/Sheet'
 import Footer from 'src/components/Footer'
 import datas from 'src/data/dataCv'
 import pirates from 'src/data/pirates'
+import foes from 'src/data/foes'
 // Composants React
 
 // Données
@@ -53,7 +54,7 @@ const App = () => {
         <Header datas={datas} />
         <Select pirates={pirates} />
         <Cv datas={datas} />
-        <ModalCombat />
+        <ModalCombat foes={foes} />
         <Sheet />
         <Footer />
       </main>
