@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, Accordion, Card, Button, ListGroup, Alert, Modal } from 'react-bootstrap';
 
 import './style.scss';
+
 import { changeStatus } from 'src/store/cv/actions';
+import { displayCombatModal } from 'src/store/combat/actions';
 
 export default ({ datas }) => {
 
@@ -13,14 +15,10 @@ export default ({ datas }) => {
   const { choosen } = useSelector(state => state.player);
   const { readable } = useSelector(state => state.cv);
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const CombatTrigger = () => {
     console.log('clické!!');
     // dispatch(changeStatus())
-    handleShow();
+    dispatch(displayCombatModal());
   };
 
   return <Container
@@ -74,17 +72,6 @@ export default ({ datas }) => {
       </Accordion>
 
     </div>
-
-    <>
-      <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Combat</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
-    </>
 
   </Container>
 }

@@ -17,6 +17,7 @@ import Header from 'src/components/Header'
 import Select from 'src/components/Select'
 import BurgerGauche from 'src/components/BurgerGauche'
 import Cv from 'src/components/Cv'
+import ModalCombat from 'src/components/ModalCombat'
 import Sheet from 'src/components/Sheet'
 import Footer from 'src/components/Footer'
 import datas from 'src/data/dataCv'
@@ -52,6 +53,7 @@ const App = () => {
         <Header datas={datas} />
         <Select pirates={pirates} />
         <Cv datas={datas} />
+        <ModalCombat />
         <Sheet />
         <Footer />
       </main>
