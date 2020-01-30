@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   margin-top: 4em;
-  background-color: $transparent-black;
+  // background-color: $transparent-black;
+  background-image: $gradient;
   box-shadow: $customBoxShadow;
   border-radius: 10px;
 }
@@ -95,7 +96,7 @@
   &-toop {
     display: flex;
     &_avatar {
-      width: 50%;
+      width: 30%;
     }
     &_carac {
       width: 50%;
@@ -124,12 +125,19 @@
 .modal {
   color: white;
   &-content {
-    background-color: $transparent-black;
     box-shadow: $customBoxShadow;
   }
   &-header {
     align-self: center;
     border: none;
+  }
+}
+.selectdrop {
+  background-image: url('../../data/spaceHangar.jpg');
+  background-position: center;
+  background-attachment: fixed;
+  &-txt {
+    text-shadow: $shadowText;
   }
 }
 

@@ -1,0 +1,53 @@
+/**
+ * Import
+ */
+ @import 'src/styles/vars-custom';
+
+.arene {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.player,
+.foe {
+  border: $customBorder;
+  background-image: $gradient;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-carac {
+    display: flex;
+    justify-content: space-evenly;
+    &_avatar {
+      width: 20%;
+    }
+    &_contains {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+.btncenter {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.combackdrop {
+  background-image: url('../../data/dogfight2.jpg');
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.combat {
+  &-titre {
+    &-txt {
+      text-shadow: $shadowText;
+    }
+  }
+  &-pied {
+    background-image: $gradient;
+  }
+}

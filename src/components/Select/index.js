@@ -58,39 +58,43 @@ export default ({pirates}) => {
       <Modal
         show={show}
         onHide={handleClose}
-        centered size="xl"
+        centered size="lg"
         className="select"
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Choisis ton Pirate !!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="pirates">
-            {pirates.map((pirate) => (
-              <Card className="carte" key={pirate.id}>
-                <div className="carte-toop">
-                  <Card.Img className="carte-toop_avatar" variant="top" src={pirate.avatar} />
-                  <Card.Body className="carte-toop_carac">
-                    <Card.Title className="carte-toop_carac-titre"> {pirate.name} </Card.Title>
-                    <ListGroup className="carte-toop_carac-liste">
-                      <ListGroup.Item><Card.Text>Habileté : <span>{pirate.skill}</span></Card.Text></ListGroup.Item>
-                      <ListGroup.Item><Card.Text>Blindage : <span>{pirate.blindage}</span></Card.Text></ListGroup.Item>
-                      <ListGroup.Item><Card.Text>{pirate.descr}</Card.Text></ListGroup.Item>
-                    </ListGroup>
-                  </Card.Body>
-                </div>
-                <Button
-                  className="carte-bot"
-                  variant="primary"
-                  onClick={() => onSubmit(pirate.id)}
-                >
-                  Je choisis celui-la !
 
-                </Button>
-              </Card>
-          ))}
+        <div className="selectdrop">
+          
+          <Modal.Header closeButton>
+            <Modal.Title className="selectdrop-txt">Choisis ton Pirate !!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="pirates">
+              {pirates.map((pirate) => (
+                <Card className="carte" key={pirate.id}>
+                  <div className="carte-toop">
+                    <Card.Img className="carte-toop_avatar" variant="top" src={pirate.avatar} />
+                    <Card.Body className="carte-toop_carac">
+                      <Card.Title className="carte-toop_carac-titre"> {pirate.name} </Card.Title>
+                      <ListGroup className="carte-toop_carac-liste">
+                        <ListGroup.Item><Card.Text>Habileté : <span>{pirate.skill}</span></Card.Text></ListGroup.Item>
+                        <ListGroup.Item><Card.Text>Blindage : <span>{pirate.blindage}</span></Card.Text></ListGroup.Item>
+                        <ListGroup.Item><Card.Text>{pirate.descr}</Card.Text></ListGroup.Item>
+                      </ListGroup>
+                    </Card.Body>
+                  </div>
+                  <Button
+                    className="carte-bot"
+                    variant="primary"
+                    onClick={() => onSubmit(pirate.id)}
+                  >
+                    Je choisis celui-la !
+
+                  </Button>
+                </Card>
+              ))}
+            </div>
+          </Modal.Body>
         </div>
-        </Modal.Body>
       </Modal>
     </>
 
