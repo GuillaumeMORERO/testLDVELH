@@ -6,43 +6,76 @@ import { Modal, Button, Card } from 'react-bootstrap';
 
 import './style.scss';
 
-import { changeStatus } from 'src/store/cv/actions';
+import { changeBlindage } from 'src/store/player/actions';
 import { hideCombatModal } from 'src/store/combat/actions';
 
 import { launchDice, resetScore } from 'src/store/dice/actions';
 
 export default ({ foes }) => {
-  
+
   const dispatch = useDispatch();
   const player = useSelector(state => state.player);
   const { showed } = useSelector(state => state.combat);
-  const { score } = useSelector(state => state.dice);
+  // const { scorePlayer, scoreFoe } = useSelector(state => state.dice);
+  const foe = useSelector(state => state.foe);
 
   const handleClose = () => {
     dispatch(hideCombatModal());
   };
-
+  
   function entierAleatoire(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
   const dieRoll = () => {
     return entierAleatoire(1, 6)
   };
-  const encounter = foes[entierAleatoire(0, foes.length - 1)];
 
-  const resultatDuLancer = (habileté) => {
+  // const compare = (scorePlayer) => {
+  //   console.log('tu compares la ?', scorePlayer)
+  //   const result = scorePlayer - scoreFoe;
+  //   if (result > 0) {
+  //     console.log('resultat du combat - player wins - :', result);
+      
+  //   } 
+  //   else if ( result < 0 ) {
+  //     console.log('resultat du combat - foe wins - :', result);
+      
+  //   }
+  //   else {
+  //     console.log('resultat du combat - match naze - :', result);
+  //   }
+  //   dispatch(resetScore());
+  // };
+  const characLaunch = (habileté) => {
+    const d6 = [];
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
     let lancé = 0;
     while ( lancé < habileté ) {
       lancé++;
-      // console.log('t\'apparait combine de fois ?');
-      const e = dieRoll();
-      // console.log('jet de dé :', e)
-      dispatch(launchDice(e));
+      d6.push(dieRoll());
     }
-    // dispatch(resetScore());
+    return d6.reduce(reducer, 0);
   };
-  
-  console.log('score final :', score);
+
+  const fighting = (habPlayer, habFoe) => {
+    const scorePlayer = characLaunch(habPlayer);
+    const scoreFoe = characLaunch(habFoe);
+
+    const result = scorePlayer - scoreFoe;
+    if (result > 0) {
+      console.log('resultat du combat - player wins - :', result);
+      
+    } 
+    else if ( result < 0 ) {
+      console.log('resultat du combat - foe wins - :', result);
+      
+    }
+    else {
+      console.log('resultat du combat - match naze - :', result);
+    }
+
+  }; 
 
   return <div className="combat">
 
@@ -82,20 +115,20 @@ export default ({ foes }) => {
             </section>
 
             <section className="foe">
-            <h1 className="foe-name">{encounter.name}</h1>
-            <h2 className="foe-descr">{encounter.descr}</h2>
+            <h1 className="foe-name">{foe.name}</h1>
+            <h2 className="foe-descr">{foe.descr}</h2>
 
             <div className="foe-carac">
 
-              <img className="foe-carac_avatar" src={encounter.avatar} alt="avatar"/>
+              <img className="foe-carac_avatar" src={foe.avatar} alt="avatar"/>
               <div className="foe-carac_contains">
                 <div>
                   <p>Habileté</p>
-                  <div>{encounter.skill}</div>
+                  <div>{foe.skill}</div>
                 </div>
                 <div>
                   <p>Blindage</p>
-                  <div>{encounter.blindage}</div>
+                  <div>{foe.blindage}</div>
                 </div>
               </div>
 
@@ -106,7 +139,7 @@ export default ({ foes }) => {
           <div className="btncenter">
             <button
               type="button"
-              onClick={() => resultatDuLancer(2)}
+              onClick={() => fighting(player.habileté, foe.skill)}
             >
               Fight !!!
             </button>

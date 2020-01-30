@@ -1,8 +1,8 @@
 export const DICE_LAUNCH = 'action/DICE_LAUNCH';
 export const SCORE_RESET = 'action/SCORE_RESET';
 
-export const launchDice = (value) => {
-  return { type: DICE_LAUNCH, value }
+export const launchDice = (result, character) => {
+  return { type: DICE_LAUNCH, result, character }
 };
 
 export const resetScore = () => {

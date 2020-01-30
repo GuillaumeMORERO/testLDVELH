@@ -1,15 +1,22 @@
-import { CHARGE_PIRATE, CHANGE_HABILETE, CHANGE_PV } from 'src/store/player/actions';
-import { CHANGE_BLINDAGE } from './actions';
+import { CHARGE_FOE, BLINDAGE_LOSS } from './actions';
 
 const initialState = {
-  choosen: false,
-  nom: '?',
-  habileté: '',
+  id: 0,
+  name: '?',
+  skill: '',
   blindage: '',
-  ptvict: 0,
+  gain: 0,
   avatar: 'src/data/interog.png',
   descr: ''
 };
+
+// function entierAleatoire(min, max) {
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// };
+// const nbrAleatoire = entierAleatoire(1, 6);
+// console.log('log du reducer :', nbrAleatoire);
+
+// const encounter = foes[entierAleatoire(0, foes.length - 1)];
 
 export default (state = initialState, action) => {
   // console.log('reducer[votes] >>', action);
@@ -19,33 +26,22 @@ export default (state = initialState, action) => {
   // console.log('action.value :', action.value );
 
   switch (action.type) {
-    case CHARGE_PIRATE: {
+    case CHARGE_FOE: {
       return {
         ...state,
-        choosen: true,
-        nom: action.value.name,
-        habileté: action.value.skill,
+        id: action.value.id,
+        name: action.value.name,
+        skill: action.value.skill,
         blindage: action.value.blindage,
         avatar: action.value.avatar,
-        descr: action.value.descr
+        descr: action.value.descr,
+        gain: action.value.gain
       };
     }
-    case CHANGE_HABILETE: {
-      return {
-        ...state,
-        habileté: state.habileté + 1,
-      };
-    }
-    case CHANGE_BLINDAGE: {
+    case BLINDAGE_LOSS: {
       return {
         ...state,
         blindage: state.blindage + action.value,
-      };
-    }
-    case CHANGE_PV: {
-      return {
-        ...state,
-        ptvict: state.ptvict - action.value ,
       };
     }
     default: {
