@@ -29,23 +29,6 @@ export default ({ foes }) => {
   const dieRoll = () => {
     return entierAleatoire(1, 6)
   };
-
-  // const compare = (scorePlayer) => {
-  //   console.log('tu compares la ?', scorePlayer)
-  //   const result = scorePlayer - scoreFoe;
-  //   if (result > 0) {
-  //     console.log('resultat du combat - player wins - :', result);
-      
-  //   } 
-  //   else if ( result < 0 ) {
-  //     console.log('resultat du combat - foe wins - :', result);
-      
-  //   }
-  //   else {
-  //     console.log('resultat du combat - match naze - :', result);
-  //   }
-  //   dispatch(resetScore());
-  // };
   const characLaunch = (habileté) => {
     const d6 = [];
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
