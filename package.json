@@ -72,6 +72,7 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-burger-menu": "^2.6.13",
     "react-collapse": "^5.0.1",
+    "react-dice-complete": "^1.2.0",
     "react-dom": "*",
     "react-headroom": "^3.0.0",
     "react-redux": "^7.1.3",

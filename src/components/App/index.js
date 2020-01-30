@@ -13,6 +13,8 @@ import {
 /**
  * Imports locaux
  */
+import Dices from 'src/components/Dices'
+
 import Header from 'src/components/Header'
 import Select from 'src/components/Select'
 import BurgerGauche from 'src/components/BurgerGauche'
@@ -51,6 +53,7 @@ const App = () => {
         <a id="contact" className="menu-item" href="/contact">Contact</a>
       </Menu>
       <main id="page-wrap">
+        {/* <Dices /> */}
         <Header datas={datas} />
         <Select pirates={pirates} />
         <Cv datas={datas} />

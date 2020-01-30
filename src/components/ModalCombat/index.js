@@ -9,12 +9,14 @@ import './style.scss';
 import { changeStatus } from 'src/store/cv/actions';
 import { hideCombatModal } from 'src/store/combat/actions';
 
+import { launchDice, resetScore } from 'src/store/dice/actions';
 
 export default ({ foes }) => {
   
   const dispatch = useDispatch();
   const player = useSelector(state => state.player);
   const { showed } = useSelector(state => state.combat);
+  const { score } = useSelector(state => state.dice);
 
   const handleClose = () => {
     dispatch(hideCombatModal());
@@ -23,7 +25,24 @@ export default ({ foes }) => {
   function entierAleatoire(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
+  const dieRoll = () => {
+    return entierAleatoire(1, 6)
+  };
   const encounter = foes[entierAleatoire(0, foes.length - 1)];
+
+  const resultatDuLancer = (habileté) => {
+    let lancé = 0;
+    while ( lancé < habileté ) {
+      lancé++;
+      // console.log('t\'apparait combine de fois ?');
+      const e = dieRoll();
+      // console.log('jet de dé :', e)
+      dispatch(launchDice(e));
+    }
+    // dispatch(resetScore());
+  };
+  
+  console.log('score final :', score);
 
   return <div className="combat">
 
@@ -32,7 +51,7 @@ export default ({ foes }) => {
       <div className="combackdrop">
 
         <Modal.Header closeButton className="combat-titre">
-          <Modal.Title closeButton className="combat-titre-txt">Get ready to fuckin' fight !!</Modal.Title>
+          <Modal.Title className="combat-titre-txt">Get ready to fuckin' fight !!</Modal.Title>
         </Modal.Header>
 
         <Modal.Body className="combat-corps">
@@ -85,7 +104,12 @@ export default ({ foes }) => {
 
           </div>
           <div className="btncenter">
-            <button>Fight !!!</button>
+            <button
+              type="button"
+              onClick={() => resultatDuLancer(2)}
+            >
+              Fight !!!
+            </button>
           </div>
 
         </Modal.Body>
