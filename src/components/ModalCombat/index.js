@@ -27,69 +27,75 @@ export default ({ foes }) => {
 
   return <div className="combat">
 
-    <Modal show={showed} onHide={handleClose} size="xl" centered>
-      <Modal.Header closeButton>
-        <Modal.Title>Get ready to fuckin' fight !!</Modal.Title>
-      </Modal.Header>
+    <Modal show={showed} onHide={handleClose} size="xl" centered id="combatModal">
 
-      <Modal.Body>
+      <div className="combackdrop">
 
-        <div className="arene">
+        <Modal.Header closeButton className="combat-titre">
+          <Modal.Title closeButton className="combat-titre-txt">Get ready to fuckin' fight !!</Modal.Title>
+        </Modal.Header>
 
-          <section className="player">
+        <Modal.Body className="combat-corps">
 
-            <h1 className="player-name">{player.nom}</h1>
-            <h2 className="player-descr">{player.descr}</h2>
+          <div className="arene">
 
-            <div className="player-carac">
+            <section className="player">
 
-              <img className="player-carac_avatar" id="caracPlayer" src={player.avatar} alt="avatar"/>
-              <div className="player-carac_contains">
+              <h1 className="player-name">{player.nom}</h1>
+              <h2 className="player-descr">{player.descr}</h2>
+
+              <div className="player-carac">
+
+                <img className="player-carac_avatar" id="caracPlayer" src={player.avatar} alt="avatar"/>
+                <div className="player-carac_contains">
+                  <div>
+                    <p>Habileté</p>
+                    <div>{player.habileté}</div>
+                  </div>
+                  <div>
+                    <p>Blindage</p>
+                    <div>{player.blindage}</div>
+                  </div>
+                </div>
+
+              </div>
+            
+            </section>
+
+            <section className="foe">
+            <h1 className="foe-name">{encounter.name}</h1>
+            <h2 className="foe-descr">{encounter.descr}</h2>
+
+            <div className="foe-carac">
+
+              <img className="foe-carac_avatar" src={encounter.avatar} alt="avatar"/>
+              <div className="foe-carac_contains">
                 <div>
                   <p>Habileté</p>
-                  <div>{player.habileté}</div>
+                  <div>{encounter.skill}</div>
                 </div>
                 <div>
                   <p>Blindage</p>
-                  <div>{player.blindage}</div>
+                  <div>{encounter.blindage}</div>
                 </div>
               </div>
 
             </div>
-          
           </section>
 
-          <section className="foe">
-          <h1 className="foe-name">{encounter.name}</h1>
-          <h2 className="foe-descr">{encounter.descr}</h2>
-
-          <div className="foe-carac">
-
-            <img className="foe-carac_avatar" src={encounter.avatar} alt="avatar"/>
-            <div className="foe-carac_contains">
-              <div>
-                <p>Habileté</p>
-                <div>{encounter.skill}</div>
-              </div>
-              <div>
-                <p>Blindage</p>
-                <div>{encounter.blindage}</div>
-              </div>
-            </div>
-
           </div>
-        </section>
+          <div className="btncenter">
+            <button>Fight !!!</button>
+          </div>
 
-        </div>
-        <div className="btncenter">
-          <button>Fight !!!</button>
-        </div>
+        </Modal.Body>
 
-      </Modal.Body>
-      <Modal.Footer>
+        <Modal.Footer className="combat-pied">
+          ici les résultats du Combat...
+        </Modal.Footer>
 
-        ici les résultats du Combat...
-      </Modal.Footer>
+      </div>
+
     </Modal>
 
   </div>

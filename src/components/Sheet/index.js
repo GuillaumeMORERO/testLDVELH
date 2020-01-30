@@ -192,9 +192,11 @@ export default () => {
     <>
 
       <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title> {message} </Modal.Title>
-        </Modal.Header>
+        <div className="tunedModal">
+          <Modal.Header closeButton>
+            <Modal.Title className="tunedModal-txt"> {message} </Modal.Title>
+          </Modal.Header>
+        </div>
       </Modal>
     </>
 

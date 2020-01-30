@@ -146,6 +146,14 @@ width: 100%;
     }
   }
 }
+.tunedModal {
+  background-image: url('../../data/textureSF.png');
+  background-position: center;
+  background-attachment: fixed;
+  &-txt {
+    text-shadow: $shadowText;
+  }
+}
 
 
 
