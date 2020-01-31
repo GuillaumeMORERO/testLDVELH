@@ -13,7 +13,12 @@ import { resetMessage } from 'src/store/message/actions';
 
 export default ({ datas, foes }) => {
 
-  // console.log('foesdu cV', foes[0])
+  function entierAleatoire(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+  const d4plus1Roll = () => {
+    return entierAleatoire(2, 5)
+  };
 
   const dispatch = useDispatch();
   const { choosen } = useSelector(state => state.player);
@@ -23,13 +28,8 @@ export default ({ datas, foes }) => {
   function entierAleatoire(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
-  // const foeAleatoire = entierAleatoire(0, foes.length - 1);
-  // console.log('log du CV :', foeAleatoire);
-  // console.log('foesdu cV', foes[foeAleatoire]);
 
   const CombatTrigger = () => {
-    console.log('clické!!');
-    // dispatch(changeStatus())
 
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
     dispatch(chargeFoe(foes[foeAleatoire]));
@@ -61,8 +61,11 @@ export default ({ datas, foes }) => {
             <Card.Header>
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>
                 <img className="frame" src="src/data/framehigh.png" alt="framehigh"/>
-                <h1 className="titrecarte" style={{color: readable ? 'green' : 'red' }}> {i+1}. {item.titreCarte} </h1>
-                <h2 className="trigger" onClick={() => CombatTrigger()}>Lance un fight !!</h2>
+                <div className="teteAccordion">
+                  <h2 className="teteAccordion-trigger" onClick={() => CombatTrigger()} style={{display: readable ? 'none' : '' }}>Lance un combat !!</h2>
+                  <h1 className="teteAccordion-titrecarte" style={{color: readable ? 'green' : 'red' }}> {i+1}. {item.titreCarte} </h1>
+                  <h2 className="teteAccordion-buy" onClick={() => buyOpening()} style={{display: readable ? 'none' : '' }}>Pour ouvrir : {d4plus1Roll()} points de victoires...</h2>
+                </div>
                 <img className="frame" src="src/data/framelow.png" alt="framelow"/>
               </Accordion.Toggle>
             </Card.Header>
