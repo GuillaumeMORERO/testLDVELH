@@ -1,4 +1,4 @@
-import { DISPLAY_MODAL_COMBAT, HIDE_MODAL_COMBAT, SHOW_SCORES } from './actions';
+import { DISPLAY_MODAL_COMBAT, HIDE_MODAL_COMBAT, SHOW_SCORES,RESET_SCORES } from './actions';
 
 const initialState = {
   showed: false,
@@ -25,6 +25,13 @@ export default (state = initialState, action) => {
         ...state,
         resultPlayer: action.scorePlayer,
         resultFoe: action.scoreFoe,
+      };
+    }
+    case RESET_SCORES: {
+      return {
+        ...state,
+        resultPlayer: 0,
+        resultFoe: 0,
       };
     }
     default: {

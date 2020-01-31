@@ -7,7 +7,7 @@ import { Modal, Button, Card, Alert } from 'react-bootstrap';
 import './style.scss';
 
 import { changeBlindage, changePV } from 'src/store/player/actions';
-import { hideCombatModal, showScores } from 'src/store/combat/actions';
+import { hideCombatModal, showScores, resetScores } from 'src/store/combat/actions';
 import { blindageLoss } from 'src/store/foe/actions';
 import { changeMessage } from 'src/store/message/actions';
 
@@ -24,6 +24,7 @@ export default () => {
 
   const handleClose = () => {
     dispatch(hideCombatModal());
+    dispatch(resetScores());
   };
   
   function entierAleatoire(min, max) {
@@ -54,7 +55,7 @@ export default () => {
       dispatch(changeMessage('Vous avez vaincu votre ennemi ! vous remportez ' + foe.gain + ' Points de Victoire !'));
       setTimeout(() => {
         dispatch(hideCombatModal())
-      }, 5000);
+      }, 3000);
     } 
   };
   const foeWin = (nbr) => {
@@ -69,11 +70,9 @@ export default () => {
       dispatch(changeMessage('Vous êtes vaincu...'));
       setTimeout(() => {
         dispatch(hideCombatModal())
-      }, 5000);
+      }, 3000);
     } 
   };
-  
-
   const fighting = (habPlayer, habFoe) => {
     const scorePlayer = characLaunch(habPlayer);
     const scoreFoe = characLaunch(habFoe);
@@ -177,7 +176,7 @@ export default () => {
         <Modal.Footer className="combat-pied">
           <div className="displayer" style={{display: resultPlayer ? '' : 'none' }}>
             <div className="infoDice">
-              <span id="espace">Avec {player.habileté} dé(s), vous obtenez :</span>   
+              <span id="espace">Avec {player.habileté} dé(s), tu obtiens :</span>   
               <span id="spanbr">{resultPlayer}</span>
             </div>
             <div className="infoCombat">{message}</div>
