@@ -16,16 +16,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  &-name {
+  &-name,
+  &-descr {
+    width: 90%;
+    text-align: center;
     font-size: 1.2em;
     margin: .5em 0 .5em 0;
     padding: .5em;
     border-bottom: $customBorderTrans;
   }
   &-descr {
-    margin: .5em 0 .5em 0;
-    padding: .5em;
-    border-bottom: $customBorderTrans;
+    font-size: .9em;
   }
   &-carac {
     padding: .5em;
@@ -88,4 +89,27 @@
   padding: 1em;
   background-color: $SF-blue-transparent;
   border-radius: 5px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .arene {
+    width: 100%;
+  }
+  .combat {
+    &-corps {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .player,
+  .foe {
+    &-carac {
+      flex-direction: column;
+      align-items: center;
+      &_avatar {
+        width: 50%;
+      }
+    }
+  }
 }

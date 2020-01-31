@@ -104,7 +104,10 @@ export default () => {
       <div className="combackdrop">
 
         <Modal.Header closeButton className="combat-titre">
-          <Modal.Title className="combat-titre-txt">Get ready to fuckin' fight !!</Modal.Title>
+          <Modal.Title className="combat-titre-txt">
+            <div>Ici on se bagarre !!</div>  
+            <div>Si celui d'en face est trop difficile (...Mouais...), ferme cette fenêtre et ouvre la à nouveau.</div>  
+          </Modal.Title>
         </Modal.Header>
 
         <Modal.Body className="combat-corps">
