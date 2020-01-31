@@ -7,8 +7,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import './style.scss';
 import { changeHabilete, changeBlindage, changePV } from 'src/store/player/actions';
 
-
-
 export default () => {
 
   const dispatch = useDispatch();
@@ -19,10 +17,15 @@ export default () => {
   // console.log('blindage du player : ', player.blindage);
 
   const [message, setMessage] = useState('');
+  const [deathMessage, setDeathMessage] = useState('');
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [showDeath, setShowDeath] = useState(false);
+  const handleCloseDeath = () => setShow(false);
+  const handleShowDeath = () => setShow(true);
 
   function entierAleatoire(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -68,7 +71,7 @@ export default () => {
       <img className="pic-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
 
-    <div className="hud">
+    <div className="hud" style={{display: player.blindage > 0 ? '' : 'none' }}>
 
       <div className="hud-name">
         <h1 className="hud-name_perso"> {player.nom} </h1>
@@ -198,12 +201,30 @@ export default () => {
 
     </div>
 
-    <>
+    <div className="mort" style={{display: player.blindage <= 0 ? '' : 'none' }}>
+      <a className="mort-tadel" href="/">
+        <div>Vous êtes vaincu ?!?</div>  
+        <div>Cliquez pour recommencer... Et faites plus attention !!</div>
+      </a>
+    </div>
 
+    <>
       <Modal show={show} onHide={handleClose} centered>
         <div className="tunedModal">
           <Modal.Header closeButton>
             <Modal.Title className="tunedModal-txt"> {message} </Modal.Title>
+          </Modal.Header>
+        </div>
+      </Modal>
+    </>
+
+    <>
+      <Modal show={showDeath} onHide={handleCloseDeath} centered>
+        <div className="tunedModal">
+          <Modal.Header closeButton>
+            <Modal.Title className="tunedModal-txt">
+              <a href="/">now ur dead</a>  
+            </Modal.Title>
           </Modal.Header>
         </div>
       </Modal>
