@@ -10,6 +10,7 @@ import { changeStatus } from 'src/store/cv/actions';
 import { displayCombatModal } from 'src/store/combat/actions';
 import { chargeFoe } from 'src/store/foe/actions';
 import { resetMessage } from 'src/store/message/actions';
+import { changePV } from 'src/store/player/actions';
 
 export default ({ datas, foes }) => {
 
@@ -25,17 +26,19 @@ export default ({ datas, foes }) => {
   const { readable } = useSelector(state => state.cv);
   const message = useSelector(state => state.message);
 
-  function entierAleatoire(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
-
   const CombatTrigger = () => {
-
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
     dispatch(chargeFoe(foes[foeAleatoire]));
     dispatch(resetMessage());
     dispatch(displayCombatModal());
   };
+  const currentCost = d4plus1Roll();
+
+  const buyOpening = (id, cost) => {
+    const realCost = cost - (cost * 2);
+    dispatch(changePV(realCost));
+    dispatch(changeStatus(id));
+  }
 
   return <Container
     fluid
@@ -62,16 +65,30 @@ export default ({ datas, foes }) => {
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>
                 <img className="frame" src="src/data/framehigh.png" alt="framehigh"/>
                 <div className="teteAccordion">
-                  <h2 className="teteAccordion-trigger" onClick={() => CombatTrigger()} style={{display: readable ? 'none' : '' }}>Lance un combat !!</h2>
-                  <h1 className="teteAccordion-titrecarte" style={{color: readable ? 'green' : 'red' }}> {i+1}. {item.titreCarte} </h1>
-                  <h2 className="teteAccordion-buy" onClick={() => buyOpening()} style={{display: readable ? 'none' : '' }}>Pour ouvrir : {d4plus1Roll()} points de victoires...</h2>
+                  <h2
+                    className="teteAccordion-trigger"
+                    onClick={() => CombatTrigger()}
+                    style={{display: item.readable ? 'none' : '' }}>
+                      Lance un combat !!
+                  </h2>
+                  <h1
+                    className="teteAccordion-titrecarte"
+                    style={{color: item.readable ? 'green' : 'red' }}>
+                    {i+1}. {item.titreCarte}
+                  </h1>
+                  <h2
+                    className="teteAccordion-buy"
+                    onClick={() => buyOpening(item.id, currentCost)}
+                    style={{display: item.readable ? 'none' : '' }}>
+                    Pour ouvrir : {currentCost} points de victoires...
+                  </h2>
                 </div>
                 <img className="frame" src="src/data/framelow.png" alt="framelow"/>
               </Accordion.Toggle>
             </Card.Header>
             
 
-            <Accordion.Collapse eventKey={item.id} style={{display: readable ? '' : 'none' }}>
+            <Accordion.Collapse eventKey={item.id} style={{display: item.readable ? '' : 'none' }}>
               <Card.Body>
               <h2 className="titreaccord">
                   {item.titreAccord}
