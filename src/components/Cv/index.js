@@ -9,6 +9,7 @@ import './style.scss';
 import { changeStatus } from 'src/store/cv/actions';
 import { displayCombatModal } from 'src/store/combat/actions';
 import { chargeFoe } from 'src/store/foe/actions';
+import { resetMessage } from 'src/store/message/actions';
 
 export default ({ datas, foes }) => {
 
@@ -17,6 +18,7 @@ export default ({ datas, foes }) => {
   const dispatch = useDispatch();
   const { choosen } = useSelector(state => state.player);
   const { readable } = useSelector(state => state.cv);
+  const message = useSelector(state => state.message);
 
   function entierAleatoire(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -31,6 +33,7 @@ export default ({ datas, foes }) => {
 
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
     dispatch(chargeFoe(foes[foeAleatoire]));
+    dispatch(resetMessage());
     dispatch(displayCombatModal());
   };
 

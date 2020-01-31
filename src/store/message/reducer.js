@@ -1,8 +1,7 @@
-import { DICE_LAUNCH, SCORE_RESET } from './actions';
+import { MESSAGE_RESET, MESSAGE_CHANGE } from './actions';
 
 const initialState = {
-  scorePlayer: 0,
-  scoreFoe: 0
+  message: ''
 };
 
 export default (state = initialState, action) => {
@@ -12,24 +11,16 @@ export default (state = initialState, action) => {
   // console.log('action de lancer de dés :', action.result)
   // console.log('action type :', action.type)
   switch (action.type) {
-    case DICE_LAUNCH: {
-      if (action.character === 'player') {
-        return {
-          ...state,
-          scorePlayer: state.scorePlayer + action.result,
-        };
-      }
-      if (action.character === 'foe') {
-        return {
-          ...state,
-          scoreFoe: state.scoreFoe + action.result,
-        };
-      }
-    }
-    case SCORE_RESET: {
+    case MESSAGE_RESET: {
       return {
         ...state,
-        score: 0,
+        message: '',
+      };
+    }
+    case MESSAGE_CHANGE: {
+      return {
+        ...state,
+        message: action.value,
       };
     }
     default: {

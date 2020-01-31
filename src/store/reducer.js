@@ -4,7 +4,7 @@ import votes from 'src/store/votes';
 import player from 'src/store/player/reducer';
 import cv from 'src/store/cv/reducer';
 import combat from 'src/store/combat/reducer';
-import dice from 'src/store/dice/reducer';
+import message from 'src/store/message/reducer';
 import foe from 'src/store/foe/reducer';
 
 export default combineReducers({
@@ -12,6 +12,6 @@ export default combineReducers({
   player,
   cv,
   combat,
-  dice,
+  message,
   foe
 });

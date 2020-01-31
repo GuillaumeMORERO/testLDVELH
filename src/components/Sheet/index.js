@@ -15,8 +15,8 @@ export default () => {
   const player = useSelector(state => state.player);
   // console.log('carac du player : ', player);
   console.log('points de victoire actuels', player.ptvict);
-  console.log('habileté du player : ', player.habileté);
-  console.log('blindage du player : ', player.blindage);
+  // console.log('habileté du player : ', player.habileté);
+  // console.log('blindage du player : ', player.blindage);
 
   const [message, setMessage] = useState('');
 
@@ -43,7 +43,8 @@ export default () => {
         dispatch(changeBlindage(jetD6))
         setMessage('Votre Blindage a été augmentée de ' + jetD6)
       }
-      dispatch(changePV(cost));
+      const modif = cost - (cost*2);
+      dispatch(changePV(modif));
       
       handleShow();
     } else {

@@ -41,7 +41,7 @@ export default (state = initialState, action) => {
     case BLINDAGE_LOSS: {
       return {
         ...state,
-        blindage: state.blindage + action.value,
+        blindage: state.blindage - action.value,
       };
     }
     default: {

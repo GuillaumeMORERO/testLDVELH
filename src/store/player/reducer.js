@@ -6,7 +6,7 @@ const initialState = {
   nom: '?',
   habileté: '',
   blindage: '',
-  ptvict: 30,
+  ptvict: 0,
   avatar: 'src/data/interog.png',
   descr: ''
 };
@@ -45,7 +45,7 @@ export default (state = initialState, action) => {
     case CHANGE_PV: {
       return {
         ...state,
-        ptvict: state.ptvict - action.value ,
+        ptvict: state.ptvict + action.value ,
       };
     }
     default: {

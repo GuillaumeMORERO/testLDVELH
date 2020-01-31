@@ -16,16 +16,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  &-name {
+    font-size: 1.2em;
+    margin: .5em 0 .5em 0;
+    padding: .5em;
+    border-bottom: $customBorderTrans;
+  }
+  &-descr {
+    margin: .5em 0 .5em 0;
+    padding: .5em;
+    border-bottom: $customBorderTrans;
+  }
   &-carac {
+    padding: .5em;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     &_avatar {
-      width: 20%;
+      width: 25%;
+      margin: 1em;
     }
     &_contains {
+      width: 70%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      &-comp {
+        margin: 1em;
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
 }
@@ -33,6 +53,17 @@
   display: flex;
   justify-content: center;
   margin: 1em;
+  &-fight {
+    color: white;
+    background-color: $SF-blue-transparent;
+    border: $customBorder;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+  }
+}
+#espace {
+  margin-right: 1em;
 }
 
 .combackdrop {
@@ -48,6 +79,13 @@
     }
   }
   &-pied {
+    justify-content: center;
     background-image: $gradient;
   }
+}
+
+.infoCombat {
+  padding: 1em;
+  background-color: $SF-blue-transparent;
+  border-radius: 5px;
 }
