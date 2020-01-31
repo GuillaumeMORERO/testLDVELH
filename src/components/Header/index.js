@@ -8,8 +8,6 @@ import './style.scss';
 
 export default ({ datas }) => {
 
-
-
   const player = useSelector(state => state.player);
 
   return <Container
@@ -24,7 +22,7 @@ export default ({ datas }) => {
     </a>
     
     <Navbar expand="lg" variant="dark" bg="none" className="eader-barre">
-      <Navbar.Brand href="/" className="eader-barre_lien">Home</Navbar.Brand>
+      <Navbar.Brand href="/" className="eader-barre_lien">Choisir un autre Pirate / Recommencer</Navbar.Brand>
       <Navbar.Brand href="#cv" className="eader-barre_lien">CV</Navbar.Brand>
       <DropdownButton id="dropdown-basic-button" bsPrefix="poly" title="CV/Elem">
         {datas.map((item) => (
