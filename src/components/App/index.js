@@ -53,7 +53,7 @@ const App = () => {
       <main id="page-wrap">
         <Header datas={datas} />
         <Select pirates={pirates} />
-        <Cv datas={datas} />
+        <Cv datas={datas} foes={foes} />
         <ModalCombat foes={foes} />
         <Sheet />
         <Footer />
