@@ -127,11 +127,11 @@ export default () => {
                 <div className="player-carac_contains">
                   <div className="player-carac_contains-comp">
                     <p id="espace">Habileté</p>
-                    <div>{player.habileté}</div>
+                    <div id="spanbr">{player.habileté}</div>
                   </div>
                   <div className="player-carac_contains-comp">
                     <p id="espace">Blindage</p>
-                    <div>{player.blindage}</div>
+                    <div id="spanbr">{player.blindage}</div>
                   </div>
                 </div>
 
@@ -149,11 +149,11 @@ export default () => {
               <div className="foe-carac_contains">
                 <div className="player-carac_contains-comp">
                   <p id="espace">Habileté</p>
-                  <div>{foe.skill}</div>
+                  <div id="spanbr">{foe.skill}</div>
                 </div>
                 <div className="player-carac_contains-comp">
                   <p id="espace">Blindage</p>
-                  <div>{foe.blindage}</div>
+                  <div id="spanbr">{foe.blindage}</div>
                 </div>
               </div>
 
@@ -175,9 +175,17 @@ export default () => {
         </Modal.Body>
 
         <Modal.Footer className="combat-pied">
-          <div>le player a obtenu : {resultPlayer} </div>
-          {message ? <span className="infoCombat">{message}</span> : ''}
-          <div>le foe a obtenu : {resultFoe} </div>
+          <div className="displayer" style={{display: resultPlayer ? '' : 'none' }}>
+            <div className="infoDice">
+              <span id="espace">Avec {player.habileté} dé(s), vous obtenez :</span>   
+              <span id="spanbr">{resultPlayer}</span>
+            </div>
+            <div className="infoCombat">{message}</div>
+            <div className="infoDice">
+              <span id="espace">Avec {foe.skill} dé(s), {foe.name} a obtenu :</span> 
+              <span id="spanbr">{resultFoe}</span>
+            </div>
+          </div>
         </Modal.Footer>
 
       </div>
