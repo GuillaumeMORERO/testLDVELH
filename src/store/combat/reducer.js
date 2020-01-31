@@ -1,7 +1,9 @@
-import { DISPLAY_MODAL_COMBAT, HIDE_MODAL_COMBAT } from './actions';
+import { DISPLAY_MODAL_COMBAT, HIDE_MODAL_COMBAT, SHOW_SCORES } from './actions';
 
 const initialState = {
-  showed: false
+  showed: false,
+  resultPlayer: 0,
+  resultFoe: 0
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +18,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         showed: false,
+      };
+    }
+    case SHOW_SCORES: {
+      return {
+        ...state,
+        resultPlayer: action.scorePlayer,
+        resultFoe: action.scoreFoe,
       };
     }
     default: {

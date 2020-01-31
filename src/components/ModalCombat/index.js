@@ -7,7 +7,7 @@ import { Modal, Button, Card, Alert } from 'react-bootstrap';
 import './style.scss';
 
 import { changeBlindage, changePV } from 'src/store/player/actions';
-import { hideCombatModal } from 'src/store/combat/actions';
+import { hideCombatModal, showScores } from 'src/store/combat/actions';
 import { blindageLoss } from 'src/store/foe/actions';
 import { changeMessage } from 'src/store/message/actions';
 
@@ -16,7 +16,7 @@ export default () => {
 
   const dispatch = useDispatch();
   const player = useSelector(state => state.player);
-  const { showed } = useSelector(state => state.combat);
+  const { showed, resultPlayer, resultFoe } = useSelector(state => state.combat);
   const foe = useSelector(state => state.foe);
   const { message } = useSelector(state => state.message);
 
@@ -77,6 +77,8 @@ export default () => {
   const fighting = (habPlayer, habFoe) => {
     const scorePlayer = characLaunch(habPlayer);
     const scoreFoe = characLaunch(habFoe);
+
+    dispatch(showScores(scorePlayer, scoreFoe));
 
     const result = scorePlayer - scoreFoe;
     if (result > 0) {
@@ -173,7 +175,9 @@ export default () => {
         </Modal.Body>
 
         <Modal.Footer className="combat-pied">
+          <div>le player a obtenu : {resultPlayer} </div>
           {message ? <span className="infoCombat">{message}</span> : ''}
+          <div>le foe a obtenu : {resultFoe} </div>
         </Modal.Footer>
 
       </div>
