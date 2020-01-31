@@ -17,15 +17,10 @@ export default () => {
   // console.log('blindage du player : ', player.blindage);
 
   const [message, setMessage] = useState('');
-  const [deathMessage, setDeathMessage] = useState('');
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const [showDeath, setShowDeath] = useState(false);
-  const handleCloseDeath = () => setShow(false);
-  const handleShowDeath = () => setShow(true);
 
   function entierAleatoire(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -217,19 +212,6 @@ export default () => {
         </div>
       </Modal>
     </>
-
-    <>
-      <Modal show={showDeath} onHide={handleCloseDeath} centered>
-        <div className="tunedModal">
-          <Modal.Header closeButton>
-            <Modal.Title className="tunedModal-txt">
-              <a href="/">now ur dead</a>  
-            </Modal.Title>
-          </Modal.Header>
-        </div>
-      </Modal>
-    </>
-
 
   </Container>
 

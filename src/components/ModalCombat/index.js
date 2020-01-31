@@ -164,6 +164,7 @@ export default () => {
               className="btncenter-fight"
               type="button"
               onClick={() => fighting(player.habileté, foe.skill)}
+              style={{display: player.blindage <= 0 ? 'none' : '' }}
             >
               Fight !!!
             </button>
