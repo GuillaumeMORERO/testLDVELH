@@ -7,8 +7,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import './style.scss';
 import { changeHabilete, changeBlindage, changePV } from 'src/store/player/actions';
 
-
-
 export default () => {
 
   const dispatch = useDispatch();
@@ -68,7 +66,7 @@ export default () => {
       <img className="pic-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
 
-    <div className="hud">
+    <div className="hud" style={{display: player.blindage > 0 ? '' : 'none' }}>
 
       <div className="hud-name">
         <h1 className="hud-name_perso"> {player.nom} </h1>
@@ -198,8 +196,14 @@ export default () => {
 
     </div>
 
-    <>
+    <div className="mort" style={{display: player.blindage <= 0 ? '' : 'none' }}>
+      <a className="mort-tadel" href="/">
+        <div>Vous êtes vaincu ?!?</div>  
+        <div>Cliquez pour recommencer... Et faites plus attention !!</div>
+      </a>
+    </div>
 
+    <>
       <Modal show={show} onHide={handleClose} centered>
         <div className="tunedModal">
           <Modal.Header closeButton>
@@ -208,7 +212,6 @@ export default () => {
         </div>
       </Modal>
     </>
-
 
   </Container>
 

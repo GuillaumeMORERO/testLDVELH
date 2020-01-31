@@ -64,6 +64,8 @@
   }
 }
 #espace {
+  display: flex;
+  align-items: center;
   margin-right: 1em;
 }
 
@@ -80,19 +82,34 @@
     }
   }
   &-pied {
-    justify-content: center;
     background-image: $gradient;
   }
 }
-
+.displayer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 .infoCombat {
   padding: 1em;
   background-color: $SF-blue-transparent;
   border-radius: 5px;
 }
+.infoDice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#spanbr {
+  display: flex;
+  justify-content: center;
+  padding: .3em .5em;
+  box-shadow: $customBoxShadowTrans;
+}
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .arene {
     width: 100%;
   }
@@ -100,6 +117,10 @@
     &-corps {
       padding-left: 0;
       padding-right: 0;
+    }
+    &-pied {
+      height: fit-content;
+      font-size: .8em;
     }
   }
   .player,
@@ -111,5 +132,19 @@
         width: 50%;
       }
     }
+  }
+  .displayer {
+    height: 100%;
+  }
+  .infoDice {
+    flex-direction: column;
+    width: 50%;
+  }
+  .infoCombat {
+    text-align: center;
+  }
+  #espace {
+    margin: 0 0 1em;
+    text-align: center;
   }
 }

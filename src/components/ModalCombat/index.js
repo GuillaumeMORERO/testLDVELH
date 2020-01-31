@@ -7,7 +7,7 @@ import { Modal, Button, Card, Alert } from 'react-bootstrap';
 import './style.scss';
 
 import { changeBlindage, changePV } from 'src/store/player/actions';
-import { hideCombatModal } from 'src/store/combat/actions';
+import { hideCombatModal, showScores, resetScores } from 'src/store/combat/actions';
 import { blindageLoss } from 'src/store/foe/actions';
 import { changeMessage } from 'src/store/message/actions';
 
@@ -16,7 +16,7 @@ export default () => {
 
   const dispatch = useDispatch();
   const player = useSelector(state => state.player);
-  const { showed } = useSelector(state => state.combat);
+  const { showed, resultPlayer, resultFoe } = useSelector(state => state.combat);
   const foe = useSelector(state => state.foe);
   const { message } = useSelector(state => state.message);
 
@@ -24,6 +24,7 @@ export default () => {
 
   const handleClose = () => {
     dispatch(hideCombatModal());
+    dispatch(resetScores());
   };
   
   function entierAleatoire(min, max) {
@@ -54,7 +55,7 @@ export default () => {
       dispatch(changeMessage('Vous avez vaincu votre ennemi ! vous remportez ' + foe.gain + ' Points de Victoire !'));
       setTimeout(() => {
         dispatch(hideCombatModal())
-      }, 5000);
+      }, 3000);
     } 
   };
   const foeWin = (nbr) => {
@@ -69,14 +70,14 @@ export default () => {
       dispatch(changeMessage('Vous êtes vaincu...'));
       setTimeout(() => {
         dispatch(hideCombatModal())
-      }, 5000);
+      }, 3000);
     } 
   };
-  
-
   const fighting = (habPlayer, habFoe) => {
     const scorePlayer = characLaunch(habPlayer);
     const scoreFoe = characLaunch(habFoe);
+
+    dispatch(showScores(scorePlayer, scoreFoe));
 
     const result = scorePlayer - scoreFoe;
     if (result > 0) {
@@ -125,11 +126,11 @@ export default () => {
                 <div className="player-carac_contains">
                   <div className="player-carac_contains-comp">
                     <p id="espace">Habileté</p>
-                    <div>{player.habileté}</div>
+                    <div id="spanbr">{player.habileté}</div>
                   </div>
                   <div className="player-carac_contains-comp">
                     <p id="espace">Blindage</p>
-                    <div>{player.blindage}</div>
+                    <div id="spanbr">{player.blindage}</div>
                   </div>
                 </div>
 
@@ -147,11 +148,11 @@ export default () => {
               <div className="foe-carac_contains">
                 <div className="player-carac_contains-comp">
                   <p id="espace">Habileté</p>
-                  <div>{foe.skill}</div>
+                  <div id="spanbr">{foe.skill}</div>
                 </div>
                 <div className="player-carac_contains-comp">
                   <p id="espace">Blindage</p>
-                  <div>{foe.blindage}</div>
+                  <div id="spanbr">{foe.blindage}</div>
                 </div>
               </div>
 
@@ -164,6 +165,7 @@ export default () => {
               className="btncenter-fight"
               type="button"
               onClick={() => fighting(player.habileté, foe.skill)}
+              style={{display: player.blindage <= 0 ? 'none' : '' }}
             >
               Fight !!!
             </button>
@@ -172,7 +174,17 @@ export default () => {
         </Modal.Body>
 
         <Modal.Footer className="combat-pied">
-          {message ? <span className="infoCombat">{message}</span> : ''}
+          <div className="displayer" style={{display: resultPlayer ? '' : 'none' }}>
+            <div className="infoDice">
+              <span id="espace">Avec {player.habileté} dé(s), tu obtiens :</span>   
+              <span id="spanbr">{resultPlayer}</span>
+            </div>
+            <div className="infoCombat">{message}</div>
+            <div className="infoDice">
+              <span id="espace">Avec {foe.skill} dé(s), {foe.name} a obtenu :</span> 
+              <span id="spanbr">{resultFoe}</span>
+            </div>
+          </div>
         </Modal.Footer>
 
       </div>
