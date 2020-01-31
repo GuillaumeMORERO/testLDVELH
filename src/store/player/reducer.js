@@ -6,7 +6,7 @@ const initialState = {
   nom: '?',
   habileté: '',
   blindage: '',
-  ptvict: 0,
+  ptvict: 30,
   avatar: 'src/data/interog.png',
   descr: ''
 };

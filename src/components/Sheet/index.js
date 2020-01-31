@@ -23,17 +23,25 @@ export default () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  function entierAleatoire(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+  const dieRoll = () => {
+    return entierAleatoire(1, 6)
+  };
   
-  const modifCarac = (carac, cost, gain) => {
-    let result = player.ptvict - cost;
+  const modifCarac = (carac, cost) => {
+    const result = player.ptvict - cost;
+    const jetD6 = dieRoll();
     if (result >= 0) {
       if (carac === 'habileté') {
-        dispatch(changeHabilete(gain))
-        setMessage('Votre Habileté a été augmentée de 1D !')
+        dispatch(changeHabilete(jetD6))
+        setMessage('Votre Habileté a été augmentée de 1 !')
       }
       if (carac === 'blindage') {
-        dispatch(changeBlindage(gain))
-        setMessage('Votre Blindage a été augmentée de 1D !')
+        dispatch(changeBlindage(jetD6))
+        setMessage('Votre Blindage a été augmentée de ' + jetD6)
       }
       dispatch(changePV(cost));
       
@@ -161,7 +169,7 @@ export default () => {
             src="src/data/tools.png"
             alt="tools"
             className="hud-icon"
-            onClick={() => modifCarac('blindage', 3, 2)}
+            onClick={() => modifCarac('blindage', 3)}
           />
         </div>
 
