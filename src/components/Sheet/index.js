@@ -12,7 +12,7 @@ export default () => {
   const dispatch = useDispatch();
   const player = useSelector(state => state.player);
   // console.log('carac du player : ', player);
-  console.log('points de victoire actuels', player.ptvict);
+  // console.log('points de victoire actuels', player.ptvict);
   // console.log('habileté du player : ', player.habileté);
   // console.log('blindage du player : ', player.blindage);
 
@@ -203,15 +203,15 @@ export default () => {
       </a>
     </div>
 
-    <>
+    <div className="tunerContainer">
       <Modal show={show} onHide={handleClose} centered>
         <div className="tunedModal">
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title className="tunedModal-txt"> {message} </Modal.Title>
           </Modal.Header>
         </div>
       </Modal>
-    </>
+    </div>
 
   </Container>
 

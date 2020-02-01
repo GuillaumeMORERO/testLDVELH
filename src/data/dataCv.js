@@ -1,7 +1,7 @@
 export default [
  {
     id: 1,
-    readable: true,
+    readable: false,
     titreCarte: 'Formations ',
     titreAccord: 'Janvier 2020 : Développeur Web/Web Mobile, titre pro. RNCP Grande Ecole du Numérique, délivré par O’Clock',
     liste: [

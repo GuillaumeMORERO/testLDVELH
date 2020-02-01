@@ -64,7 +64,7 @@ export default ({pirates}) => {
 
         <div className="selectdrop">
           
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title className="selectdrop-txt">Choisis ton Pirate !!</Modal.Title>
           </Modal.Header>
           <Modal.Body>

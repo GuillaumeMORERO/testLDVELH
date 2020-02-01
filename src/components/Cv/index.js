@@ -23,8 +23,10 @@ export default ({ datas, foes }) => {
 
   const dispatch = useDispatch();
   const { choosen } = useSelector(state => state.player);
-  const { readable } = useSelector(state => state.cv);
+  const readable = useSelector(state => state.cv);
   const message = useSelector(state => state.message);
+
+  console.log('ce qui arrive du state pour la section1 ;', readable.readable1)
 
   const CombatTrigger = () => {
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
@@ -35,8 +37,9 @@ export default ({ datas, foes }) => {
   const currentCost = d4plus1Roll();
 
   const buyOpening = (id, cost) => {
-    const realCost = cost - (cost * 2);
-    dispatch(changePV(realCost));
+    console.log('pour acheter', id, cost);
+    // const realCost = cost - (cost * 2);
+    // dispatch(changePV(realCost));
     dispatch(changeStatus(id));
   }
 
@@ -58,8 +61,8 @@ export default ({ datas, foes }) => {
     <div className="elem" id="elem">
 
       <Accordion defaultActiveKey="1" bsPrefix="accordion">
-        {datas.map((item, i) => (
-          <Card key={item.id} id={item.id}>
+        {datas.map((item) => (
+          <Card key={item.id} id={'section' + item.id}>
             
             <Card.Header>
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>
@@ -68,18 +71,18 @@ export default ({ datas, foes }) => {
                   <h2
                     className="teteAccordion-trigger"
                     onClick={() => CombatTrigger()}
-                    style={{display: item.readable ? 'none' : '' }}>
+                    style={{display: !'readable.readable' + item.id ? '' : 'none' }}>
                       Lance un combat !!
                   </h2>
                   <h1
                     className="teteAccordion-titrecarte"
-                    style={{color: item.readable ? 'green' : 'red' }}>
-                    {i+1}. {item.titreCarte}
+                    style={{color: !'readable.readable' + item.id ? 'red' : 'green' }}>
+                    {item.id}. {item.titreCarte}
                   </h1>
                   <h2
                     className="teteAccordion-buy"
-                    onClick={() => buyOpening(item.id, currentCost)}
-                    style={{display: item.readable ? 'none' : '' }}>
+                    onClick={() => buyOpening('readable' + item.id, currentCost)}
+                    style={{display: !'readable.readable' + item.id  ? '' : 'none' }}>
                     Pour ouvrir : {currentCost} points de victoires...
                   </h2>
                 </div>
@@ -88,7 +91,7 @@ export default ({ datas, foes }) => {
             </Card.Header>
             
 
-            <Accordion.Collapse eventKey={item.id} style={{display: item.readable ? '' : 'none' }}>
+            <Accordion.Collapse eventKey={item.id} style={{display: !'readable.readable' + item.id  ? 'none' : '' }}>
               <Card.Body>
               <h2 className="titreaccord">
                   {item.titreAccord}
