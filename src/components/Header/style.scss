@@ -5,7 +5,8 @@
 
 .eader {
   z-index: 100;
-  background-image: url("../../data/eader.jpg");
+  // background-image: url("../../data/eader.jpg");
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +16,7 @@
   border-bottom: $customBorderTrans;
   margin-bottom: 1em;
   position: sticky;
-  top: 1px;
+  top: .1px;
   
   &-titre1 {
     display: flex;

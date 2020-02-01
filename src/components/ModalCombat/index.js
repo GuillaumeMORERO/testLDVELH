@@ -92,11 +92,7 @@ export default () => {
       console.log('resultat du combat - match naze - :', result);
       dispatch(changeMessage('Personne ne remporte cette passe... continuez à vous battre !'));
     };
-    
-    
   }; 
-  console.log('blindage restant du foe :', foe.blindage);
-  console.log('blindage restant du player :', player.blindage);
 
   return <div className="combat">
 
@@ -104,7 +100,7 @@ export default () => {
 
       <div className="combackdrop">
 
-        <Modal.Header closeButton className="combat-titre">
+        <Modal.Header className="combat-titre">
           <Modal.Title className="combat-titre-txt">
             <div>Ici on se bagarre !!</div>  
             <div>Si celui d'en face est trop difficile (...Mouais...), ferme cette fenêtre et ouvre la à nouveau.</div>  

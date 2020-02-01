@@ -55,7 +55,7 @@ const App = () => {
         <Select pirates={pirates} />
         <Cv datas={datas} foes={foes} />
         <ModalCombat foes={foes} />
-        <Sheet />
+        <Sheet foes={foes} />
         <Footer />
       </main>
     </div>

@@ -6,15 +6,14 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import './style.scss';
 import { changeHabilete, changeBlindage, changePV } from 'src/store/player/actions';
+import { chargeFoe } from 'src/store/foe/actions';
+import { resetMessage } from 'src/store/message/actions';
+import { displayCombatModal } from 'src/store/combat/actions';
 
-export default () => {
+export default ({ foes }) => {
 
   const dispatch = useDispatch();
   const player = useSelector(state => state.player);
-  // console.log('carac du player : ', player);
-  console.log('points de victoire actuels', player.ptvict);
-  // console.log('habileté du player : ', player.habileté);
-  // console.log('blindage du player : ', player.blindage);
 
   const [message, setMessage] = useState('');
 
@@ -28,7 +27,6 @@ export default () => {
   const dieRoll = () => {
     return entierAleatoire(1, 6)
   };
-  
   const modifCarac = (carac, cost) => {
     const result = player.ptvict - cost;
     const jetD6 = dieRoll();
@@ -49,7 +47,13 @@ export default () => {
       setMessage('essaie pas de tricher gros batar !!')
       handleShow();
     }
-  }
+  };
+  const CombatTrigger = () => {
+    const foeAleatoire = entierAleatoire(0, foes.length - 1);
+    dispatch(chargeFoe(foes[foeAleatoire]));
+    dispatch(resetMessage());
+    dispatch(displayCombatModal());
+  };
   
   return <Container
     fluid
@@ -65,6 +69,13 @@ export default () => {
       </div>
       <img className="pic-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
+
+    <h2
+      className="fightLauncher"
+      onClick={() => CombatTrigger()}
+      >
+        Lance un combat !!
+    </h2>
 
     <div className="hud" style={{display: player.blindage > 0 ? '' : 'none' }}>
 
@@ -203,15 +214,15 @@ export default () => {
       </a>
     </div>
 
-    <>
+    <div className="tunerContainer">
       <Modal show={show} onHide={handleClose} centered>
         <div className="tunedModal">
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title className="tunedModal-txt"> {message} </Modal.Title>
           </Modal.Header>
         </div>
       </Modal>
-    </>
+    </div>
 
   </Container>
 

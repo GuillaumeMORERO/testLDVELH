@@ -10,32 +10,39 @@ import { changeStatus } from 'src/store/cv/actions';
 import { displayCombatModal } from 'src/store/combat/actions';
 import { chargeFoe } from 'src/store/foe/actions';
 import { resetMessage } from 'src/store/message/actions';
+import { changePV } from 'src/store/player/actions';
 
 export default ({ datas, foes }) => {
-
-  // console.log('foesdu cV', foes[0])
-
-  const dispatch = useDispatch();
-  const { choosen } = useSelector(state => state.player);
-  const { readable } = useSelector(state => state.cv);
-  const message = useSelector(state => state.message);
 
   function entierAleatoire(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
-  // const foeAleatoire = entierAleatoire(0, foes.length - 1);
-  // console.log('log du CV :', foeAleatoire);
-  // console.log('foesdu cV', foes[foeAleatoire]);
+  const d4plus1Roll = () => {
+    return entierAleatoire(2, 5)
+  };
+
+  const dispatch = useDispatch();
+  const { choosen } = useSelector(state => state.player);
+  const readable = useSelector(state => state.cv);
+  const message = useSelector(state => state.message);
+
+  console.log('ce qui arrive du state pour la section1 ;', readable.readable1)
 
   const CombatTrigger = () => {
-    console.log('clické!!');
-    // dispatch(changeStatus())
-
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
     dispatch(chargeFoe(foes[foeAleatoire]));
     dispatch(resetMessage());
     dispatch(displayCombatModal());
   };
+  
+  const currentCost = d4plus1Roll();
+
+  const buyOpening = (id, cost) => {
+    console.log('pour acheter', id, cost);
+    // const realCost = cost - (cost * 2);
+    // dispatch(changePV(realCost));
+    dispatch(changeStatus(id));
+  }
 
   return <Container
     fluid
@@ -52,23 +59,47 @@ export default ({ datas, foes }) => {
       <img className="pic-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
 
+    <h2
+      className="fightLauncher"
+      onClick={() => CombatTrigger()}
+      >
+        Lance un combat !!
+    </h2>
+
     <div className="elem" id="elem">
 
       <Accordion defaultActiveKey="1" bsPrefix="accordion">
-        {datas.map((item, i) => (
-          <Card key={item.id} id={item.id}>
+        {datas.map((item) => (
+          <Card key={item.id} id={'section' + item.id}>
             
             <Card.Header>
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>
                 <img className="frame" src="src/data/framehigh.png" alt="framehigh"/>
-                <h1 className="titrecarte" style={{color: readable ? 'green' : 'red' }}> {i+1}. {item.titreCarte} </h1>
-                <h2 className="trigger" onClick={() => CombatTrigger()}>Lance un fight !!</h2>
+                <div className="teteAccordion">
+                  <h2
+                    className="teteAccordion-trigger"
+                    onClick={() => CombatTrigger()}
+                    style={{display: !'readable.readable' + item.id ? '' : 'none' }}>
+                      Lance un combat !!
+                  </h2>
+                  <h1
+                    className="teteAccordion-titrecarte"
+                    style={{color: !'readable.readable' + item.id ? 'red' : 'green' }}>
+                    {item.id}. {item.titreCarte}
+                  </h1>
+                  <h2
+                    className="teteAccordion-buy"
+                    onClick={() => buyOpening('readable' + item.id, currentCost)}
+                    style={{display: !'readable.readable' + item.id  ? '' : 'none' }}>
+                    Pour ouvrir : {currentCost} points de victoires...
+                  </h2>
+                </div>
                 <img className="frame" src="src/data/framelow.png" alt="framelow"/>
               </Accordion.Toggle>
             </Card.Header>
             
 
-            <Accordion.Collapse eventKey={item.id} style={{display: readable ? '' : 'none' }}>
+            <Accordion.Collapse eventKey={item.id} style={{display: !'readable.readable' + item.id  ? 'none' : '' }}>
               <Card.Body>
               <h2 className="titreaccord">
                   {item.titreAccord}

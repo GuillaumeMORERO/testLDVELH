@@ -12,11 +12,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  // console.log('reducer[votes] >>', action);
-  // console.log('state :', state);
-  // console.log('nom d\'un state :', state.nom);
-  // console.log('action.type :', action.type );
-  // console.log('action.value :', action.value );
 
   switch (action.type) {
     case CHARGE_PIRATE: {
