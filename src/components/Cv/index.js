@@ -76,11 +76,25 @@ export default ({ datas, foes }) => {
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>
                 <img className="frame" src="src/data/framehigh.png" alt="framehigh"/>
                 <div className="teteAccordion">
-                  <h1
+                  {/* <h1
                     className="teteAccordion-titrecarte"
                     style={{color: readable[item.id] ? 'green' : 'red' }}>
                     {item.id}. {item.titreCarte}
-                  </h1>
+                  </h1> */}
+                  { readable[item.id] && 
+                    <h1
+                      className="teteAccordion-titrecarte"
+                      style={{color: 'green'}}>
+                      {item.id}. {item.titreCarte} <div className="min"> - disponible !!! -</div> 
+                    </h1>
+                  }
+                  { !readable[item.id] && 
+                    <h1
+                      className="teteAccordion-titrecarte"
+                      style={{color: 'red'}}>
+                      {item.id}. {item.titreCarte} <div className="min"> - non disponible !!! -</div>  
+                    </h1>
+                  }
                   <h2
                     className="teteAccordion-buy"
                     onClick={() => buyOpening(item.id, currentCost)}
