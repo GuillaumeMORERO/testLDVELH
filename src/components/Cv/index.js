@@ -8,6 +8,7 @@ import './style.scss';
 
 import { changeStatus } from 'src/store/cv/actions';
 import { displayCombatModal } from 'src/store/combat/actions';
+import { displayBuyModal } from 'src/store/buy/actions';
 import { chargeFoe } from 'src/store/foe/actions';
 import { resetMessage } from 'src/store/message/actions';
 import { changePV } from 'src/store/player/actions';
@@ -26,8 +27,6 @@ export default ({ datas, foes }) => {
   const readable = useSelector(state => state.cv);
   const message = useSelector(state => state.message);
 
-  console.log('etat de la section 2 :', readable[2]);
-
   const CombatTrigger = () => {
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
     dispatch(chargeFoe(foes[foeAleatoire]));
@@ -42,7 +41,10 @@ export default ({ datas, foes }) => {
     // const realCost = cost - (cost * 2);
     // dispatch(changePV(realCost));
     dispatch(changeStatus(id));
-  }
+  };
+  const buyModalDiplayer = () => {
+    dispatch(displayBuyModal());
+  };
 
   return <Container
     fluid
@@ -65,6 +67,8 @@ export default ({ datas, foes }) => {
       >Lance un combat !!
     </h2>
 
+    <Button onClick={() => { buyModalDiplayer()} }>Buy Modal Displayer</Button>
+
     <div className="elem" id="elem">
 
 
@@ -76,11 +80,6 @@ export default ({ datas, foes }) => {
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>
                 <img className="frame" src="src/data/framehigh.png" alt="framehigh"/>
                 <div className="teteAccordion">
-                  {/* <h1
-                    className="teteAccordion-titrecarte"
-                    style={{color: readable[item.id] ? 'green' : 'red' }}>
-                    {item.id}. {item.titreCarte}
-                  </h1> */}
                   { readable[item.id] && 
                     <h1
                       className="teteAccordion-titrecarte"
@@ -106,8 +105,6 @@ export default ({ datas, foes }) => {
               </Accordion.Toggle>
             </Card.Header>
             
-            {/* à rajouter dans les attributs de Accordion.Collapse :
-            style={{display: !'readable.readable' + item.id  ? 'none' : '' }} */}
             <Accordion.Collapse eventKey={item.id} style={{display: readable[item.id] ? '' : 'none' }}>
               <Card.Body>
               <h2 className="titreaccord">
