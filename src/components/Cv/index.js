@@ -26,6 +26,8 @@ export default ({ datas, foes }) => {
   const readable = useSelector(state => state.cv);
   const message = useSelector(state => state.message);
 
+  console.log('etat de la section 2 :', readable[2]);
+
   const CombatTrigger = () => {
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
     dispatch(chargeFoe(foes[foeAleatoire]));
@@ -36,7 +38,7 @@ export default ({ datas, foes }) => {
   const currentCost = d4plus1Roll();
 
   const buyOpening = (id, cost) => {
-    console.log('pour acheter', id, cost);
+    // console.log('pour acheter', id, cost);
     // const realCost = cost - (cost * 2);
     // dispatch(changePV(realCost));
     dispatch(changeStatus(id));
@@ -81,7 +83,7 @@ export default ({ datas, foes }) => {
                   </h1>
                   <h2
                     className="teteAccordion-buy"
-                    onClick={() => buyOpening('readable' + item.id, currentCost)}
+                    onClick={() => buyOpening(item.id, currentCost)}
                     style={{display: readable[item.id] ? 'none' : '' }}>
                     Pour ouvrir : {currentCost} points de victoires...
                   </h2>
