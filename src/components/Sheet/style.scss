@@ -21,8 +21,8 @@
 .pic {
 display: flex;
 justify-content: space-around;
-margin-bottom: 2em;
 width: 100%;
+margin-bottom: 0;
   &-arrow {
     &_left {
       transform: rotate(90deg);
@@ -42,7 +42,7 @@ width: 100%;
   &-ture {
     display: flex;
     justify-content: center;
-    margin-bottom: 2em;
+    // margin-bottom: 2em;
     &_head {
       width: 240px;
     }
@@ -169,7 +169,7 @@ width: 100%;
   .pic {
     width: 100%;
     &-ture {
-      margin-bottom: 2em;
+      margin-bottom: 0;
       &_head {
         width: 170px;
       }

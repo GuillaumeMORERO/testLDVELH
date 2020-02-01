@@ -34,6 +34,7 @@ export default ({ datas, foes }) => {
     dispatch(resetMessage());
     dispatch(displayCombatModal());
   };
+  
   const currentCost = d4plus1Roll();
 
   const buyOpening = (id, cost) => {
@@ -57,6 +58,13 @@ export default ({ datas, foes }) => {
       </div>
       <img className="pic-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
+
+    <h2
+      className="fightLauncher"
+      onClick={() => CombatTrigger()}
+      >
+        Lance un combat !!
+    </h2>
 
     <div className="elem" id="elem">
 
