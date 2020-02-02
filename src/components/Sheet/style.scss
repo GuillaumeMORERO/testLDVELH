@@ -156,6 +156,35 @@ margin-bottom: 0;
     text-shadow: $shadowText;
   }
 }
+.mort {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  background-color: #9c4563;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 5px;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+    transform: scale(1.1);
+  }
+  &:not(:hover) {
+    transition: .2s;
+  }
+  &-tadel {
+    color: white;
+    text-decoration: none;
+    text-shadow: $shadowText;
+    font-size: 1.5em;
+    padding: 1em;
+  }
+  &-amor {
+    color: white;
+    text-decoration: none;
+  }
+}
 
 
 
@@ -185,7 +214,6 @@ margin-bottom: 0;
     &-carac {
       width: 30%;
       margin: 1em 0 1em 0;
-      // flex-direction: row;
       &_display {
         display: flex;
         flex-direction: column;
@@ -199,36 +227,9 @@ margin-bottom: 0;
     }
   }
   .separateur {
-    &-1 {
-      // flex-direction: column;
-      // align-items: center;
-    }
     &-3 {
-      // flex-direction: column;
-      // align-items: center;
       width: auto;
     }
   }
 }
 
-.mort {
-  color: white;
-  text-align: center;
-  background-color: rgba(255, 0, 0, 0.2);
-  margin: 1em;
-  padding: 1em;
-  border-radius: 5px;
-  &:hover {
-    text-decoration: none;
-    transition: .3s;
-    transform: scale(1.1);
-  }
-  &:not(:hover) {
-    transition: .2s;
-  }
-  &-tadel {
-    text-shadow: $shadowText;
-    font-size: 1.5em;
-    padding: 1em;
-  }
-}

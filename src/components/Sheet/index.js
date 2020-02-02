@@ -220,8 +220,8 @@ export default ({ foes }) => {
 
     <div className="mort" style={{display: player.blindage <= 0 ? '' : 'none' }}>
       <a className="mort-tadel" href="/">
-        <div>Vous êtes vaincu ?!?</div>  
-        <div>Cliquez pour recommencer... Et faites plus attention !!</div>
+        <div className="mort-amor" >Vous êtes vaincu ?!?</div>  
+        <div className="mort-amor" >Cliquez pour recommencer... Et faites plus attention !!</div>
       </a>
     </div>
 
