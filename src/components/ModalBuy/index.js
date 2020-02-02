@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import ClassNames from 'classnames';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Modal, Button, Card, Alert } from 'react-bootstrap';
@@ -17,9 +19,7 @@ export default ({ datas }) => {
   const { ptvict, nom, avatar } = useSelector(state => state.player);
   const readable = useSelector(state => state.cv);
   const { showed } = useSelector(state => state.buy);
-  const { message } = useSelector(state => state.message);
-
-console.log('un nom de section :', datas[0].titreCarte);
+  const { message, category } = useSelector(state => state.message);
 
   const handleClose = () => {
     dispatch(hideBuyModal());
@@ -39,13 +39,23 @@ console.log('un nom de section :', datas[0].titreCarte);
       const realID = id - 1;
       dispatch(changePV(realCost));
       dispatch(changeStatus(id));
-      dispatch(changeMessage('Bravo, t\'as débloqué la section ' + id + ' . ' + datas[realID].titreCarte));
+      dispatch(changeMessage('Bravo, t\'as débloqué la section ' + id + ' . ' + datas[realID].titreCarte, 'good'));
     }
     if ( ptvict < cost ) {
-      dispatch(changeMessage('c\'est pas good sale batar'));
+      dispatch(changeMessage('c\'est pas good sale batar', 'bad'));
     }
     
   };
+
+  const activClass = ClassNames(
+    'infoBuy', 
+    {
+      bad: category === 'bad'
+    },
+    {
+      good: category === 'good'
+    }
+  );
 
   return <div className="buy">
 
@@ -98,7 +108,7 @@ console.log('un nom de section :', datas[0].titreCarte);
         </Modal.Body>
 
         <Modal.Footer className="buy-pied">
-          <div className="infoBuy">{message}</div>
+          <div className={activClass}>{message}</div>
         </Modal.Footer>
       </Modal>
     </>

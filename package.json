@@ -64,6 +64,7 @@
     "@babel/polyfill": "*",
     "@rehooks/document-title": "^1.0.1",
     "bootstrap": "^4.4.1",
+    "classnames": "^2.2.6",
     "email-validator": "^2.0.4",
     "modali": "^1.2.0",
     "password-validator": "^5.0.3",

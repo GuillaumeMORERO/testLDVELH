@@ -13,8 +13,6 @@ import {
 export default ({pirates}) => {
 
   const player = useSelector(state => state.player);
-  // console.log('carac du player : ', player);
-  // console.log('choisi ? ', player.choosen);
 
   const [show, setShow] = useState(false);
 
@@ -24,8 +22,6 @@ export default ({pirates}) => {
   const dispatch = useDispatch();
 
   const onSubmit = (e) => {
-    // console.log('id choisi :', e);
-    // console.log('pirates', pirates[e])
     dispatch(chargePirate(pirates[e]));
     handleClose();
   }
@@ -36,8 +32,6 @@ export default ({pirates}) => {
     style={{display: player.choosen ? 'none' : '' }}
 
   >
-
-
 
     <div className="disclaimer">
       <h1 className="disclaimer-1">Bienvenue Sur mon CV en ligne !!</h1>

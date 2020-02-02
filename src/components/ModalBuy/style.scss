@@ -39,11 +39,10 @@
         }
       }
     }
-
-
-
     &-pied {
       background-image: $gradient;
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -65,6 +64,16 @@
         transition: .2s;
       }
     }
+  }
+  .infoBuy {
+    padding: 1em;
+    border-radius: 5px;
+  }
+  .good {
+    background-color: $vert;
+  }
+  .bad {
+    background-color: $rouge;
   }
 
 

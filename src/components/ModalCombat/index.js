@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import ClassNames from 'classnames';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Modal, Button, Card, Alert } from 'react-bootstrap';
@@ -18,7 +20,7 @@ export default () => {
   const player = useSelector(state => state.player);
   const { showed, resultPlayer, resultFoe } = useSelector(state => state.combat);
   const foe = useSelector(state => state.foe);
-  const { message } = useSelector(state => state.message);
+  const { message, category } = useSelector(state => state.message);
 
   const handleClose = () => {
     dispatch(hideCombatModal());
@@ -45,12 +47,12 @@ export default () => {
   const playerWin = (result) => {
     if (foe.blindage > result) {
       dispatch(blindageLoss(result));
-      dispatch(changeMessage('Vous avez infligé ' + result + ' point(s) de dégâts au blindage de l\'ennemi !'))
+      dispatch(changeMessage('Vous avez infligé ' + result + ' point(s) de dégâts au blindage de l\'ennemi !', 'good'))
       
     } 
     if (foe.blindage <= result) {
       dispatch(changePV(foe.gain));
-      dispatch(changeMessage('Vous avez vaincu votre ennemi ! vous remportez ' + foe.gain + ' Points de Victoire !'));
+      dispatch(changeMessage('Vous avez vaincu votre ennemi ! vous remportez ' + foe.gain + ' Points de Victoire !', 'good'));
       setTimeout(() => {
         dispatch(hideCombatModal())
       }, 3000);
@@ -60,12 +62,12 @@ export default () => {
     const result = nbr - (nbr*2);
     if (player.blindage > result) {
       dispatch(changeBlindage(nbr));
-      dispatch(changeMessage('L\'ennemi a infligé ' + result + ' point(s) de dégâts a votre blindage !'));
+      dispatch(changeMessage('L\'ennemi a infligé ' + result + ' point(s) de dégâts a votre blindage !', 'bad'));
       
     } 
     if (player.blindage <= result) {
       dispatch(changeBlindage(nbr));
-      dispatch(changeMessage('Vous êtes vaincu...'));
+      dispatch(changeMessage('Vous êtes vaincu...', 'bad'));
       setTimeout(() => {
         dispatch(hideCombatModal());
       }, 3000);
@@ -88,6 +90,16 @@ export default () => {
       dispatch(changeMessage('Personne ne remporte cette passe... continuez à vous battre !'));
     };
   }; 
+
+  const activClass = ClassNames(
+    'infoCombat', 
+    {
+      bad: category === 'bad'
+    },
+    {
+      good: category === 'good'
+    }
+  );
 
   return <div className="combat">
 
@@ -166,7 +178,7 @@ export default () => {
 
         <Modal.Footer className="combat-pied">
           <div className="displayer" style={{display: resultPlayer ? '' : 'none' }}>
-            <div className="infoCombat">{message}</div>
+            <div className={activClass}>{message}</div>
             <div className="displayer-secondary">
               <div className="infoDice">
                 <span id="espace">Avec {player.habileté} dé(s), tu obtiens :</span>   
