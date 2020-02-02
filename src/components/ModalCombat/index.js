@@ -174,14 +174,16 @@ export default () => {
 
         <Modal.Footer className="combat-pied">
           <div className="displayer" style={{display: resultPlayer ? '' : 'none' }}>
-            <div className="infoDice">
-              <span id="espace">Avec {player.habileté} dé(s), tu obtiens :</span>   
-              <span id="spanbr">{resultPlayer}</span>
-            </div>
             <div className="infoCombat">{message}</div>
-            <div className="infoDice">
-              <span id="espace">Avec {foe.skill} dé(s), {foe.name} a obtenu :</span> 
-              <span id="spanbr">{resultFoe}</span>
+            <div className="displayer-secondary">
+              <div className="infoDice">
+                <span id="espace">Avec {player.habileté} dé(s), tu obtiens :</span>   
+                <span id="spanbr">{resultPlayer}</span>
+              </div>
+              <div className="infoDice">
+                <span id="espace">Avec {foe.skill} dé(s), {foe.name} a obtenu :</span> 
+                <span id="spanbr">{resultFoe}</span>
+              </div>
             </div>
           </div>
         </Modal.Footer>

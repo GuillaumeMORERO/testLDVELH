@@ -50,13 +50,18 @@ export default ({ datas, foes }) => {
       <img className="pic-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
 
-    <h2
-      className="fightLauncher"
-      onClick={() => CombatTrigger()}
-      >Lance un combat !!
-    </h2>
-
-    <Button onClick={() => { buyModalDiplayer()} }>Buy Modal Displayer</Button>
+    <div className="launchers">
+      <h2
+        className="fightLauncher"
+        onClick={() => CombatTrigger()}
+        >Lance un combat !!
+      </h2>
+      <h2
+        onClick={() => { buyModalDiplayer()} }
+        className="buyLauncher"
+      >Buy Modal Displayer
+      </h2>
+    </div>
 
     <div className="elem" id="elem">
 

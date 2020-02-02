@@ -38,7 +38,14 @@
     }
   }
 }
-.fightLauncher {
+.launchers {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
+}
+.fightLauncher,
+.buyLauncher {
   background-color: $SF-blue-transparent;
   color: white;
   font-size: 1.5em;
@@ -48,6 +55,7 @@
   margin: 1em 0 1em 0;
   padding: 1em;
   border-radius: 10px;
+  text-shadow: $shadowText;
   &:hover {
     color: white;
     transition: .3s;
@@ -135,6 +143,16 @@
   }
   .teteAccordion {
     font-size: .8em;
+  }
+  .launchers {
+    width: 100%;
+  }
+
+  .fightLauncher,
+  .buyLauncher {
+    padding: .5em;
+    font-size: 1em;
+    width: 200px;
   }
   
 }

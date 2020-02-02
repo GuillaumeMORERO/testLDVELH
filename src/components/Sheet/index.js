@@ -9,6 +9,7 @@ import { changeHabilete, changeBlindage, changePV } from 'src/store/player/actio
 import { chargeFoe } from 'src/store/foe/actions';
 import { resetMessage } from 'src/store/message/actions';
 import { displayCombatModal } from 'src/store/combat/actions';
+import { displayBuyModal } from 'src/store/buy/actions';
 
 export default ({ foes }) => {
 
@@ -54,6 +55,11 @@ export default ({ foes }) => {
     dispatch(resetMessage());
     dispatch(displayCombatModal());
   };
+
+  const buyModalDiplayer = () => {
+    dispatch(resetMessage());
+    dispatch(displayBuyModal());
+  };
   
   return <Container
     fluid
@@ -70,12 +76,18 @@ export default ({ foes }) => {
       <img className="pic-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
 
-    <h2
-      className="fightLauncher"
-      onClick={() => CombatTrigger()}
-      >
-        Lance un combat !!
-    </h2>
+    <div className="launchers">
+      <h2
+        className="fightLauncher"
+        onClick={() => CombatTrigger()}
+        >Lance un combat !!
+      </h2>
+      <h2
+        onClick={() => { buyModalDiplayer()} }
+        className="buyLauncher"
+      >Buy Modal Displayer
+      </h2>
+    </div>
 
     <div className="hud" style={{display: player.blindage > 0 ? '' : 'none' }}>
 

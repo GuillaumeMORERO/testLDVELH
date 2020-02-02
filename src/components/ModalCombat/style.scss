@@ -86,13 +86,23 @@
 .displayer {
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  // justify-content: space-around;
+  // align-items: center;
+  flex-direction: column;
+  &-secondary {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1em;
+  }
 }
 .infoCombat {
   padding: 1em;
   background-color: $SF-blue-transparent;
   border-radius: 5px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
 }
 .infoDice {
   display: flex;
@@ -138,12 +148,16 @@
   }
   .displayer {
     height: 100%;
+    &-secondary {
+      
+    }
   }
   .infoDice {
     flex-direction: column;
     width: 50%;
   }
   .infoCombat {
+    width: 100%;
     text-align: center;
   }
   #espace {
