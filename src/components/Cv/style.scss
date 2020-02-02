@@ -72,18 +72,11 @@
   justify-content: space-around;
   align-items: center;
   color: white;
-  &-trigger {
-    width: 33%;
-  }
   &-titrecarte{
     display: flex;
     flex-direction: row;
     align-items: center;
     font-size: 1.5em;
-    width: 33%;
-  }
-  &-buy {
-    width: 33%;
   }
 }
 

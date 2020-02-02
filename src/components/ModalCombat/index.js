@@ -18,9 +18,9 @@ export default () => {
   const player = useSelector(state => state.player);
   const { showed, resultPlayer, resultFoe } = useSelector(state => state.combat);
   const foe = useSelector(state => state.foe);
-  const { message } = useSelector(state => state.message);
+  // const { message } = useSelector(state => state.message);
 
-  // const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleClose = () => {
     dispatch(hideCombatModal());
@@ -47,12 +47,13 @@ export default () => {
   const playerWin = (result) => {
     if (foe.blindage > result) {
       dispatch(blindageLoss(result));
-      dispatch(changeMessage('Vous avez infligé ' + result + ' point(s) de dégâts au blindage de l\'ennemi !'));
+      setMessage('Vous avez infligé ' + result + ' point(s) de dégâts au blindage de l\'ennemi !');
       
     } 
     if (foe.blindage <= result) {
       dispatch(changePV(foe.gain));
-      dispatch(changeMessage('Vous avez vaincu votre ennemi ! vous remportez ' + foe.gain + ' Points de Victoire !'));
+      // dispatch(changeMessage('Vous avez vaincu votre ennemi ! vous remportez ' + foe.gain + ' Points de Victoire !'));
+      setMessage('Vous avez vaincu votre ennemi ! vous remportez ' + foe.gain + ' Points de Victoire !');
       setTimeout(() => {
         dispatch(hideCombatModal())
       }, 3000);
@@ -62,18 +63,20 @@ export default () => {
     const result = nbr - (nbr*2);
     if (player.blindage > result) {
       dispatch(changeBlindage(nbr));
-      dispatch(changeMessage('L\'ennemi a infligé ' + result + ' point(s) de dégâts a votre blindage !'));
+      setMessage('L\'ennemi a infligé ' + result + ' point(s) de dégâts a votre blindage !');
       
     } 
     if (player.blindage <= result) {
       dispatch(changeBlindage(nbr));
-      dispatch(changeMessage('Vous êtes vaincu...'));
+      setMessage('Vous êtes vaincu...');
       setTimeout(() => {
         dispatch(hideCombatModal())
       }, 3000);
     } 
   };
   const fighting = (habPlayer, habFoe) => {
+
+    setMessage('');
     const scorePlayer = characLaunch(habPlayer);
     const scoreFoe = characLaunch(habFoe);
 
@@ -90,7 +93,7 @@ export default () => {
     };
     if (result === 0) {
       console.log('resultat du combat - match naze - :', result);
-      dispatch(changeMessage('Personne ne remporte cette passe... continuez à vous battre !'));
+      setMessage('Personne ne remporte cette passe... continuez à vous battre !');
     };
   }; 
 
