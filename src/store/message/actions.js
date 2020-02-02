@@ -5,6 +5,6 @@ export const resetMessage = () => {
   return { type: MESSAGE_RESET }
 };
 
-export const changeMessage = (value) => {
-  return { type: MESSAGE_CHANGE, value }
+export const changeMessage = (value, category) => {
+  return { type: MESSAGE_CHANGE, value, category }
 };

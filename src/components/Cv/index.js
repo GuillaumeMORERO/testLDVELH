@@ -21,8 +21,6 @@ export default ({ datas, foes }) => {
   const { choosen } = useSelector(state => state.player);
   const readable = useSelector(state => state.cv);
 
-  console.log(readable);
-
   const CombatTrigger = () => {
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
     dispatch(chargeFoe(foes[foeAleatoire]));
