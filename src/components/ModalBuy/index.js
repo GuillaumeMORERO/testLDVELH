@@ -9,6 +9,7 @@ import './style.scss';
 import { hideBuyModal } from 'src/store/buy/actions';
 import { changeStatus } from 'src/store/cv/actions';
 import { changePV } from 'src/store/player/actions';
+import { changeMessage } from 'src/store/message/actions';
 
 export default ({ datas }) => {
   
@@ -16,8 +17,9 @@ export default ({ datas }) => {
   const { ptvict, nom, avatar } = useSelector(state => state.player);
   const readable = useSelector(state => state.cv);
   const { showed } = useSelector(state => state.buy);
+  const { message } = useSelector(state => state.message);
 
-  const [message, setMessage] = useState('');
+console.log('un nom de section :', datas[0].titreCarte);
 
   const handleClose = () => {
     dispatch(hideBuyModal());
@@ -32,16 +34,15 @@ export default ({ datas }) => {
   const currentCost = d4plus1Roll();
 
   const buyOpening = (id, cost) => {
-    setMessage('');
-    console.log('pour acheter', id, cost);
     if ( ptvict >= cost ) {
       const realCost = cost - (cost * 2);
+      const realID = id - 1;
       dispatch(changePV(realCost));
       dispatch(changeStatus(id));
-      setMessage('ok c\'est good');
+      dispatch(changeMessage('Bravo, t\'as débloqué la section ' + id + ' . ' + datas[realID].titreCarte));
     }
     if ( ptvict < cost ) {
-      setMessage('c\'est pas good sale batar');
+      dispatch(changeMessage('c\'est pas good sale batar'));
     }
     
   };

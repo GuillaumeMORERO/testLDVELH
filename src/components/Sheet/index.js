@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './style.scss';
 import { changeHabilete, changeBlindage, changePV } from 'src/store/player/actions';
 import { chargeFoe } from 'src/store/foe/actions';
-import { resetMessage } from 'src/store/message/actions';
+import { resetMessage, changeMessage } from 'src/store/message/actions';
 import { displayCombatModal } from 'src/store/combat/actions';
 import { displayBuyModal } from 'src/store/buy/actions';
 
@@ -15,8 +15,7 @@ export default ({ foes }) => {
 
   const dispatch = useDispatch();
   const player = useSelector(state => state.player);
-
-  const [message, setMessage] = useState('');
+  const { message } = useSelector(state => state.message);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -34,20 +33,20 @@ export default ({ foes }) => {
     if (result >= 0) {
       if (carac === 'habileté') {
         dispatch(changeHabilete(jetD6))
-        setMessage('Votre Habileté a été augmentée de 1 !')
+        dispatch(changeMessage('Votre Habileté a été augmentée de 1 !'));
       }
       if (carac === 'blindage') {
         dispatch(changeBlindage(jetD6))
-        setMessage('Votre Blindage a été augmentée de ' + jetD6)
+        dispatch(changeMessage('Votre Blindage a été augmentée de ' + jetD6));
       }
       const modif = cost - (cost*2);
       dispatch(changePV(modif));
-      
-      handleShow();
+
     } else {
-      setMessage('essaie pas de tricher gros batar !!')
-      handleShow();
+      dispatch(changeMessage('essaie pas de tricher gros batar !!'));
     }
+    
+    handleShow();
   };
   const CombatTrigger = () => {
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
