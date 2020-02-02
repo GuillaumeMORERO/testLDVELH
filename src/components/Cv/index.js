@@ -6,27 +6,22 @@ import { Container, Accordion, Card, Button, ListGroup, Alert, Modal } from 'rea
 
 import './style.scss';
 
-import { changeStatus } from 'src/store/cv/actions';
 import { displayCombatModal } from 'src/store/combat/actions';
+import { displayBuyModal } from 'src/store/buy/actions';
 import { chargeFoe } from 'src/store/foe/actions';
 import { resetMessage } from 'src/store/message/actions';
-import { changePV } from 'src/store/player/actions';
 
 export default ({ datas, foes }) => {
 
   function entierAleatoire(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
-  const d4plus1Roll = () => {
-    return entierAleatoire(2, 5)
-  };
 
   const dispatch = useDispatch();
   const { choosen } = useSelector(state => state.player);
   const readable = useSelector(state => state.cv);
-  const message = useSelector(state => state.message);
 
-  console.log('etat de la section 2 :', readable[2]);
+  console.log(readable);
 
   const CombatTrigger = () => {
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
@@ -35,14 +30,10 @@ export default ({ datas, foes }) => {
     dispatch(displayCombatModal());
   };
   
-  const currentCost = d4plus1Roll();
-
-  const buyOpening = (id, cost) => {
-    // console.log('pour acheter', id, cost);
-    // const realCost = cost - (cost * 2);
-    // dispatch(changePV(realCost));
-    dispatch(changeStatus(id));
-  }
+  const buyModalDiplayer = () => {
+    dispatch(resetMessage());
+    dispatch(displayBuyModal());
+  };
 
   return <Container
     fluid
@@ -59,11 +50,18 @@ export default ({ datas, foes }) => {
       <img className="pic-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
     </div>
 
-    <h2
-      className="fightLauncher"
-      onClick={() => CombatTrigger()}
-      >Lance un combat !!
-    </h2>
+    <div className="launchers">
+      <h2
+        className="fightLauncher"
+        onClick={() => CombatTrigger()}
+        >Lance un combat !!
+      </h2>
+      <h2
+        onClick={() => { buyModalDiplayer()} }
+        className="buyLauncher"
+      >Buy Modal Displayer
+      </h2>
+    </div>
 
     <div className="elem" id="elem">
 
@@ -76,38 +74,25 @@ export default ({ datas, foes }) => {
               <Accordion.Toggle as={Button} variant="link" eventKey={item.id}>
                 <img className="frame" src="src/data/framehigh.png" alt="framehigh"/>
                 <div className="teteAccordion">
-                  {/* <h1
-                    className="teteAccordion-titrecarte"
-                    style={{color: readable[item.id] ? 'green' : 'red' }}>
-                    {item.id}. {item.titreCarte}
-                  </h1> */}
                   { readable[item.id] && 
                     <h1
                       className="teteAccordion-titrecarte"
-                      style={{color: 'green'}}>
+                      style={{color: '#009465'}}>
                       {item.id}. {item.titreCarte} <div className="min"> - disponible !!! -</div> 
                     </h1>
                   }
                   { !readable[item.id] && 
                     <h1
                       className="teteAccordion-titrecarte"
-                      style={{color: 'red'}}>
+                      style={{color: '#9c4563'}}>
                       {item.id}. {item.titreCarte} <div className="min"> - non disponible !!! -</div>  
                     </h1>
                   }
-                  <h2
-                    className="teteAccordion-buy"
-                    onClick={() => buyOpening(item.id, currentCost)}
-                    style={{display: readable[item.id] ? 'none' : '' }}>
-                    Pour ouvrir : {currentCost} points de victoires...
-                  </h2>
                 </div>
                 <img className="frame" src="src/data/framelow.png" alt="framelow"/>
               </Accordion.Toggle>
             </Card.Header>
             
-            {/* à rajouter dans les attributs de Accordion.Collapse :
-            style={{display: !'readable.readable' + item.id  ? 'none' : '' }} */}
             <Accordion.Collapse eventKey={item.id} style={{display: readable[item.id] ? '' : 'none' }}>
               <Card.Body>
               <h2 className="titreaccord">

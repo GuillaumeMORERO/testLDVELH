@@ -20,8 +20,6 @@ export default () => {
   const foe = useSelector(state => state.foe);
   const { message } = useSelector(state => state.message);
 
-  // const [message, setMessage] = useState('');
-
   const handleClose = () => {
     dispatch(hideCombatModal());
     dispatch(resetScores());
@@ -47,7 +45,7 @@ export default () => {
   const playerWin = (result) => {
     if (foe.blindage > result) {
       dispatch(blindageLoss(result));
-      dispatch(changeMessage('Vous avez infligé ' + result + ' point(s) de dégâts au blindage de l\'ennemi !'));
+      dispatch(changeMessage('Vous avez infligé ' + result + ' point(s) de dégâts au blindage de l\'ennemi !'))
       
     } 
     if (foe.blindage <= result) {
@@ -69,7 +67,7 @@ export default () => {
       dispatch(changeBlindage(nbr));
       dispatch(changeMessage('Vous êtes vaincu...'));
       setTimeout(() => {
-        dispatch(hideCombatModal())
+        dispatch(hideCombatModal());
       }, 3000);
     } 
   };
@@ -81,15 +79,12 @@ export default () => {
 
     const result = scorePlayer - scoreFoe;
     if (result > 0) {
-      console.log('resultat du combat - player wins - :', result);
       playerWin(result);
     };
     if (result < 0) {
-      console.log('resultat du combat - foe wins - :', result);
       foeWin(result);
     };
     if (result === 0) {
-      console.log('resultat du combat - match naze - :', result);
       dispatch(changeMessage('Personne ne remporte cette passe... continuez à vous battre !'));
     };
   }; 
@@ -171,14 +166,16 @@ export default () => {
 
         <Modal.Footer className="combat-pied">
           <div className="displayer" style={{display: resultPlayer ? '' : 'none' }}>
-            <div className="infoDice">
-              <span id="espace">Avec {player.habileté} dé(s), tu obtiens :</span>   
-              <span id="spanbr">{resultPlayer}</span>
-            </div>
             <div className="infoCombat">{message}</div>
-            <div className="infoDice">
-              <span id="espace">Avec {foe.skill} dé(s), {foe.name} a obtenu :</span> 
-              <span id="spanbr">{resultFoe}</span>
+            <div className="displayer-secondary">
+              <div className="infoDice">
+                <span id="espace">Avec {player.habileté} dé(s), tu obtiens :</span>   
+                <span id="spanbr">{resultPlayer}</span>
+              </div>
+              <div className="infoDice">
+                <span id="espace">Avec {foe.skill} dé(s), {foe.name} a obtenu :</span> 
+                <span id="spanbr">{resultFoe}</span>
+              </div>
             </div>
           </div>
         </Modal.Footer>

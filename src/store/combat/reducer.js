@@ -7,6 +7,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log('ça se declenche - combat- ?');
   switch (action.type) {
     case DISPLAY_MODAL_COMBAT: {
       return {

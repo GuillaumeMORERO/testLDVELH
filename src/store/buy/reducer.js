@@ -1,21 +1,21 @@
-import { MESSAGE_RESET, MESSAGE_CHANGE } from './actions';
+import { DISPLAY_MODAL_BUY, HIDE_MODAL_BUY } from './actions';
 
 const initialState = {
-  message: ''
+  showed: false
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case MESSAGE_RESET: {
+    case DISPLAY_MODAL_BUY: {
       return {
         ...state,
-        message: '',
+        showed: true,
       };
     }
-    case MESSAGE_CHANGE: {
+    case HIDE_MODAL_BUY: {
       return {
         ...state,
-        message: action.value,
+        showed: false,
       };
     }
     default: {

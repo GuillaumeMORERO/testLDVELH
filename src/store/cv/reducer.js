@@ -10,8 +10,9 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch (action.value) {
-    case action.value: {
+  console.log('ça se declenche ? - cv -');
+  switch (action.type) {
+    case CHANGE_STATUS: {
       return { ...state, [action.value]: true };
     }
     default: {

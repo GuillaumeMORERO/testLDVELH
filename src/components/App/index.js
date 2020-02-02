@@ -18,6 +18,7 @@ import Select from 'src/components/Select'
 import BurgerGauche from 'src/components/BurgerGauche'
 import Cv from 'src/components/Cv'
 import ModalCombat from 'src/components/ModalCombat'
+import ModalBuy from 'src/components/ModalBuy'
 import Sheet from 'src/components/Sheet'
 import Footer from 'src/components/Footer'
 import datas from 'src/data/dataCv'
@@ -55,6 +56,7 @@ const App = () => {
         <Select pirates={pirates} />
         <Cv datas={datas} foes={foes} />
         <ModalCombat foes={foes} />
+        <ModalBuy datas={datas} />
         <Sheet foes={foes} />
         <Footer />
       </main>

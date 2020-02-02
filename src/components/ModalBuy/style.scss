@@ -1,0 +1,84 @@
+/**
+ * Import
+ */
+ @import 'src/styles/vars-custom';
+
+ .buy {
+    &-titre {
+      &-txt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-shadow: $shadowText;
+      }
+    }
+
+    &-corps {
+      &_contains {
+        display: flex;
+        &-sections {
+          width: 70%;
+          margin-right: 5em;
+          &-list {
+            margin: 1em;
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+        &-infos {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          &-avatar {
+            width: 30%;
+            margin-bottom: 1em;
+          }
+          &-reste {
+            margin-bottom: 1em;
+          }
+        }
+      }
+    }
+
+
+
+    &-pied {
+      background-image: $gradient;
+    }
+  }
+
+  .teteSection {
+    &-titrecarte {
+      display: flex;
+      align-items: center;
+    }
+    &-buy {
+      padding: .5em;
+      border-radius: 5px;
+      &:hover {
+        background-color: $SF-blue-transparent;
+        color: white;
+        transition: .3s;
+        transform: scale(1.2);
+      }
+      &:not(:hover) {
+        transition: .2s;
+      }
+    }
+  }
+
+
+  @media only screen and (max-width: 1024px) {
+
+    .buy {
+      &-corps {
+        &_contains {
+          flex-direction: column-reverse;
+          &-sections {
+            width: 100%;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
