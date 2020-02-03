@@ -10,15 +10,16 @@ export default () => {
 
   const { showed } = useSelector(state => state.combat);
   const { show } = useSelector(state => state.buy);
+  const { contactShow } = useSelector(state => state.contact);
 
   const activeClass = ClassNames(
     'footer',
     {
-      blured: showed || show
+      blured: showed || show || contactShow
     }
   );
 
-  return <Container fluid className={activeClass}>
+  return <Container id="footer" fluid className={activeClass}>
 
     <h1 className="name">
       Guillaume MORERO - 2020

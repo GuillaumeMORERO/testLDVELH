@@ -12,6 +12,7 @@ import { displayCombatModal } from 'src/store/combat/actions';
 import { displayBuyModal } from 'src/store/buy/actions';
 import { chargeFoe } from 'src/store/foe/actions';
 import { resetMessage } from 'src/store/message/actions';
+import { displayContactModal } from 'src/store/contact/actions';
 
 
 
@@ -26,6 +27,7 @@ export default ({ datas, foes }) => {
   const readable = useSelector(state => state.cv);
   const { showed } = useSelector(state => state.combat);
   const { show } = useSelector(state => state.buy);
+  const { contactShow } = useSelector(state => state.contact);
 
   const CombatTrigger = () => {
     const foeAleatoire = entierAleatoire(1, foes.length - 1);
@@ -38,11 +40,14 @@ export default ({ datas, foes }) => {
     dispatch(resetMessage());
     dispatch(displayBuyModal());
   };
+  const contactModalDiplayer = () => {
+    dispatch(displayContactModal());
+  };
 
   const activeClass = ClassNames(
     'cv',
     {
-      blured: showed || show
+      blured: showed || show || contactShow
     }
   );
 
@@ -63,14 +68,19 @@ export default ({ datas, foes }) => {
 
     <div className="launchers">
       <h2
-        className="fightLauncher"
+        className="launchers-bot"
         onClick={() => CombatTrigger()}
         >Lance un combat !!
       </h2>
       <h2
         onClick={() => { buyModalDiplayer()} }
-        className="buyLauncher"
+        className="launchers-bot"
       >Buy Modal Displayer
+      </h2>
+      <h2
+        onClick={() => { contactModalDiplayer()} }
+        className="launchers-bot"
+      >Contact Modal Displayer
       </h2>
     </div>
 

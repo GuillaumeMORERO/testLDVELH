@@ -1,7 +1,7 @@
 /**
  * Imports de dépendances
  */
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +17,7 @@ import Select from 'src/components/Select'
 import Cv from 'src/components/Cv'
 import ModalCombat from 'src/components/ModalCombat'
 import ModalBuy from 'src/components/ModalBuy'
+import ModalContact from 'src/components/ModalContact'
 import Sheet from 'src/components/Sheet'
 import Footer from 'src/components/Footer'
 import datas from 'src/data/dataCv'
@@ -35,14 +36,17 @@ import './style.scss';
 
 const App = () => {
 
-  return <div id="app">
+  return <div id="app" className="app">
+
     <Header datas={datas} />
     <Select pirates={pirates} />
     <Cv datas={datas} foes={foes} />
     <ModalCombat foes={foes} />
     <ModalBuy datas={datas} />
+    <ModalContact />
     <Sheet foes={foes} />
     <Footer />
+
   </div>
 
 }

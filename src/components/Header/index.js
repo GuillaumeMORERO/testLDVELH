@@ -2,22 +2,30 @@ import React from 'react';
 
 import ClassNames from 'classnames';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Container, Navbar, Dropdown, DropdownButton } from 'react-bootstrap';
+
+import { displayContactModal } from 'src/store/contact/actions';
 
 import './style.scss';
 
 export default ({ datas }) => {
 
+  const dispatch = useDispatch();
   const player = useSelector(state => state.player);
   const { showed } = useSelector(state => state.combat);
   const { show } = useSelector(state => state.buy);
+  const { contactShow } = useSelector(state => state.contact);
+
+  const contactModalDiplayer = () => {
+    dispatch(displayContactModal());
+  };
 
   const activeClass = ClassNames(
     'eader',
     {
-      blured: showed || show
+      blured: showed || show || contactShow
     }
   );
 
@@ -33,11 +41,11 @@ export default ({ datas }) => {
       <Navbar.Brand href="#cv" className="eader-barre_lien">CV</Navbar.Brand>
     </Navbar>
 
-    <a href="/" className="eader-titre1">
+    <div className="eader-titre1" onClick={() => { contactModalDiplayer()} }>
       <img className="frame-haut" src="src/data/framehigh.png" alt="framehigh"/>
       <h1 className="eader-titre2">CV - Guillaume MORERO</h1>
       <img className="frame-haut" src="src/data/framelow.png" alt="framelow"/>
-    </a>
+    </div>
 
     <Navbar expand="lg" variant="dark" bg="none" className="eader-barre-lateral">
       <DropdownButton id="dropdown-basic-button" bsPrefix="poly" title="CV/Elem">

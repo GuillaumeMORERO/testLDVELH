@@ -8,13 +8,13 @@ import { Container, Card, Button, ListGroup, Modal } from 'react-bootstrap';
 
 import './style.scss';
 
-import {
-  chargePirate
-} from 'src/store/player/actions';
+import { chargePirate } from 'src/store/player/actions';
+import { displayContactModal } from 'src/store/contact/actions';
 
 export default ({ pirates }) => {
 
   const player = useSelector(state => state.player);
+  const { contactShow } = useSelector(state => state.contact);
 
   const [show, setShow] = useState(false);
 
@@ -27,11 +27,14 @@ export default ({ pirates }) => {
     dispatch(chargePirate(pirates[e]));
     handleClose();
   };
+  const contactModalDiplayer = () => {
+    dispatch(displayContactModal());
+  };
 
   const activeClass = ClassNames( 
     'home',
     {
-      blured: show
+      blured: show || contactShow
     }
   );
 
@@ -51,10 +54,17 @@ export default ({ pirates }) => {
     <div className="choix">
       <div className="choix-cadre">
         <img className="choix-arrow_left see" src="src/data/bluearrow.png" alt="arrow"/>
-        <p className="choix-titre" onClick={handleShow}>Choisissez votre Pirate !</p>
+        <button type="button" className="launchers-bot" onClick={handleShow}>Choisissez votre Pirate !</button>
         <img className="choix-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
       </div>
     </div>
+
+    <button
+      type="button"
+      onClick={() => { contactModalDiplayer()} }
+      className="launchers-bot"
+    >Contact Modal Displayer
+    </button>
 
     <>
 
@@ -85,14 +95,14 @@ export default ({ pirates }) => {
                       </ListGroup>
                     </Card.Body>
                   </div>
-                  <Button
-                    className="carte-bot"
+                  <button
+                    type="button"
+                    className="launchers-bot"
                     variant="primary"
                     onClick={() => onSubmit(pirate.id)}
                   >
                     Je choisis celui-la !
-
-                  </Button>
+                  </button>
                 </Card>
               ))}
             </div>
