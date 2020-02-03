@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import { push as Menu } from 'react-burger-menu'
-import ClassNames from 'classnames';
 import {
   BrowserRouter as Router,
   Switch,

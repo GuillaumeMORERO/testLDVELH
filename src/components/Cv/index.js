@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import ClassNames from 'classnames';
+
 import { Container, Accordion, Card, Button, ListGroup, Alert, Modal } from 'react-bootstrap';
 
 import './style.scss';
@@ -10,6 +12,8 @@ import { displayCombatModal } from 'src/store/combat/actions';
 import { displayBuyModal } from 'src/store/buy/actions';
 import { chargeFoe } from 'src/store/foe/actions';
 import { resetMessage } from 'src/store/message/actions';
+
+
 
 export default ({ datas, foes }) => {
 
@@ -20,9 +24,11 @@ export default ({ datas, foes }) => {
   const dispatch = useDispatch();
   const { choosen } = useSelector(state => state.player);
   const readable = useSelector(state => state.cv);
+  const { showed } = useSelector(state => state.combat);
+  const { show } = useSelector(state => state.buy);
 
   const CombatTrigger = () => {
-    const foeAleatoire = entierAleatoire(0, foes.length - 1);
+    const foeAleatoire = entierAleatoire(1, foes.length - 1);
     dispatch(chargeFoe(foes[foeAleatoire]));
     dispatch(resetMessage());
     dispatch(displayCombatModal());
@@ -33,9 +39,16 @@ export default ({ datas, foes }) => {
     dispatch(displayBuyModal());
   };
 
+  const activeClass = ClassNames( // apply a blur effect on body when a modal is showing
+    'cv',
+    {
+      blured: showed || show
+    }
+  );
+
   return <Container
     fluid
-    className="cv"
+    className={activeClass}
     id="cv"
     style={{display: choosen ? '' : 'none' }}
   >

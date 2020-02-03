@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import ClassNames from 'classnames';
+
 import { Container, OverlayTrigger, Tooltip, Modal } from 'react-bootstrap';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -16,10 +18,12 @@ export default ({ foes }) => {
   const dispatch = useDispatch();
   const player = useSelector(state => state.player);
   const { message } = useSelector(state => state.message);
+  const { showed } = useSelector(state => state.combat);
+  const { show } = useSelector(state => state.buy);
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [showMess, setShowMess] = useState(false);
+  const handleClose = () => setShowMess(false);
+  const handleShow = () => setShowMess(true);
 
   function entierAleatoire(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -59,10 +63,17 @@ export default ({ foes }) => {
     dispatch(resetMessage());
     dispatch(displayBuyModal());
   };
+
+  const activeClass = ClassNames( // apply a blur effect on body when a modal is showing
+    'sheet',
+    {
+      blured: showed || showMess || show
+    }
+  );
   
   return <Container
     fluid
-    className="sheet"
+    className={activeClass}
     id="sheet"
     style={{display: player.choosen ? '' : 'none' }}
   >
@@ -226,7 +237,7 @@ export default ({ foes }) => {
     </div>
 
     <div className="tunerContainer">
-      <Modal show={show} onHide={handleClose} centered>
+      <Modal show={showMess} onHide={handleClose} centered>
         <div className="tunedModal">
           <Modal.Header>
             <Modal.Title className="tunedModal-txt"> {message} </Modal.Title>
