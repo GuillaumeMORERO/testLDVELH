@@ -20,31 +20,29 @@ export default () => {
   return <div className="contact">
 
     <>
-      <Modal show={contactShow} onHide={handleClose} centered className="myModal">
+      <Modal show={contactShow} onHide={handleClose} size="lg" centered className="myModal">
 
         <Modal.Header className="myModal-tete">
-          <Modal.Title className="myModal-titre">CONTAAAACT !!!</Modal.Title>
+          <Modal.Title className="myModal-tete-titre">CONTAAAACT !!!</Modal.Title>
         </Modal.Header>
         <Modal.Body className="myModal-corps">
 
-        <h1 className="name">
-          Guillaume MORERO - 2020
-        </h1>
+          <h1 className="myModal-corps_name">
+            Guillaume MORERO - 2020
+          </h1>
 
-        <div className="liens">
-          <a href="#" className="liens-low">
-            Contactez-moi !
-          </a>
-          <a href="https://github.com/GuillaumeMORERO/testLDVELH" className="liens-low">
-            GitHub de ce CV
-          </a>
-          <a href="https://www.linkedin.com/in/guillaume-morero/" className="liens-low">
-            LinkedIn
-          </a>
-          <a href="src/data/CV Guillaume Morero WEB_DEV_REACT.pdf" className="liens-low">
-            Mon CV à télécharger
-          </a>
-        </div>
+          <div className="liensContact">
+            <a href="https://github.com/GuillaumeMORERO/testLDVELH" className="liensContact-high">
+              GitHub de ce CV
+            </a>
+            <a href="https://www.linkedin.com/in/guillaume-morero/" className="liensContact-high">
+              LinkedIn
+            </a>
+            <a href="src/data/CV Guillaume Morero WEB_DEV_REACT.pdf" className="liensContact-high">
+              Mon CV à télécharger
+            </a>
+            <a href="mailto:guillaume.morero@gmail.com">Un p'tit mail ?</a>
+          </div>
 
         </Modal.Body>
         
