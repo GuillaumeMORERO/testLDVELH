@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import ClassNames from 'classnames';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Container, Card, Button, ListGroup, Modal } from 'react-bootstrap';
@@ -24,11 +26,18 @@ export default ({pirates}) => {
   const onSubmit = (e) => {
     dispatch(chargePirate(pirates[e]));
     handleClose();
-  }
+  };
+
+  const activeClass = ClassNames( 
+    'home',
+    {
+      blured: show
+    }
+  );
 
   return <Container
     fluid
-    className="home"
+    className={activeClass}
     style={{display: player.choosen ? 'none' : '' }}
 
   >
