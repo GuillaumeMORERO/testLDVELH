@@ -20,13 +20,12 @@ export default () => {
   return <div className="contact">
 
     <>
+      <Modal show={contactShow} onHide={handleClose} centered className="myModal">
 
-      <Modal show={contactShow} onHide={handleClose}>
-
-        <Modal.Header>
-          <Modal.Title>CONTAAAACT !!!</Modal.Title>
+        <Modal.Header className="myModal-tete">
+          <Modal.Title className="myModal-titre">CONTAAAACT !!!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="myModal-corps">
 
         <h1 className="name">
           Guillaume MORERO - 2020

@@ -105,94 +105,90 @@ export default () => {
 
     <Modal show={showed} onHide={handleClose} size="xl" centered id="combatModal">
 
-      <div className="combackdrop">
+      <Modal.Header className="combat-titre">
+        <Modal.Title className="combat-titre-txt">
+          <div>Ici on se bagarre !!</div>  
+          <div>Si celui d'en face est trop difficile (...Mouais...), ferme cette fenêtre et ouvre la à nouveau.</div>  
+        </Modal.Title>
+      </Modal.Header>
 
-        <Modal.Header className="combat-titre">
-          <Modal.Title className="combat-titre-txt">
-            <div>Ici on se bagarre !!</div>  
-            <div>Si celui d'en face est trop difficile (...Mouais...), ferme cette fenêtre et ouvre la à nouveau.</div>  
-          </Modal.Title>
-        </Modal.Header>
+      <Modal.Body className="combat-corps">
 
-        <Modal.Body className="combat-corps">
+        <div className="arene">
 
-          <div className="arene">
+          <section className="player">
 
-            <section className="player">
+            <h1 className="player-name">{player.nom}</h1>
+            <h2 className="player-descr">{player.descr}</h2>
 
-              <h1 className="player-name">{player.nom}</h1>
-              <h2 className="player-descr">{player.descr}</h2>
+            <div className="player-carac">
 
-              <div className="player-carac">
-
-                <img className="player-carac_avatar" id="caracPlayer" src={player.avatar} alt="avatar"/>
-                <div className="player-carac_contains">
-                  <div className="player-carac_contains-comp">
-                    <p id="espace">Habileté</p>
-                    <div id="spanbr">{player.habileté}</div>
-                  </div>
-                  <div className="player-carac_contains-comp">
-                    <p id="espace">Blindage</p>
-                    <div id="spanbr">{player.blindage}</div>
-                  </div>
-                </div>
-
-              </div>
-            
-            </section>
-
-            <section className="foe">
-            <h1 className="foe-name">{foe.name}</h1>
-            <h2 className="foe-descr">{foe.descr}</h2>
-
-            <div className="foe-carac">
-
-              <img className="foe-carac_avatar" src={foe.avatar} alt="avatar"/>
-              <div className="foe-carac_contains">
+              <img className="player-carac_avatar" id="caracPlayer" src={player.avatar} alt="avatar"/>
+              <div className="player-carac_contains">
                 <div className="player-carac_contains-comp">
                   <p id="espace">Habileté</p>
-                  <div id="spanbr">{foe.skill}</div>
+                  <div id="spanbr">{player.habileté}</div>
                 </div>
                 <div className="player-carac_contains-comp">
                   <p id="espace">Blindage</p>
-                  <div id="spanbr">{foe.blindage}</div>
+                  <div id="spanbr">{player.blindage}</div>
                 </div>
               </div>
 
             </div>
+          
           </section>
 
-          </div>
-          <div className="btncenter">
-            <button
-              className="btncenter-fight"
-              type="button"
-              onClick={() => fighting(player.habileté, foe.skill)}
-              style={{display: player.blindage <= 0 ? 'none' : '' }}
-            >
-              Fight !!!
-            </button>
-          </div>
+          <section className="foe">
+          <h1 className="foe-name">{foe.name}</h1>
+          <h2 className="foe-descr">{foe.descr}</h2>
 
-        </Modal.Body>
+          <div className="foe-carac">
 
-        <Modal.Footer className="combat-pied">
-          <div className="displayer" style={{display: resultPlayer ? '' : 'none' }}>
-            <div className={activClass}>{message}</div>
-            <div className="displayer-secondary">
-              <div className="infoDice">
-                <span id="espace">Avec {player.habileté} dé(s), tu obtiens :</span>   
-                <span id="spanbr">{resultPlayer}</span>
+            <img className="foe-carac_avatar" src={foe.avatar} alt="avatar"/>
+            <div className="foe-carac_contains">
+              <div className="player-carac_contains-comp">
+                <p id="espace">Habileté</p>
+                <div id="spanbr">{foe.skill}</div>
               </div>
-              <div className="infoDice">
-                <span id="espace">Avec {foe.skill} dé(s), {foe.name} a obtenu :</span> 
-                <span id="spanbr">{resultFoe}</span>
+              <div className="player-carac_contains-comp">
+                <p id="espace">Blindage</p>
+                <div id="spanbr">{foe.blindage}</div>
               </div>
             </div>
-          </div>
-        </Modal.Footer>
 
-      </div>
+          </div>
+        </section>
+
+        </div>
+        <div className="btncenter">
+          <button
+            className="btncenter-fight"
+            type="button"
+            onClick={() => fighting(player.habileté, foe.skill)}
+            style={{display: player.blindage <= 0 ? 'none' : '' }}
+          >
+            Fight !!!
+          </button>
+        </div>
+
+      </Modal.Body>
+
+      <Modal.Footer className="combat-pied">
+        <div className="displayer" style={{display: resultPlayer ? '' : 'none' }}>
+          <div className={activClass}>{message}</div>
+          <div className="displayer-secondary">
+            <div className="infoDice">
+              <span id="espace">Avec {player.habileté} dé(s), tu obtiens :</span>   
+              <span id="spanbr">{resultPlayer}</span>
+            </div>
+            <div className="infoDice">
+              <span id="espace">Avec {foe.skill} dé(s), {foe.name} a obtenu :</span> 
+              <span id="spanbr">{resultFoe}</span>
+            </div>
+          </div>
+        </div>
+      </Modal.Footer>
 
     </Modal>
 
