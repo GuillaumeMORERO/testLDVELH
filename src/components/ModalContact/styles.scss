@@ -1,0 +1,39 @@
+/**
+ * Import
+ */
+ @import 'src/styles/vars-custom';
+
+
+.myModal {
+  text-shadow: $shadowText;
+  
+  &-tete {
+
+    &-titre {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-shadow: $shadowText;
+    }
+  }
+
+  &-corps {
+
+    &_name {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+  }
+  &-pied {
+
+  }
+}
+.liensContact {
+  text-align: center;
+  &-high {
+    margin: .5em 1em;
+  }
+}
+
+
+

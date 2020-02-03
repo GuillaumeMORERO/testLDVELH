@@ -34,4 +34,20 @@
     }
   }
 }
+.modal {
+  color: white;
+  background-color: $transparent-black;
+  &-content {
+    background-color: transparent;
+  }
+  &-header {
+    justify-content: center;
+    border: none;
+  }
+}
+.selectdrop {
+  &-txt {
+    text-shadow: $shadowText;
+  }
+}
   
