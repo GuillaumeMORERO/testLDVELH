@@ -2,7 +2,6 @@
  * Imports de dépendances
  */
 import React from 'react';
-import { push as Menu } from 'react-burger-menu'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +14,6 @@ import {
  */
 import Header from 'src/components/Header'
 import Select from 'src/components/Select'
-import BurgerGauche from 'src/components/BurgerGauche'
 import Cv from 'src/components/Cv'
 import ModalCombat from 'src/components/ModalCombat'
 import ModalBuy from 'src/components/ModalBuy'
@@ -29,7 +27,6 @@ import foes from 'src/data/foes'
 // Données
 // Styles et assets
 import './app.sass';
-import './burgerStyle.scss';
 import './style.scss';
 
 /**
@@ -39,32 +36,15 @@ import './style.scss';
 const App = () => {
 
   return <div id="app">
-
-    {/* <BurgerGauche /> */}
-
-    <div id="outer-container">
-      <Menu
-        pageWrapId={ "page-wrap" }
-        outerContainerId={ "outer-container" }
-        customBurgerIcon={ <img src="src/data/arrowRight.svg" alt="arrow"/>}
-      >
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-      </Menu>
-      <main id="page-wrap">
-        <Header datas={datas} />
-        <Select pirates={pirates} />
-        <Cv datas={datas} foes={foes} />
-        <ModalCombat foes={foes} />
-        <ModalBuy datas={datas} />
-        <Sheet foes={foes} />
-        <Footer />
-      </main>
-    </div>
-
-
+    <Header datas={datas} />
+    <Select pirates={pirates} />
+    <Cv datas={datas} foes={foes} />
+    <ModalCombat foes={foes} />
+    <ModalBuy datas={datas} />
+    <Sheet foes={foes} />
+    <Footer />
   </div>
+
 }
 
 /**

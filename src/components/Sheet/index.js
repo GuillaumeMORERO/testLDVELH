@@ -64,7 +64,7 @@ export default ({ foes }) => {
     dispatch(displayBuyModal());
   };
 
-  const activeClass = ClassNames( // apply a blur effect on body when a modal is showing
+  const activeClass = ClassNames(
     'sheet',
     {
       blured: showed || showMess || show
