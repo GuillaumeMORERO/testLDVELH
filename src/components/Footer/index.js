@@ -26,7 +26,7 @@ export default () => {
     </h1>
 
     <div className="liens">
-      <a href="https://github.com/GuillaumeMORERO/testLDVELH" className="liens-low">
+      <a href="https://github.com/GuillaumeMORERO/CV-online" className="liens-low">
         GitHub de ce CV
       </a>
       <a href="https://www.linkedin.com/in/guillaume-morero/" className="liens-low">

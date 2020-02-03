@@ -32,7 +32,7 @@ export default () => {
           </h1>
 
           <div className="liensContact">
-            <a href="https://github.com/GuillaumeMORERO/testLDVELH" className="liensContact-high">
+            <a href="https://github.com/GuillaumeMORERO/CV-online" className="liensContact-high">
               GitHub de ce CV
             </a>
             <a href="https://www.linkedin.com/in/guillaume-morero/" className="liensContact-high">
