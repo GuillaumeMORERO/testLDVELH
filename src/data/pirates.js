@@ -21,6 +21,6 @@ export default [
     avatar: 'src/data/pirate3.png',
     skill: 4,
     blindage: 1,
-    descr: '"C\'est plus marrant d\'être un pirate que de s\'engager... Ou que ce soit !"'
+    descr: '"C\'est plus marrant d\'être un pirate que de s\'engager... Où que ce soit !"'
   }
 ]

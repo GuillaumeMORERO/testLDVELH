@@ -34,7 +34,7 @@ export default [
   {
     id: 4,
     readable: false,
-    titreCarte: 'Experiences ',
+    titreCarte: 'Expériences ',
     titreAccord: 'Déc. 2019 : Lead Dev Front web / mobile (projet de formation)',
     liste: [
       'Développer l’application « SeeMyGames » en équipe de 5 personnes : gestionnaire de bibliothèque de jeux vidéo',
@@ -47,7 +47,7 @@ export default [
   {
     id: 5,
     readable: false,
-    titreCarte: 'Experiences ',
+    titreCarte: 'Expériences ',
     titreAccord: '2000 – 2018 : Employé polyvalent en restauration collective pour Sodexo, Buffalo Grill, Mc Donald’s',
     liste: [
       'En charge de la relation commerciale : accueil de la clientèle, prise de commandes et encaissement'
@@ -56,7 +56,7 @@ export default [
   {
     id: 6,
     readable: false,
-    titreCarte: 'Intérets Personnels',
+    titreCarte: 'Intérêts Personnels',
     titreAccord: 'De 1997 à maintenant : pratique professionnelle de la batterie, basse et guitare',
     liste: [
       'Enregistrement et mixage de 12 albums pour 4 groupes de Métal',

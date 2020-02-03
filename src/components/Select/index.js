@@ -47,7 +47,7 @@ export default ({ pirates }) => {
 
     <div className="disclaimer">
       <h1 className="disclaimer-1">Bienvenue Sur le CV de Guillaume MORERO !!</h1>
-      <h2 className="disclaimer-2">Sur ce Cv, vas y avoir de quoi faire !</h2>
+      <h2 className="disclaimer-2">Sur ce Cv, va y avoir de quoi faire !</h2>
       <h2 className="disclaimer-2">Tout un tas d'exploits t'attendent ici, et faudra être digne de ton avatar super zélé, et mériter de lire les différentes sections ! </h2>
       <h2 className="disclaimer-2">Et pour ce faire, il va te falloir être mal accompagné :</h2>
     </div>
