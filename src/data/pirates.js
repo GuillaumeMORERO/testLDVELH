@@ -5,7 +5,7 @@ export default [
     avatar: 'src/data/pirate1.png',
     skill: 2,
     blindage: 10,
-    descr: 'Un pirate 2 la mort'
+    descr: '"Celui qui pille avec un petit vaisseau se nomme pirate ; celui qui pille avec un grand navire s\'appelle conquérant."'
   },
   {
     id: 1,
@@ -13,7 +13,7 @@ export default [
     avatar: 'src/data/pirate2.png',
     skill: 3,
     blindage: 5,
-    descr: 'Un pirate 3 la mort'
+    descr: '"La symbolique est indissociable de la poésie, comme le rhum l\'est des pirates"'
   },
   {
     id: 2,
@@ -21,6 +21,6 @@ export default [
     avatar: 'src/data/pirate3.png',
     skill: 4,
     blindage: 1,
-    descr: 'Un pirate de ouf'
+    descr: '"C\'est plus marrant d\'être un pirate que de s\'engager... Ou que ce soit !"'
   }
 ]
