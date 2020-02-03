@@ -130,6 +130,9 @@
   font-size: .5em;
   margin: 0 2em 0 2em;
 }
+.blured {
+  filter: blur(5px);
+}
 
 @media only screen and (max-width: 1024px) {
   .cv {

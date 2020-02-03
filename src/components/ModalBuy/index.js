@@ -18,7 +18,7 @@ export default ({ datas }) => {
   const dispatch = useDispatch();
   const { ptvict, nom, avatar } = useSelector(state => state.player);
   const readable = useSelector(state => state.cv);
-  const { showed } = useSelector(state => state.buy);
+  const { show } = useSelector(state => state.buy);
   const { message, category } = useSelector(state => state.message);
 
   const handleClose = () => {
@@ -60,7 +60,7 @@ export default ({ datas }) => {
   return <div className="buy">
 
     <>
-      <Modal show={showed} onHide={handleClose} size="xl" centered id="buyModal">
+      <Modal show={show} onHide={handleClose} size="xl" centered id="buyModal">
         <Modal.Header className="buy-titre">
           <Modal.Title className="buy-titre-txt">Ici on achete des ouvertures de section...</Modal.Title>
         </Modal.Header>

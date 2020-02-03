@@ -1,7 +1,7 @@
 import { DISPLAY_MODAL_BUY, HIDE_MODAL_BUY } from './actions';
 
 const initialState = {
-  showed: false
+  show: false
 };
 
 export default (state = initialState, action) => {
@@ -9,13 +9,13 @@ export default (state = initialState, action) => {
     case DISPLAY_MODAL_BUY: {
       return {
         ...state,
-        showed: true,
+        show: true,
       };
     }
     case HIDE_MODAL_BUY: {
       return {
         ...state,
-        showed: false,
+        show: false,
       };
     }
     default: {
