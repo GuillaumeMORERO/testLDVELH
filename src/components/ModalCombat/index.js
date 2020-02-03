@@ -47,12 +47,12 @@ export default () => {
   const playerWin = (result) => {
     if (foe.blindage > result) {
       dispatch(blindageLoss(result));
-      dispatch(changeMessage('Vous avez infligé ' + result + ' point(s) de dégâts au blindage de l\'ennemi !', 'good'))
+      dispatch(changeMessage('T\'as infligé ' + result + ' point(s) de dégâts au blindage de l\'ennemi !', 'good'))
       
     } 
     if (foe.blindage <= result) {
       dispatch(changePV(foe.gain));
-      dispatch(changeMessage('Vous avez vaincu votre ennemi ! vous remportez ' + foe.gain + ' Points de Victoire !', 'good'));
+      dispatch(changeMessage('T\'as remporté une grande victoire... Et empoche ' + foe.gain + ' Points de Victoire !', 'good'));
       setTimeout(() => {
         dispatch(hideCombatModal())
       }, 3000);
@@ -62,12 +62,12 @@ export default () => {
     const result = nbr - (nbr*2);
     if (player.blindage > result) {
       dispatch(changeBlindage(nbr));
-      dispatch(changeMessage('L\'ennemi a infligé ' + result + ' point(s) de dégâts a votre blindage !', 'bad'));
+      dispatch(changeMessage('L\'ennemi a infligé ' + result + ' point(s) de dégâts a ton blindage !', 'bad'));
       
     } 
     if (player.blindage <= result) {
       dispatch(changeBlindage(nbr));
-      dispatch(changeMessage('Vous êtes vaincu...', 'bad'));
+      dispatch(changeMessage('T\as perdu ce combat... T\'en fais pas, il te reste toute une guerre !!', 'bad'));
       setTimeout(() => {
         dispatch(hideCombatModal());
       }, 3000);
@@ -87,7 +87,7 @@ export default () => {
       foeWin(result);
     };
     if (result === 0) {
-      dispatch(changeMessage('Personne ne remporte cette passe... continuez à vous battre !', 'nul'));
+      dispatch(changeMessage('Personne ne remporte cette passe... continue à te battre !', 'nul'));
     };
   }; 
 
@@ -111,7 +111,7 @@ export default () => {
       <Modal.Header className="combat-titre">
         <Modal.Title className="combat-titre-txt">
           <div>Ici on se bagarre !!</div>  
-          <div>Si celui d'en face est trop difficile (...Mouais...), ferme cette fenêtre et ouvre la à nouveau.</div>  
+          <div>Si tu le sens pas (...Mouais...), ferme cette fenêtre et ouvre la à nouveau.</div>  
         </Modal.Title>
       </Modal.Header>
 

@@ -42,7 +42,7 @@ export default ({ datas }) => {
       dispatch(changeMessage('Bravo, t\'as débloqué la section ' + id + ' . ' + datas[realID].titreCarte, 'good'));
     }
     if ( ptvict < cost ) {
-      dispatch(changeMessage('c\'est pas good sale batar', 'bad'));
+      dispatch(changeMessage('c\'est pas bien de tricher....', 'bad'));
     }
     
   };
@@ -101,7 +101,7 @@ export default ({ datas }) => {
             </section>
             <section className="buy-corps_contains-infos">
               <img src={avatar} alt="avatar" className="buy-corps_contains-infos-avatar"/>
-              <div className="buy-corps_contains-infos-reste"> {nom}, il vous reste {ptvict} points de victoire. </div>
+              <div className="buy-corps_contains-infos-reste"> {nom}, il te reste {ptvict} points de victoire. </div>
             </section>
 
           </div>

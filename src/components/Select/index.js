@@ -4,7 +4,7 @@ import ClassNames from 'classnames';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Container, Card, Button, ListGroup, Modal } from 'react-bootstrap';
+import { Container,Accordion, Card, Button, ListGroup, Modal } from 'react-bootstrap';
 
 import './style.scss';
 
@@ -46,25 +46,80 @@ export default ({ pirates }) => {
   >
 
     <div className="disclaimer">
-      <h1 className="disclaimer-1">Bienvenue Sur mon CV en ligne !!</h1>
-      <h2 className="disclaimer-2">Ca va être spécial : faut débloquer dees trucs.</h2>
-      <h2 className="disclaimer-2">Et pour ce faire, faut être mal accompagné :</h2>
+      <h1 className="disclaimer-1">Bienvenue Sur le CV de Guillaume MORERO !!</h1>
+      <h2 className="disclaimer-2">Sur ce Cv, vas y avoir de quoi faire !</h2>
+      <h2 className="disclaimer-2">Tout un tas d'exploits t'attendent ici, et faudra être digne de ton avatar super zélé, et mériter de lire les différentes sections ! </h2>
+      <h2 className="disclaimer-2">Et pour ce faire, il va te falloir être mal accompagné :</h2>
     </div>
 
     <div className="choix">
       <div className="choix-cadre">
         <img className="choix-arrow_left see" src="src/data/bluearrow.png" alt="arrow"/>
-        <button type="button" className="launchers-bot" onClick={handleShow}>Choisissez votre Pirate !</button>
+        <button type="button" className="launchers-bot" onClick={handleShow}>Choisis ton Pirate !</button>
         <img className="choix-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
       </div>
     </div>
 
-    <button
-      type="button"
-      onClick={() => { contactModalDiplayer()} }
-      className="launchers-bot"
-    >Contact Modal Displayer
-    </button>
+    <div className="choix">
+      <div className="choix-cadre">
+        <img className="choix-arrow_left see" src="src/data/bluearrow.png" alt="arrow"/>
+        <button
+          type="button"
+          onClick={() => { contactModalDiplayer()} }
+          className="launchers-bot"
+        >Contacte moi !
+        </button>
+        <img className="choix-arrow_right see" src="src/data/bluearrow.png" alt="arrow"/>
+      </div>
+    </div>
+
+
+
+
+    <Accordion defaultActiveKey="1" bsPrefix="accordion-rules">
+
+      <Card >
+
+        <Card.Header>
+          <Accordion.Toggle as={Button} variant="link" eventKey="0">
+            <img className="frame" src="src/data/framehigh.png" alt="framehigh"/>
+            <div className="teteAccordion-rules">
+              <h1
+                className="teteAccordion-rules-hun titrerules"
+                >
+                Voici les Régles.... Car oui, il en faut même ici !
+              </h1>
+            </div>
+            <img className="frame" src="src/data/framelow.png" alt="framelow"/>
+          </Accordion.Toggle>
+        </Card.Header>
+        
+        <Accordion.Collapse eventKey="0">
+          <Card.Body>
+            <h2 className="titreaccord-rules titrerules">
+              Voici une liste simple des bonnes conduites à tenir :
+            </h2>
+            <ListGroup>
+              
+              <ListGroup.Item className="listRule">Choisis bien ton Pirate : il sont proposés par ordre décroissant de difficulté.</ListGroup.Item>
+              <ListGroup.Item>Outre son nom et sa description, un pirate est défini par son Habileté et son Blindage.</ListGroup.Item>
+              <ListGroup.Item>Les combats sont résolus de la maniére suivantes : chaque bélligérant fait un jet avec autant de dés que son Habileté. Le résultat de l'ennemi est soustrait à ton résultat : nombre positif = ce que tu infliges à l'adversaire ! Nombre négatif : Ce que ton Blindage subit.</ListGroup.Item>
+              <ListGroup.Item>En cas de succés, tu gagnes un nombre de points de victoire qui dépend de l'adversaire.</ListGroup.Item>
+              <ListGroup.Item>Et grâce à ces points de victoires, tu pourra débloquer des sections du CV pour en apprendre plus sur le génie à l'origine de ce site !!</ListGroup.Item>
+             
+            </ListGroup>
+          </Card.Body>
+        </Accordion.Collapse>
+
+      </Card>
+
+    </Accordion>
+
+
+    
+
+
+
 
     <>
 

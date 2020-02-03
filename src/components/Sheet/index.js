@@ -39,17 +39,17 @@ export default ({ foes }) => {
     if (result >= 0) {
       if (carac === 'habileté') {
         dispatch(changeHabilete(jetD6))
-        dispatch(changeMessage('Votre Habileté a été augmentée de 1 !'));
+        dispatch(changeMessage('Ton Habileté a été augmentée de 1 !'));
       }
       if (carac === 'blindage') {
         dispatch(changeBlindage(jetD6))
-        dispatch(changeMessage('Votre Blindage a été augmentée de ' + jetD6));
+        dispatch(changeMessage('Ton Blindage a été augmentée de ' + jetD6));
       }
       const modif = cost - (cost*2);
       dispatch(changePV(modif));
 
     } else {
-      dispatch(changeMessage('essaie pas de tricher gros batar !!'));
+      dispatch(changeMessage('essaie pas de tricher,c\'est pas bien !!'));
     }
     
     handleShow();
@@ -101,12 +101,12 @@ export default ({ foes }) => {
       <h2
         onClick={() => { buyModalDiplayer()} }
         className="launchers-bot"
-      >Buy Modal Displayer
+      >Débloques des sections du CV
       </h2>
       <h2
         onClick={() => { contactModalDiplayer()} }
         className="launchers-bot"
-      >Contact Modal Displayer
+      >Contacte moi !
       </h2>
     </div>
 
@@ -128,7 +128,7 @@ export default ({ foes }) => {
               placement="top"
               overlay={
                 <Tooltip id="tooltip-top">
-                  Nombre de points d' Habileté permettant blablabla...
+                  Nombre de points d' Habileté. Jet de 1D6 par points pour les combats.
                 </Tooltip>
               }
             >
@@ -152,7 +152,7 @@ export default ({ foes }) => {
               placement="top"
               overlay={
                 <Tooltip id="tooltip-top">
-                  Nombre de points de blindage permettant blablabla...
+                  Nombre de points de blindage. A zero, c'est perdu !
                 </Tooltip>
               }
             >
@@ -176,7 +176,7 @@ export default ({ foes }) => {
               placement="top"
               overlay={
                 <Tooltip id="tooltip-top">
-                  Nombre de points de victoire permettant blablabla...
+                  Nombre de points de victoire. Permet de débloquer dees sections, d'améliorer le blindage ou l'habileté.
                 </Tooltip>
               }
             >
@@ -202,11 +202,11 @@ export default ({ foes }) => {
             placement="top"
             overlay={
               <Tooltip id="tooltip-top">
-                Dépense 3 points de victoires pour réparer ton ship de 1D6
+                Dépense 3 points de victoires pour réparer ton blindage de 1D6
               </Tooltip>
             }
           >
-            <p className="hud-notice">Répare ton ship de 1D6 pour 3 P.V.</p>
+            <p className="hud-notice">Répare ton blindage de 1D6 pour 3 P.V.</p>
           </OverlayTrigger>
           <img
             src="src/data/tools.png"
@@ -242,8 +242,8 @@ export default ({ foes }) => {
 
     <div className="mort" style={{display: player.blindage <= 0 ? '' : 'none' }}>
       <a className="mort-tadel" href="/">
-        <div className="mort-amor" >Vous êtes vaincu ?!?</div>  
-        <div className="mort-amor" >Cliquez pour recommencer... Et faites plus attention !!</div>
+        <div className="mort-amor" >T' as perdu ?!?</div>  
+        <div className="mort-amor" >Clique pour recommencer... Et fait plus attention !!</div>
       </a>
     </div>
 

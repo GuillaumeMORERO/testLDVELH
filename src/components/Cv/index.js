@@ -76,12 +76,12 @@ export default ({ datas, foes }) => {
       <h2
         onClick={() => { buyModalDiplayer()} }
         className="launchers-bot"
-      >Buy Modal Displayer
+      >Débloque des sections du CV
       </h2>
       <h2
         onClick={() => { contactModalDiplayer()} }
         className="launchers-bot"
-      >Contact Modal Displayer
+      >Contacte moi !
       </h2>
     </div>
 
