@@ -6,6 +6,7 @@ import combat from 'src/store/combat/reducer';
 import message from 'src/store/message/reducer';
 import foe from 'src/store/foe/reducer';
 import buy from 'src/store/buy/reducer';
+import contact from 'src/store/contact/reducer';
 
 export default combineReducers({
   player,
@@ -13,5 +14,6 @@ export default combineReducers({
   combat,
   message,
   foe,
-  buy
+  buy,
+  contact
 });

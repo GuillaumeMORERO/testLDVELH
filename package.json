@@ -74,11 +74,13 @@
     "react-burger-menu": "^2.6.13",
     "react-collapse": "^5.0.1",
     "react-dice-complete": "^1.2.0",
+    "react-dock": "^0.2.4",
     "react-dom": "*",
     "react-headroom": "^3.0.0",
     "react-redux": "^7.1.3",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
+    "react-sidebar": "^3.0.2",
     "react-stickynode": "^2.1.1",
     "redux": "^4.0.4"
   }

@@ -12,6 +12,7 @@ import { chargeFoe } from 'src/store/foe/actions';
 import { resetMessage, changeMessage } from 'src/store/message/actions';
 import { displayCombatModal } from 'src/store/combat/actions';
 import { displayBuyModal } from 'src/store/buy/actions';
+import { displayContactModal } from 'src/store/contact/actions';
 
 export default ({ foes }) => {
 
@@ -20,6 +21,7 @@ export default ({ foes }) => {
   const { message } = useSelector(state => state.message);
   const { showed } = useSelector(state => state.combat);
   const { show } = useSelector(state => state.buy);
+  const { contactShow } = useSelector(state => state.contact);
 
   const [showMess, setShowMess] = useState(false);
   const handleClose = () => setShowMess(false);
@@ -63,11 +65,14 @@ export default ({ foes }) => {
     dispatch(resetMessage());
     dispatch(displayBuyModal());
   };
+  const contactModalDiplayer = () => {
+    dispatch(displayContactModal());
+  };
 
   const activeClass = ClassNames(
     'sheet',
     {
-      blured: showed || showMess || show
+      blured: showed || showMess || show || contactShow
     }
   );
   
@@ -88,14 +93,19 @@ export default ({ foes }) => {
 
     <div className="launchers">
       <h2
-        className="fightLauncher"
+      className="launchers-bot"
         onClick={() => CombatTrigger()}
         >Lance un combat !!
       </h2>
       <h2
         onClick={() => { buyModalDiplayer()} }
-        className="buyLauncher"
+        className="launchers-bot"
       >Buy Modal Displayer
+      </h2>
+      <h2
+        onClick={() => { contactModalDiplayer()} }
+        className="launchers-bot"
+      >Contact Modal Displayer
       </h2>
     </div>
 
