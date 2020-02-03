@@ -41,7 +41,7 @@ export default () => {
             <a href="src/data/CV Guillaume Morero WEB_DEV_REACT.pdf" className="liensContact-high">
               Mon CV à télécharger
             </a>
-            <a href="mailto:guillaume.morero@gmail.com">Un p'tit mail ?</a>
+            <a href="mailto:guillaume.morero@gmail.com" className="liensContact-high">Un p'tit mail ?</a>
           </div>
 
         </Modal.Body>

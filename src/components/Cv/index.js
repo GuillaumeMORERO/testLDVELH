@@ -8,7 +8,7 @@ import { Container, Accordion, Card, Button, ListGroup } from 'react-bootstrap';
 
 import './style.scss';
 
-import { displayCombatModal } from 'src/store/combat/actions';
+import { displayCombatModal, resetScores } from 'src/store/combat/actions';
 import { displayBuyModal } from 'src/store/buy/actions';
 import { chargeFoe } from 'src/store/foe/actions';
 import { resetMessage } from 'src/store/message/actions';
@@ -33,6 +33,7 @@ export default ({ datas, foes }) => {
     const foeAleatoire = entierAleatoire(1, foes.length - 1);
     dispatch(chargeFoe(foes[foeAleatoire]));
     dispatch(resetMessage());
+    dispatch(resetScores());
     dispatch(displayCombatModal());
   };
   

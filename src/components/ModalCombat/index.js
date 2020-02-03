@@ -87,7 +87,7 @@ export default () => {
       foeWin(result);
     };
     if (result === 0) {
-      dispatch(changeMessage('Personne ne remporte cette passe... continuez à vous battre !'));
+      dispatch(changeMessage('Personne ne remporte cette passe... continuez à vous battre !', 'nul'));
     };
   }; 
 
@@ -98,6 +98,9 @@ export default () => {
     },
     {
       good: category === 'good'
+    },
+    {
+      nul: category === 'nul'
     }
   );
 

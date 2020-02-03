@@ -26,15 +26,16 @@ export default () => {
     </h1>
 
     <div className="liens">
-      <a href="#" className="liens-low">
-        Contactez-moi !
-      </a>
       <a href="https://github.com/GuillaumeMORERO/testLDVELH" className="liens-low">
         GitHub de ce CV
       </a>
       <a href="https://www.linkedin.com/in/guillaume-morero/" className="liens-low">
         LinkedIn
       </a>
+      <a href="src/data/CV Guillaume Morero WEB_DEV_REACT.pdf" className="liens-low">
+        Mon CV à télécharger
+      </a>
+      <a href="mailto:guillaume.morero@gmail.com" className="liens-low">Un p'tit mail ?</a>
     </div>
 
 

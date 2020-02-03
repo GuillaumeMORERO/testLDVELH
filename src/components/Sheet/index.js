@@ -10,7 +10,7 @@ import './style.scss';
 import { changeHabilete, changeBlindage, changePV } from 'src/store/player/actions';
 import { chargeFoe } from 'src/store/foe/actions';
 import { resetMessage, changeMessage } from 'src/store/message/actions';
-import { displayCombatModal } from 'src/store/combat/actions';
+import { displayCombatModal, resetScores } from 'src/store/combat/actions';
 import { displayBuyModal } from 'src/store/buy/actions';
 import { displayContactModal } from 'src/store/contact/actions';
 
@@ -58,6 +58,7 @@ export default ({ foes }) => {
     const foeAleatoire = entierAleatoire(0, foes.length - 1);
     dispatch(chargeFoe(foes[foeAleatoire]));
     dispatch(resetMessage());
+    dispatch(resetScores());
     dispatch(displayCombatModal());
   };
 
