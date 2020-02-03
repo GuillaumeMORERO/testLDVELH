@@ -1,11 +1,24 @@
 import React from 'react';
+import ClassNames from 'classnames';
+import { useSelector } from 'react-redux';
 
 import { Container } from 'react-bootstrap';
 
 import './style.scss';
 
 export default () => {
-  return <Container fluid className="footer">
+
+  const { showed } = useSelector(state => state.combat);
+  const { show } = useSelector(state => state.buy);
+
+  const activeClass = ClassNames(
+    'footer',
+    {
+      blured: showed || show
+    }
+  );
+
+  return <Container fluid className={activeClass}>
 
     <h1 className="name">
       Guillaume MORERO - 2020

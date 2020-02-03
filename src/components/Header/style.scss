@@ -5,10 +5,10 @@
 
 .eader {
   z-index: 100;
-  // background-image: url("../../data/eader.jpg");
   background-color: black;
   display: flex;
   justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
@@ -20,8 +20,9 @@
   
   &-titre1 {
     display: flex;
-    justify-content: center;
-    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
     text-shadow: $shadowText;
     &:hover {
       text-decoration: none;
@@ -45,8 +46,11 @@
     width: 100%;
     padding: 0;
     justify-content: space-around;
+    &-lateral{
+      flex-direction: column;
+      width: 300px;
+    }
     
-
     &_lien {
       color: white;
       font-size: 1em;
@@ -71,6 +75,7 @@
 }
 .poly {
   border: 0 !important;
+  padding: .5em;
   box-shadow: none;
   background-color: transparent;
   text-decoration: transparent;
@@ -80,5 +85,30 @@
   &-ancre {
     background-color: transparent;
     color: white;
+  }
+}
+.frame {
+  &-haut {
+    width: 95%;
+    height: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .eader {
+    flex-wrap: nowrap;
+    &-titre2 {
+      font-size: 1.2em;
+    }
+    &-titre1 {
+      width: 40%;
+    }
+    &-barre {
+      &-lateral {
+        font-size: .8em;
+        padding: 0;
+        width: 200px;
+      }
+    }
   }
 }
