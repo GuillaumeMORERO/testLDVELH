@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import ClassNames from 'classnames';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Modal, Button, Card, Alert } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
 import './style.scss';
 

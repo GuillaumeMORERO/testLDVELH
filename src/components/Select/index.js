@@ -12,7 +12,7 @@ import {
   chargePirate
 } from 'src/store/player/actions';
 
-export default ({pirates}) => {
+export default ({ pirates }) => {
 
   const player = useSelector(state => state.player);
 

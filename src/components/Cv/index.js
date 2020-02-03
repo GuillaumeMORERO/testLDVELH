@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import ClassNames from 'classnames';
 
-import { Container, Accordion, Card, Button, ListGroup, Alert, Modal } from 'react-bootstrap';
+import { Container, Accordion, Card, Button, ListGroup } from 'react-bootstrap';
 
 import './style.scss';
 
@@ -39,7 +39,7 @@ export default ({ datas, foes }) => {
     dispatch(displayBuyModal());
   };
 
-  const activeClass = ClassNames( // apply a blur effect on body when a modal is showing
+  const activeClass = ClassNames(
     'cv',
     {
       blured: showed || show
